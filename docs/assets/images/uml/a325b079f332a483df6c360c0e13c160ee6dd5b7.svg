@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="299px" preserveAspectRatio="none" style="width:681px;height:299px;" version="1.1" viewBox="0 0 681 299" width="681px" zoomAndPan="magnify"><defs><filter height="300%" id="feyjz0gq3os18" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity ユーザー詳細--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="6" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="16" y="32.5332">ユーザー詳細</text><!--entity フォロー一覧--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="145" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="155" y="32.5332">フォロー一覧</text><!--entity フォロワー一覧--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="284" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="294" y="32.5332">フォロワー一覧</text><!--entity タグ一覧--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="437" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="447" y="32.5332">タグ一覧</text><!--entity 通知--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="48" x="34" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="44" y="130.5332">通知</text><!--entity プロフィール設定--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="117" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="127" y="130.5332">プロフィール設定</text><!--entity アカウント設定--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="284" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="294" y="130.5332">アカウント設定</text><!--entity 通知設定--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="437" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="447" y="130.5332">通知設定</text><!--entity 表示設定--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="20" y="227.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="30" y="252.0332">表示設定</text><!--entity ヘルプ--><rect fill="#FEFECE" filter="url(#feyjz0gq3os18)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="62" x="131" y="227.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="141" y="252.0332">ヘルプ</text><!--entity ユーザー詳細" - - "フォロー一覧--><ellipse cx="326" cy="214" fill="#FEFECE" filter="url(#feyjz0gq3os18)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M326,222 L326,249 M313,230 L339,230 M326,249 L313,264 M326,249 L339,264 " fill="none" filter="url(#feyjz0gq3os18)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="196" x="228" y="285.5332">ユーザー詳細" -- "フォロー一覧</text><!--entity ユーザー詳細" - - "フォロワー一覧--><ellipse cx="564" cy="214" fill="#FEFECE" filter="url(#feyjz0gq3os18)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M564,222 L564,249 M551,230 L577,230 M564,249 L551,264 M564,249 L577,264 " fill="none" filter="url(#feyjz0gq3os18)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="210" x="459" y="285.5332">ユーザー詳細" -- "フォロワー一覧</text><!--link ユーザー詳細 to フォロー一覧--><!--link フォロー一覧 to フォロワー一覧--><!--link フォロワー一覧 to タグ一覧--><!--link ユーザー詳細 to 通知--><!--link 通知 to プロフィール設定--><!--link プロフィール設定 to アカウント設定--><!--link アカウント設定 to 通知設定--><!--link 通知 to 表示設定--><!--link 表示設定 to ヘルプ--><!--link ヘルプ to ユーザー詳細" - - "フォロー一覧--><!--link ユーザー詳細" - - "フォロー一覧 to ユーザー詳細" - - "フォロワー一覧--><!--
+@startuml
+	agent "ユーザー詳細"
+	agent "フォロー一覧"
+	agent "フォロワー一覧"
+	agent "タグ一覧"
+	agent "ユーザー詳細"
+	agent "フォロー一覧"
+	agent "フォロワー一覧"
+	agent "タグ一覧"
+	agent "通知"
+	agent "プロフィール設定"
+	agent "アカウント設定"
+	agent "通知設定"
+	agent "表示設定"
+	agent "ヘルプ"
+	"ユーザー詳細" - - "フォロー一覧"
+	"ユーザー詳細" - - "フォロワー一覧"
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

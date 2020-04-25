@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="350px" preserveAspectRatio="none" style="width:259px;height:350px;" version="1.1" viewBox="0 0 259 350" width="259px" zoomAndPan="magnify"><defs><filter height="300%" id="f1235yui4rhqr7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity user--><rect fill="#FEFECE" filter="url(#f1235yui4rhqr7)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="6" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="16" y="130.5332">ユーザー詳細</text><!--entity follow--><rect fill="#FEFECE" filter="url(#f1235yui4rhqr7)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="111" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="121" y="32.5332">フォロー一覧</text><!--entity follower--><rect fill="#FEFECE" filter="url(#f1235yui4rhqr7)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="83" y="204"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="93" y="228.5332">フォロワー一覧</text><!--entity tag--><rect fill="#FEFECE" filter="url(#f1235yui4rhqr7)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="104" y="302"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="114" y="326.5332">タグ一覧</text><!--link follow to user--><path d="M143.25,46.057 C124.597,63.112 96.7591,88.563 78.0181,105.698 " fill="none" id="follow-user" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to follower--><path d="M73.7998,144.057 C88.7226,161.112 110.993,186.563 125.985,203.698 " fill="none" id="user-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to tag--><path d="M55.5218,144.211 C53.1158,167.87 51.6571,209.937 66,242 C76.963,266.5075 99.1475,287.8259 116.732,301.9526 " fill="none" id="user-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follow to follower--><path d="M161.024,46.251 C157.012,83.32 147.95,167.029 143.955,203.939 " fill="none" id="follow-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follow to tag--><path d="M175.497,46.28 C199.571,83.916 247.581,172.366 219,242 C208.813,266.8208 186.489,287.962 168.488,301.9473 " fill="none" id="follow-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follower to tag--><path d="M142,242.0569 C142,259.1115 142,284.5631 142,301.6977 " fill="none" id="follower-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent "ユーザー詳細" as user
+	agent "フォロー一覧" as follow
+	agent "フォロワー一覧" as follower
+	agent "タグ一覧" as tag
+	user -up- follow
+	user - - follower
+	user -right- tag
+	follow - - follower
+	follow - - tag
+	follower - - tag
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

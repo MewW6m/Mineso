@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="56px" preserveAspectRatio="none" style="width:598px;height:56px;" version="1.1" viewBox="0 0 598 56" width="598px" zoomAndPan="magnify"><defs><filter height="300%" id="ff9fc1gfgr1vz" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity TOP_SCREEN--><rect fill="#FEFECE" filter="url(#ff9fc1gfgr1vz)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="113" x="6" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="16" y="32.5332">TOP_SCREEN</text><!--entity LOGIN_SCREEN--><rect fill="#FEFECE" filter="url(#ff9fc1gfgr1vz)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="126" x="154.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="106" x="164.5" y="32.5332">LOGIN_SCREEN</text><!--entity USER_SCREEN--><rect fill="#FEFECE" filter="url(#ff9fc1gfgr1vz)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="121" x="466" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="476" y="32.5332">USER_SCREEN</text><!--entity EDIT_SCREEN--><rect fill="#FEFECE" filter="url(#ff9fc1gfgr1vz)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="316" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="326" y="32.5332">EDIT_SCREEN</text><!--link TOP_SCREEN to LOGIN_SCREEN--><path d="M119.111,27 C129.148,27 139.185,27 149.221,27 " fill="none" id="TOP_SCREEN-LOGIN_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="154.47,27,145.47,23,149.47,27,145.47,31,154.47,27" style="stroke: #A80036; stroke-width: 1.0;"/><!--link LOGIN_SCREEN to EDIT_SCREEN--><path d="M280.57,27 C290.565,27 300.56,27 310.555,27 " fill="none" id="LOGIN_SCREEN-EDIT_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="315.782,27,306.782,23,310.782,27,306.782,31,315.782,27" style="stroke: #A80036; stroke-width: 1.0;"/><!--link EDIT_SCREEN to USER_SCREEN--><path d="M431.174,27 C441.004,27 450.834,27 460.664,27 " fill="none" id="EDIT_SCREEN-USER_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="465.804,27,456.804,23,460.804,27,456.804,31,465.804,27" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent TOP_SCREEN
+	agent LOGIN_SCREEN
+	agent USER_SCREEN
+	agent EDIT_SCREEN 
+	TOP_SCREEN-right->LOGIN_SCREEN
+	LOGIN_SCREEN-right->EDIT_SCREEN
+	EDIT_SCREEN-right->USER_SCREEN
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

@@ -1,0 +1,19 @@
+{
+  "name": "mineso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-plugin-collapsible-chapters": "^0.1.8",
+    "gitbook-plugin-uml": "^1.0.3",
+    "gitbook-plugin-expand-active-chapter": "^1.0.0",
+    "gitbook-plugin-hide-published-with": "^1.0.3",
+    "gitbook-plugin-custom-favicon": "^0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

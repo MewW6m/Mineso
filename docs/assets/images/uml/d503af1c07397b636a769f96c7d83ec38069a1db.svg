@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="270px" preserveAspectRatio="none" style="width:570px;height:270px;" version="1.1" viewBox="0 0 570 270" width="570px" zoomAndPan="magnify"><defs><filter height="300%" id="flnrfsjemn12n" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="54" x="268.5" y="18.6855">通常時</text><!--cluster userDetail--><polygon fill="#FFFFFF" filter="url(#flnrfsjemn12n)" points="124.5,54.6406,190.5,54.6406,197.5,78.25,548.5,78.25,548.5,258.6406,124.5,258.6406,124.5,54.6406" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="124.5" x2="197.5" y1="78.25" y2="78.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="128.5" y="71.1738">ユーザー</text><!--entity user--><rect fill="#FEFECE" filter="url(#flnrfsjemn12n)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="302.5" y="98.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="312.5" y="123.1738">ユーザー詳細</text><!--entity follow--><rect fill="#FEFECE" filter="url(#flnrfsjemn12n)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="156.5" y="196.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="166.5" y="221.1738">フォロー一覧</text><!--entity follower--><rect fill="#FEFECE" filter="url(#flnrfsjemn12n)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="295.5" y="196.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="305.5" y="221.1738">フォロワー一覧</text><!--entity tag--><rect fill="#FEFECE" filter="url(#flnrfsjemn12n)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="448.5" y="196.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="458.5" y="221.1738">タグ一覧</text><!--entity top--><rect fill="#FEFECE" filter="url(#flnrfsjemn12n)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="91" x="6" y="98.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="16" y="123.1738">TOPページ</text><!--link top to userDetail--><!--link user to follow--><path d="M327.039,136.6976 C301.101,153.7526 262.394,179.2036 236.335,196.3383 " fill="none" id="user-follow" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to follower--><path d="M354.5,136.6976 C354.5,153.7526 354.5,179.2036 354.5,196.3383 " fill="none" id="user-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to tag--><path d="M379.328,136.6976 C402.778,153.7526 437.774,179.2036 461.334,196.3383 " fill="none" id="user-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follow to follower--><path d="M260.684,215.6406 C272.288,215.6406 283.893,215.6406 295.498,215.6406 " fill="none" id="follow-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent "TOPページ" as top
+	title __通常時__
+	top -[hidden]right-> userDetail
+	package "ユーザー" as userDetail {
+		agent "ユーザー詳細" as user
+		agent "フォロー一覧" as follow
+		agent "フォロワー一覧" as follower
+		agent "タグ一覧" as tag
+		user - - follow
+		user - - follower
+		user - - tag
+		follow -right- follower
+	}
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="79px" preserveAspectRatio="none" style="width:414px;height:79px;" version="1.1" viewBox="0 0 414 79" width="414px" zoomAndPan="magnify"><defs><filter height="300%" id="f14s7hswywlr5y" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="90" x="166" y="18.6855">新規登録時</text><!--entity top2--><rect fill="#FEFECE" filter="url(#f14s7hswywlr5y)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="91" x="6" y="30.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="16" y="55.1738">TOPページ</text><!--entity profile--><rect fill="#FEFECE" filter="url(#f14s7hswywlr5y)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="132.5" y="30.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="142.5" y="55.1738">プロフィール設定</text><!--entity user2--><rect fill="#FEFECE" filter="url(#f14s7hswywlr5y)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="299.5" y="30.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="309.5" y="55.1738">ユーザー詳細</text><!--link top2 to profile--><path d="M97.1504,49.6406 C107.152,49.6406 117.153,49.6406 127.155,49.6406 " fill="none" id="top2-profile" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="132.385,49.6406,123.385,45.6406,127.385,49.6406,123.385,53.6406,132.385,49.6406" style="stroke: #A80036; stroke-width: 1.0;"/><!--link profile to user2--><path d="M264.541,49.6406 C274.376,49.6406 284.211,49.6406 294.046,49.6406 " fill="none" id="profile-user2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="299.189,49.6406,290.189,45.6406,294.189,49.6406,290.189,53.6406,299.189,49.6406" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	title __新規登録時__
+	agent "TOPページ" as top2
+	agent "プロフィール設定" as profile
+	agent "ユーザー詳細" as user2
+	top2 -right-> profile
+	profile -right-> user2
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
