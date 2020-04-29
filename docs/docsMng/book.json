@@ -4,8 +4,12 @@
     "hide-published-with",
     "custom-favicon",
     "-sharing",
-  	"collapsible-chapters",
-    "expand-active-chapter",
+	"collapsible-chapters",
+	"expand-active-chapter",
+	"livereload",
+	"lunr",
+	"search",
+	"fontsettings",
 	"uml"
   ],
   "dependencies": {
@@ -33,6 +37,11 @@
       "format": "svg",
       "charset" : "UTF-8",
       "nailgun": false
-     }
+     },
+	 "sunlightHighlighter": {
+	  "theme": "dark",
+	  "lineNumbers": true
+	 },
+	 "collapsible-chapters":{}
   }
 }
