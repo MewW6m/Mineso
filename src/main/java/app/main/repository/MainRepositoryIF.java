@@ -1,4 +1,4 @@
 package app.main.repository;
-public class MainRepositoryIF{
+public interface MainRepositoryIF{
 	
 }

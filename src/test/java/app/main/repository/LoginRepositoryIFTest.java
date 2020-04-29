@@ -3,6 +3,6 @@ package app.main.repository;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LoginRepositoryIFTest{
-	
+abstract class LoginRepositoryIFTest{
+	protected LoginRepositoryIF loginRepository; 
 }

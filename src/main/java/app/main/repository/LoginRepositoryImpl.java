@@ -1,4 +1,4 @@
 package app.main.repository;
-public class LoginRepositoryImpl{
+public class LoginRepositoryImpl implements LoginRepositoryIF{
 	
 }

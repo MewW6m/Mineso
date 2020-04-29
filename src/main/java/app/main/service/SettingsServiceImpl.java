@@ -1,4 +1,4 @@
 package app.main.service;
-public class SettingsServiceImpl{
+public class SettingsServiceImpl implements SettingsServiceIF{
 	
 }

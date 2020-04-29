@@ -1,4 +1,4 @@
 package app.main.repository;
-public class MainRepositoryImpl{
+public class MainRepositoryImpl implements MainRepositoryIF{
 	
 }

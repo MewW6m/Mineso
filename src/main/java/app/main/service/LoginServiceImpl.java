@@ -1,4 +1,4 @@
 package app.main.service;
-public class LoginServiceImpl{
+public class LoginServiceImpl implements LoginServiceIF{
 	
 }

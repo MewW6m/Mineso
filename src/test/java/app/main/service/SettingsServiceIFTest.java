@@ -3,6 +3,6 @@ package app.main.service;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SettingsServiceIFTest{
-	
+abstract class SettingsServiceIFTest{
+	protected SettingsServiceIF settingsService;
 }

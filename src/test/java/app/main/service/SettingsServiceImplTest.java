@@ -3,6 +3,6 @@ package app.main.service;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SettingsServiceImplTest{
-	
+class SettingsServiceImplTest extends SettingsServiceIFTest{
+	private SettingsServiceIF settingsService = new SettingsServiceImpl(); 
 }

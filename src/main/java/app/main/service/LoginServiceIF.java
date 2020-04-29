@@ -1,4 +1,4 @@
 package app.main.service;
-public class LoginServiceIF{
+public interface LoginServiceIF{
 	
 }

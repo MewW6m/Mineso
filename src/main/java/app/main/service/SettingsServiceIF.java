@@ -1,4 +1,4 @@
 package app.main.service;
-public class SettingsServiceIF{
+public interface SettingsServiceIF{
 	
 }

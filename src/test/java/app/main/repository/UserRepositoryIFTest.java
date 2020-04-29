@@ -4,6 +4,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 // ユーザー情報をDBから取得するインターフェース
 @SpringBootTest
-interface UserRepositoryIFTest{
- 
+abstract class UserRepositoryIFTest{
+	protected UserRepositoryIF userRepository;
 }

@@ -4,6 +4,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 // 設定をDBから取得するインターフェース
 @SpringBootTest
-interface SettingsRepositoryIFTest{
-    
+abstract class SettingsRepositoryIFTest{
+	protected SettingsRepositoryIF loginRepository;
 }

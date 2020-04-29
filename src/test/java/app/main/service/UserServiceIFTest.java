@@ -4,6 +4,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 //ユーザー情報を取得するインターフェース
 @SpringBootTest
-interface UserServiceIFTest{    
-
+abstract class UserServiceIFTest{    
+	protected UserServiceIF userService;
 }
