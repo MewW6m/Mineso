@@ -1,79 +1,69 @@
-# Summary
++ [Introduction](README.md)
++ 要件定義書
+  + [要件定義書](1_rd/1.1.RequirementDefinition.md)
+  + [システム構成](1_rd/1.2.SystemConfiguration.md)
+  + [入出力関連設計書](1_rd/1.3.IORelated.md)
+  + [業務フロー図](1_rd/1.4.WorkFlowDiagram.md)
+  + [ユースケース図](1_rd/1.5.UseCaseDiagram.md)
 
-* [Introduction](README.md)
-* 要件定義書
-    * [システム構成図](1_rd/SystemConfigurationDrawing.md)
-    * [要件定義書](1_rd/RequirementDefinition.md)
-* 基本設計書
-    * [基本設計書](2_bd/BaseDesign.md)
-    * [画面一覧・画面遷移図](2_bd/ScreenList.md)
-    * [テーブル一覧・ER図](2_bd/TableList.md)
-    * 画面設計書
-        * TOPページ
-            * [画面レイアウト](2_bd/ScreenDesign/sc1/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc1/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc1/Act ionList.md)
-        * ユーザー詳細
-            * [画面レイアウト](2_bd/ScreenDesign/sc2/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc2/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc2/Act ionList.md)
-        * フォロー一覧
-            * [画面レイアウト](2_bd/ScreenDesign/sc3/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc3/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc3/Act ionList.md)
-        * フォロワー一覧
-            * [画面レイアウト](2_bd/ScreenDesign/sc4/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc4/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc4/Act ionList.md)
-        * タグ一覧
-            * [画面レイアウト](2_bd/ScreenDesign/sc5/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc5/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc5/Act ionList.md)
-        * 通知
-            * [画面レイアウト](2_bd/ScreenDesign/sc6/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc6/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc6/Act ionList.md)
-        * プロフィール設定
-            * [画面レイアウト](2_bd/ScreenDesign/sc7-1/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc7-1/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc7-1/Act ionList.md)
-        * アカウント設定
-            * [画面レイアウト](2_bd/ScreenDesign/sc7-2/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc7-2/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc7-2/Act ionList.md)
-        * 通知設定
-            * [画面レイアウト](2_bd/ScreenDesign/sc7-3/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc7-3/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc7-3/Act ionList.md)
-        * 表示設定
-            * [画面レイアウト](2_bd/ScreenDesign/sc7-4/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc7-4/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc7-4/Act ionList.md)
-        * ヘルプ
-            * [画面レイアウト](2_bd/ScreenDesign/sc8/Layout.md)
-            * [画面項目定義](2_bd/ScreenDesign/sc8/PartList.md)
-            * [画面アクション定義](2_bd/ScreenDesign/sc8/Act ionList.md)
-    * テーブル設計書
-        * [ユーザーテーブル](2_bd/TableDesign/tbl1.md)
-        * [ログインテーブル](2_bd/TableDesign/tbl2.md)
-        * [仮登録テーブル](2_bd/TableDesign/tbl3.md)
-        * [デザインテーブル](2_bd/TableDesign/tbl4.md)
-* 詳細設計書
-    * [DFD図](3_dd/DataFlowDiagram.md)
-    * [クラス図](3_dd/ClassDrawing.md)
-    * [モジュール設計書](3_dd/ModuleDesign.md)
-* 単体テスト仕様書
-    * [UTテストケース](4_ut/UTTestCase.md)
-    * [UTテストパターン](4_ut/UTTestPattern.md)
-    * [モジュール設計書](4_ut/UTTestViewpoint.md)
-* 結合テスト仕様書
-    * [ITテストケース](5_it/UTTestCase.md)
-    * [ITテストパターン](5_it/ITTestPattern.md)
-    * [ITテスト観点](5_it/ITTestViewpoint.md)
-* システムテスト仕様書
-    * [STテストケース](6_st/UTTestCase.md)
-    * [STテストパターン](6_st/STTestPattern.md)
-    * [ITテスト観点](6_st/STTestViewpoint.md)
++ 基本設計書 
+  + [画面一覧](2_bd/2.1.1.ScreenList.md)
+  + [画面遷移図](2_bd/2.1.2.ScreenFlowDiagram.md)
+  + 画面設計書
+      + [画面設計書(TOP画面)](2_bd/2.1.3.ScreenDesign/sc1.md)
+      + [画面設計書(ユーザー詳細画面)](2_bd/2.1.3.ScreenDesign/sc2.md)
+      + [画面設計書(フォロー一覧画面)](2_bd/2.1.3.ScreenDesign/sc3.md)
+      + [画面設計書(フォロワー一覧画面)](2_bd/2.1.3.ScreenDesign/sc4.md)
+      + [画面設計書(タグ一覧画面)](2_bd/2.1.3.ScreenDesign/sc5.md)
+      + [画面設計書(通知画面)](2_bd/2.1.3.ScreenDesign/sc6.md)
+      + [画面設計書(プロフィール設定 画面)](2_bd/2.1.3.ScreenDesign/sc7-1.md)
+      + [画面設計書(アカウント設定画面)](2_bd/2.1.3.ScreenDesign/sc7-2.md)
+      + [画面設計書(通知設定画面)](2_bd/2.1.3.ScreenDesign/sc7-3.md)
+      + [画面設計書(表示設定画面)](2_bd/2.1.3.ScreenDesign/sc7-4.md)
+      + [画面設計書(ヘルプ画面)](2_bd/2.1.3.ScreenDesign/sc8.md)
+  + [機能一覧](2_bd/2.2.1.FunctionList.md)
+  + [機能関連図](2_bd/2.2.2.FunctionRelatedDiagram.md)
+  + [機能設計書](2_bd/2.2.3.FunctionDesign.md)
+  + [非機能設計書](2_bd/2.3.UnFunctionDesign.md)
+  + [メッセージ一覧](2_bd/2.4.MessageList.md)
+  + [運用設計書](2_bd/2.5.OperationDesign.md)
+
++ 詳細設計書 
+  + [データベース設計書](3_dd/3.1.1.DatabaseDesign.md)
+  + [テーブル一覧](3_dd/3.1.2.TableList.md)
+  + テーブル設計書
+      - [テーブル設計書](3_dd/3.1.3.TableDesign/tbl1.md)
+      - [テーブル設計書](3_dd/3.1.3.TableDesign/tbl2.md)
+      - [テーブル設計書](3_dd/3.1.3.TableDesign/tbl3.md)
+      - [テーブル設計書](3_dd/3.1.3.TableDesign/tbl4.md)
+      - [テーブル設計書](3_dd/3.1.3.TableDesign/tbl5.md)
+  + [ER図](3_dd/3.1.4.ERDiagram.md)
+  + [CRUD図](3_dd/3.1.5.CRUDDiagram.md)
+  + [バッチ一覧](3_dd/3.2.1.BatchList.md)
+  + [バッチフロー図](3_dd/3.2.2.BatchFlowDiagram.md)
+  + [バッチ設計書](3_dd/3.2.3.BatchDesign.md)
+  + [クラス図](3_dd/3.3.1.ClassDrawing.md)
+  + [モジュール設計書](3_dd/3.3.2.Module.md)
+  + [インターフェース設計書](3_dd/3.3.3.InterfaceDiagram.md)
+  + [シーケンス図](3_dd/3.4.1.SequenceDiagram.md)
+  + [DFD図](3_dd/3.4.2.DataFlowDiagram.md)
+  + [コード設計書](3_dd/3.5.CodeDiagram.md)
+
++ 単体テスト仕様書 
+  + [UTテスト観点](4_ut/4.1.UTTestViewpoint.md)
+  + [UTテストケース](4_ut/4.2.UTTestCase.md)
+  + [UTテストパターン](4_ut/4.3.UTTestPattern.md)
+
++ 結合テスト仕様書 
+  + [ITテスト観点](5_it/5.1.ITTestViewpoint.md)
+  + [ITテストケース](5_it/5.2.ITTestCase.md)
+  + [ITテストパターン](5_it/5.3.ITTestPattern.md)
+
++ システムテスト仕様書 
+  + [ITテスト観点](6_st/6.1.STTestViewpoint.md)
+  + [STテストケース](6_st/6.2.UTTestCase.md)
+  + [STテストパターン](6_st/6.3.STTestPattern.md)
+
 * 資料
     * 要件定義書
     * 基本設計書
@@ -83,4 +73,3 @@
     * 単体テスト仕様書
     * 結合テスト仕様書
     * システムテスト仕様書
-
