@@ -39,10 +39,6 @@
       "charset" : "UTF-8",
       "nailgun": false
      },
-	 "sunlightHighlighter": {
-	  "theme": "dark",
-	  "lineNumbers": true
-	 },
 	 "collapsible-chapters":{},
 	 "fontSettings": {
 	     "theme": "night",
