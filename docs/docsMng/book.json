@@ -10,7 +10,8 @@
 	"lunr",
 	"search",
 	"fontsettings",
-	"uml"
+	"uml",
+	"back-to-top-button"
   ],
   "dependencies": {
     "plantuml-encoder": "1.2.3"
@@ -42,6 +43,12 @@
 	  "theme": "dark",
 	  "lineNumbers": true
 	 },
-	 "collapsible-chapters":{}
+	 "collapsible-chapters":{},
+	 "fontSettings": {
+	     "theme": "night",
+         "family": "sans",
+         "size": 1
+     }
+
   }
 }
