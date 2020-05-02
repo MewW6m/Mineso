@@ -7,20 +7,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import app.main.domain.SettingsDomain;
+import app.main.domain.SettingsDomainIF;
+import app.main.domain.SettingsDomainImpl;
 
-//　設定をDBから取得する実装クラス
+/**
+ * SettingsRepositoryImplクラス<br>
+ * 設定をDBから取得する実装
+ * @author MewW6m　(https://github.com/MewW6m)
+ */
 @Repository
 public class SettingsRepositoryImpl implements SettingsRepositoryIF{
-	// JDBCインスタンスを取得する
     @Autowired(required=false)
     private JdbcTemplate jdbc;
 	
-    // 設定を{key,value}をもとにDBから取得するメソッド 
     @Override
-	public SettingsDomain selectSettings(String key, Object value) throws DataAccessException{
+	public SettingsDomainIF selectSettings(String key, Object value) throws DataAccessException{
     	String sql = "select * from SettingsList WHERE " + key + "= ?"; 
-    	RowMapper<SettingsDomain> rowMapper = new BeanPropertyRowMapper<>(SettingsDomain.class);    	
+    	RowMapper<SettingsDomainImpl> rowMapper = new BeanPropertyRowMapper<>(SettingsDomainImpl.class);    	
 		return jdbc.queryForObject(sql, rowMapper, String.valueOf(value));
 	}
 }

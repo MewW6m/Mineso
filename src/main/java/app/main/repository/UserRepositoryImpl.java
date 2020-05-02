@@ -7,20 +7,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import app.main.domain.UserDomain;
+import app.main.domain.UserDomainIF;
+import app.main.domain.UserDomainImpl;
 
-//　ユーザー情報をDBから取得する実装クラス
+/**
+ * UserRepositoryImplクラス<br>
+ * ユーザー情報をDBから取得する実装
+ * @author MewW6m　(https://github.com/MewW6m)
+ */
 @Repository
 public class UserRepositoryImpl implements UserRepositoryIF{
-	// JDBCインスタンスを取得する
     @Autowired(required=false)
     private JdbcTemplate jdbc;
-	
-    // 1人のユーザー情報を{key,value}をもとにDBから取得するメソッド 
+	 
     @Override
-	public UserDomain selectUser(String key, Object value) throws DataAccessException {
+	public UserDomainIF selectUser(String key, Object value) throws DataAccessException {
     	String sql = "select * from UserList WHERE " + key + "= ?"; 
-    	RowMapper<UserDomain> rowMapper = new BeanPropertyRowMapper<>(UserDomain.class);    	
+    	RowMapper<UserDomainImpl> rowMapper = new BeanPropertyRowMapper<>(UserDomainImpl.class);    	
 		return jdbc.queryForObject(sql, rowMapper, String.valueOf(value));
 	}
 }
