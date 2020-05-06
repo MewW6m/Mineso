@@ -1,50 +1,49 @@
 {
-  "language": "ja",
-  "plugins": [
-    "hide-published-with",
-    "custom-favicon",
-    "-sharing",
-	"collapsible-chapters",
-	"expand-active-chapter",
-	"livereload",
-	"lunr",
-	"search",
-	"fontsettings",
-	"uml",
-	"back-to-top-button"
-  ],
-  "dependencies": {
-    "plantuml-encoder": "1.2.3"
-  },
-  "pluginsConfig": {
-    "favicon": "./reference/other/image/favicon.png",
-    "sharing": {
-      "facebook": true,
-      "twitter": true,
-      "google": true,
-      "weibo": false,
-      "instapaper": false,
-      "vk": false,
-      "all": [
-        "facebook",
-        "twitter",
-        "google",
-        "weibo",
-        "instapaper",
-        "vk"
-      ]
-    },
-	"uml": {
-      "format": "svg",
-      "charset" : "UTF-8",
-      "nailgun": false
-     },
-	 "collapsible-chapters":{},
-	 "fontSettings": {
-	     "theme": "night",
-         "family": "sans",
-         "size": 1
-     }
-
-  }
+		"language": "ja",
+				"plugins": [
+						"hide-published-with",
+				"custom-favicon",
+				"-sharing",
+				"collapsible-chapters",
+				"expand-active-chapter",
+				"livereload",
+				"lunr",
+				"search",
+				"uml",
+				"back-to-top-button",
+				"fontsettings"
+				],
+				"dependencies": {
+						"plantuml-encoder": "1.2.3"
+				},
+				"pluginsConfig": {
+						"favicon": "./reference/other/image/favicon.png",
+						"sharing": {
+								"facebook": true,
+								"twitter": true,
+								"google": true,
+								"weibo": false,
+								"instapaper": false,
+								"vk": false,
+								"all": [
+										"facebook",
+								"twitter",
+								"google",
+								"weibo",
+								"instapaper",
+								"vk"
+								]
+						},
+						"uml": {
+								"format": "svg",
+								"charset" : "UTF-8",
+								"nailgun": false
+						},
+						"collapsible-chapters":{},
+						"fontsettings": {
+								"theme": "night",
+								"family": "sans",
+								"size": 2
+						}
+				}
 }
