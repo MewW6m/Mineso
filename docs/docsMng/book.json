@@ -11,7 +11,8 @@
 				"search",
 				"uml",
 				"back-to-top-button",
-				"fontsettings"
+				"fontsettings",
+				"page-footer"
 				],
 				"dependencies": {
 						"plantuml-encoder": "1.2.3"
@@ -44,6 +45,13 @@
 								"theme": "night",
 								"family": "sans",
 								"size": 2
+						},
+						"page-footer": {
+								"description": "updated on",
+								"format": "yyyy-MM-dd",
+								"copyright": "Copyright &#169; MewW6m",
+								"isShowQRCode": false,
+								"isShowIssues": false
 						}
 				}
 }

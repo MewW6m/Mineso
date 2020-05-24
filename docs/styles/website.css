@@ -9,3 +9,27 @@
 .page-inner {
     max-width: max-content !important;
 }
+
+.footer__author--normal{
+	display: none!important;
+}
+
+.footer__quote--normal{
+	display:none !important;
+}
+
+.footer__main__paragraph--normal.copyright{
+    font-size:0 !important;
+}
+
+.footer__main__paragraph--normal.copyright > a{
+    display: none !important;
+}
+
+.footer__main__paragraph--normal.copyright:before{
+    color: #666 !important;
+    font-size: 12px;
+	content: "Copyright \0a9 MewW6m all right reserved";
+	position: relative;
+	left: 9px;
+}
