@@ -4,5 +4,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class LoginRepositoryImplTest extends LoginRepositoryIFTest{
-	private LoginRepositoryIF loginRepository = new LoginRepositoryImpl();
+	private LoginRepositoryIF loginRepository = new LoginRepository();
 }

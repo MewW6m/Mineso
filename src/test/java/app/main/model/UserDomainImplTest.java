@@ -1,0 +1,9 @@
+package app.main.model;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+// User情報クラス
+@SpringBootTest
+class UserDomainImplTest extends UserDomainIFTest{
+	private UserDomainIF userDomain = new User();
+}

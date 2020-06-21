@@ -138,8 +138,17 @@ local.properties
 .springBeans
 .sts4-cache
 
+HELP.md
+
+
 # -------------------------VSCODE------------------------------------------
 .vscode/
+
+# -------------------------IDEA--------------------------------------------
+.idea/
+.gradle/
+gradle/
+build/
 
 # -------------------------MyProject---------------------------------------
 
@@ -149,3 +158,4 @@ docs/docsMng/*
 !docs/docsMng/SUMMARY.md
 logo*.png
 logo.pptx
+

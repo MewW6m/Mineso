@@ -1,7 +1,7 @@
 app.main
 app.main.appconfig
 app.main.controller
-app.main.domain
+app.main.model
 app.main.helper
 app.main.repository
 app.main.service

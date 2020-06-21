@@ -4,5 +4,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class SettingsServiceImplTest extends SettingsServiceIFTest{
-	private SettingsServiceIF settingsService = new SettingsServiceImpl(); 
+	private SettingsServiceIF settingsService = new SettingsService(); 
 }

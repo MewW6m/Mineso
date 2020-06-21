@@ -4,5 +4,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class MainRepositoryImplTest extends MainRepositoryIFTest{
-	private MainRepositoryIF mainRepository = new MainRepositoryImpl();
+	private MainRepositoryIF mainRepository = new MainRepository();
 }

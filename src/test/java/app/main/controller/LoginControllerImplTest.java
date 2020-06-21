@@ -4,5 +4,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class LoginControllerImplTest extends LoginControllerIFTest{
-	private LoginControllerIF loginController = new LoginControllerImpl();
+	private LoginControllerIF loginController = new LoginController();
 }
