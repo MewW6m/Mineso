@@ -47,7 +47,7 @@
 	border-bottom: 1px solid rgba(255,255,255,0.5) !important;
 }
 
-#redoc *:not(.c-EHOje):not(a):not(.sc-cHGsZl):not(.sc-ksYbfQ){
+#redoc *:not(.sc-EHOje):not(a):not(.sc-cHGsZl):not(.sc-ksYbfQ):not(.sc-kIPQKe):not(#react-tabs-0){
 	color:inherit !important;
 }
 
