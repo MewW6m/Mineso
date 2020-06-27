@@ -1,5 +1,8 @@
 package app.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -7,6 +10,9 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * User<br>
@@ -18,6 +24,7 @@ import javax.persistence.Id;
 @Data
 @Component
 public class User {
+//public class User implements UserDetails {
 	@Id
 	private int uid;
 	@Column
@@ -30,4 +37,31 @@ public class User {
 	private String userdesc;
 	@Column
 	private String userimg;
+
+/*
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> authorities = new ArrayList<>();
+		return authorities;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public String getUsername() {
+		return username;
+	}*/
 }

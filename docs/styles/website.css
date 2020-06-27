@@ -7,7 +7,8 @@
 }
 
 .page-inner {
-    max-width: max-content !important;
+    max-width: 100vw !important;
+    margin: 0 100px!important;
 }
 
 .footer__author--normal{
@@ -32,4 +33,16 @@
 	content: "Copyright \0a9 MewW6m all right reserved";
 	position: relative;
 	left: 9px;
+}
+
+/*#redoc .menu-content{
+    display: none;
+}*/
+
+.api-content{
+	width: 100vw !important;
+}
+
+.hiuczA:not(:last-of-type):after{
+	border-bottom: 1px solid rgba(255,255,255,0.5) !important;
 }

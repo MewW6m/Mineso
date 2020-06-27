@@ -1,7 +1,7 @@
 {
 		"language": "ja",
 				"plugins": [
-						"hide-published-with",
+				"hide-published-with",
 				"custom-favicon",
 				"-sharing",
 				"collapsible-chapters",
@@ -12,7 +12,8 @@
 				"uml",
 				"back-to-top-button",
 				"fontsettings",
-				"page-footer"
+				"page-footer",
+				"include-html"
 				],
 				"dependencies": {
 						"plantuml-encoder": "1.2.3"
