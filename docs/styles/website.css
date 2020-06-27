@@ -54,3 +54,16 @@
 .hiuczA:last-child{
 	min-height:unset !important;
 }
+
+h1{ 
+	font-size: 2.3em !important;
+}
+
+h2:before{
+	content: "■ " !important; 
+    font-size: 1.7em;
+}
+
+.sc-dnqmqq.ioYTqA:before{
+	font-size:inherit !important;
+}
