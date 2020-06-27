@@ -46,3 +46,11 @@
 .hiuczA:not(:last-of-type):after{
 	border-bottom: 1px solid rgba(255,255,255,0.5) !important;
 }
+
+#redoc *:not(.c-EHOje):not(a):not(.sc-cHGsZl):not(.sc-ksYbfQ){
+	color:inherit !important;
+}
+
+.hiuczA:last-child{
+	min-height:unset !important;
+}

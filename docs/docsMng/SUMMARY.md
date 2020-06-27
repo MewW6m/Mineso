@@ -44,7 +44,7 @@
   + [バッチ設計書](3_dd/3.2.3.BatchDesign.md)
   + [クラス図](3_dd/3.3.1.ClassDrawing.md)
   + [モジュール設計書](3_dd/3.3.2.Module.md)
-  + [インターフェース設計書](3_dd/3.3.3.InterfaceDiagram.md)
+  + [API設計書](3_dd/3.3.3.InterfaceDiagram.md)
   + [シーケンス図](3_dd/3.4.1.SequenceDiagram.md)
   + [DFD図](3_dd/3.4.2.DataFlowDiagram.md)
   + [コード設計書](3_dd/3.5.CodeDiagram.md)

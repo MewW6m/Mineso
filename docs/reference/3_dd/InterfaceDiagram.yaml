@@ -3,20 +3,140 @@ info:
   title: ''
   version: ''
   description: ''
+  license:
+    name: test
+    url: test
+  contact:
+    name: test
+    url: test
+    email: test
+  termsOfService: test
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://localhost:8080'
 paths:
-  /login:
+  '/@{userId}':
     get:
-      summary: Your GET endpoint
+      summary: ユーザー情報詳細画面
       tags: []
-      responses: {}
-      operationId: get-login
-    post:
-      summary: Your POST endpoint
-      operationId: post-login
       responses:
         '200':
           description: OK
+        '201':
+          description: Created
+      operationId: get-login
+      description: ユーザーの詳細(ログイン時トップリダイレクト)
+      security:
+        - API Key - 1: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+        description: ユーザーID
+  '/@{userId}/follow':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+        description: ユーザーID
+    get:
+      summary: フォロー一覧画面
+      tags: []
+      responses: {}
+      operationId: get-@-userId-follow
+      description: そのユーザーのフォロー一覧
+  '/@{userId}/follower':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+        description: ユーザーID
+    get:
+      summary: フォロワー一覧画面
+      tags: []
+      responses: {}
+      operationId: get-@-userId-follower
+      description: そのユーザーのフォロワーの一覧
+  '/tag/{tagName}':
+    parameters:
+      - schema:
+          type: string
+        name: tagName
+        in: path
+        required: true
+        description: タグ名
+    get:
+      summary: タグ一覧画面
+      tags: []
+      responses: {}
+      operationId: 'get-tag-#-tagname'
+  /nortification:
+    get:
+      summary: 通知画面
+      tags: []
+      responses: {}
+      operationId: get-nortification
+      description: 通知
+  /settings/profile:
+    get:
+      summary: プロフィール設定画面
+      tags: []
+      responses: {}
+      operationId: get-settings-profile
+      description: プロフィール設定
+  /settings/account:
+    get:
+      summary: アカウント設定画面
+      tags: []
+      responses: {}
+      operationId: get-settings-account
+      description: アカウント設定
+  /settings/nortification:
+    get:
+      summary: 通知設定画面
+      tags: []
+      responses: {}
+      operationId: get-settings-nortification
+      description: 通知設定
+  /settings/customize:
+    get:
+      summary: 表示設定画面
+      tags: []
+      responses: {}
+      operationId: get-settings-customize
+      description: 表示(デザイン)設定
+  /help:
+    get:
+      summary: ヘルプ画面
+      tags: []
+      responses: {}
+      operationId: get-help
+      description: マニュアル
+  /api/test:
+    post:
+      summary: testAPI
+      operationId: post-test
+      responses:
+        '200':
+          description: OK
+    parameters: []
 components:
   schemas: {}
+  securitySchemes:
+    API Key - 1:
+      name: API Key
+      type: apiKey
+      in: query
+security:
+  - API Key - 1: []
