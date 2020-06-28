@@ -3,62 +3,66 @@ info:
   title: ''
   version: ''
   description: |-
-    <details><summary style="font-size:1.75em;">API一覧</summary><div>
+  
 
-    |URL|メソッド|種類|API名|
-    |:-|:-|:-|:-|
-    |/top|GET|画面|TOP画面|
-    |/@{userId}|GET|画面|ユーザー詳細情報画面|
-    |/@{userId}|POST|API|ユーザー情報更新|
-    |/@{userId}/follow|GET|画面|フォロー一覧画面|
-    |/@{userId}/follow/@{userId}|POST|API|フォロー更新|
-    |/@{userId}/follower|GET|画面|フォロワー一覧画面|
-    |/@{userId}/follower/@{userId}|POST|API|フォロワー更新|
-    |/tag/{tagName}|GET|画面|タグ一覧画面|
-    |/nortification|GET|画面|通知画面|
-    |/nortification/{norId}|POST|API|通知フラグ更新|
-    |/settings/profile|GET|画面|プロフィール設定画面|
-    |/settings/profile|POST|API|プロフィール設定更新|
-    |/settings/account|GET|画面|アカウント設定画面|
-    |/settings/account|POST|API|アカウント設定更新|
-    |/settings/nortification|GET|画面|通知設定画面|
-    |/settings/nortification|POST|API|通知設定更新|
-    |/settings/customize|GET|画面|表示設定画面|
-    |/settings/customize|POST|API|表示設定更新|
-    |/help|GET|画面|ヘルプ画面|
-    |/terms|GET|画面|利用規約|
+    <details><summary style="font-size:1.75em;">API一覧</summary><div>
+    + 基本的にフロントがルーティング制御、バックがRestAPIサーバーの役割を行う。
+
+    | URL                           | メソッド | API名                |
+    | :---------------------------- | :------- | :------------------- |
+    | /api/auth/{socialType}            | POST     | ソーシャルログイン   |
+    | /api/@{userId}                    | GET      | ユーザー情報取得 |
+    | /api/@{userId}                    | POST     | ユーザー情報更新     |
+    | /api/@{userId}/follow             | JSON     | フォロー一覧取得     |
+    | /api/@{userId}/follow/api/@{userId}   | POST     | フォロー更新         |
+    | /api/@{userId}/follower           | GET      | フォロワー一覧取得   |
+    | /api/@{userId}/follower/api/@{userId} | POST     | フォロワー更新       |
+    | /api/tag/{tagName}                | GET      | タグ一覧取得         |
+    | /api/nortification                | GET      | 通知一覧取得             |
+    | /api/nortification/{norId}        | POST     | 通知フラグ更新       |
+    | /api/setting/profile             | GET      | プロフィール設定取得 |
+    | /api/setting/profile             | POST     | プロフィール設定更新 |
+    | /api/setting/account             | GET      | アカウント設定取得   |
+    | /api/setting/account             | POST     | アカウント設定更新   |
+    | /api/setting/nortification       | GET      | 通知設定取得         |
+    | /api/setting/nortification       | POST     | 通知設定更新         |
+    | /api/setting/customize           | GET      | 表示設定取得         |
+    | /api/setting/customize           | POST     | 表示設定更新         |
 
     </div></details>
-  # license:
-  #   name: GNU General Public License v3.0
-  #   url: 'https://www.gnu.org/licenses/gpl-3.0.html'
-  # contact: {}
-  # termsOfService: 'https://undesided.terms.url'
 servers:
   - url: 'http://localhost:8080'
     description: 開発環境
 paths:
-  /top:
-    get:
-      summary: トップ画面
+  '/api/auth/{socialType}':
+    post:
+      summary: ソーシャルログイン
+      operationId: post-login
+      responses:
+        '200':
+          description: OK
+      description: ログインを行う
       tags:
-        - 画面
-      responses: {}
-      operationId: get-top
-      description: トップ画面(ログイン、紹介)
-  '/@{userId}':
+        - API
+    parameters:
+      - schema:
+          type: string
+        name: socialType
+        in: path
+        required: true
+        description: ログインに使用するサービスの種類
+  '/api/@{userId}':
     get:
-      summary: ユーザー情報詳細画面
+      summary: ユーザー情報取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
+                type: object
       operationId: get-login
       description: ユーザーの詳細(ログイン時トップリダイレクト)
     parameters:
@@ -68,7 +72,7 @@ paths:
         in: path
         required: true
         description: ユーザーID
-  '/@{userId}/follow':
+  '/api/@{userId}/follow':
     parameters:
       - schema:
           type: string
@@ -77,20 +81,19 @@ paths:
         required: true
         description: ユーザーID
     get:
-      summary: フォロー一覧画面
+      summary: フォロー一覧取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
+                type: object
       operationId: get-@-userId-follow
       description: そのユーザーのフォロー一覧
-  '/@{userId}/follower':
+  '/api/@{userId}/follower':
     parameters:
       - schema:
           type: string
@@ -99,20 +102,19 @@ paths:
         required: true
         description: ユーザーID
     get:
-      summary: フォロワー一覧画面
+      summary: フォロワー一覧取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
+                type: object
       operationId: get-@-userId-follower
       description: そのユーザーのフォロワーの一覧
-  '/tag/{tagName}':
+  '/api/tag/{tagName}':
     parameters:
       - schema:
           type: string
@@ -121,28 +123,28 @@ paths:
         required: true
         description: タグ名
     get:
-      summary: タグ一覧画面
-      tags:
-        - 画面
+      summary: タグ一覧取得
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
+                type: object
       operationId: 'get-tag-#-tagname'
-  /nortification:
-    get:
-      summary: 通知画面
       tags:
-        - 画面
+        - API
+      description: ''
+  /api/nortification:
+    get:
+      summary: 通知取得
+      tags:
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
+            application/json:
               ref: '#/components/schemas/defaulthtml'
               schema:
                 $ref: '#/components/schemas/defaulthtml'
@@ -150,106 +152,70 @@ paths:
       description: 通知
       security:
         - key: []
-  /settings/profile:
+  /api/setting/profile:
     get:
-      summary: プロフィール設定画面
+      summary: プロフィール設定取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-settings-profile
+                type: object
+      operationId: get-setting-profile
       description: プロフィール設定
       security:
         - key: []
-  /settings/account:
+  /api/setting/account:
     get:
-      summary: アカウント設定画面
+      summary: アカウント設定取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-settings-account
+                type: object
+      operationId: get-setting-account
       description: アカウント設定
       security:
         - key: []
-  /settings/nortification:
+  /api/setting/nortification:
     get:
-      summary: 通知設定画面
+      summary: 通知設定取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-settings-nortification
+                type: object
+      operationId: get-setting-nortification
       description: 通知設定
       security:
         - key: []
-  /settings/customize:
+  /api/setting/customize:
     get:
-      summary: 表示設定画面
+      summary: 表示設定取得
       tags:
-        - 画面
+        - API
       responses:
         '200':
           description: OK
           content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
+            application/json:
               schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-settings-customize
+                type: object
+      operationId: get-setting-customize
       description: 表示(デザイン)設定
       security:
         - key: []
-  /help:
-    get:
-      summary: ヘルプ画面
-      tags:
-        - 画面
-      responses:
-        '200':
-          description: OK
-          content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
-              schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-help
-      description: マニュアル
-  /terms:
-    get:
-      summary: 利用規約画面
-      tags:
-        - 画面
-      responses:
-        '200':
-          description: OK
-          content:
-            text/html:
-              ref: '#/components/schemas/defaulthtml'
-              schema:
-                $ref: '#/components/schemas/defaulthtml'
-      operationId: get-terms
-      description: 利用規約
-  /api/test:
-    parameters: []
 components:
   schemas:
     defaulthtml:
