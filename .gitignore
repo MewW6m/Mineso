@@ -158,4 +158,4 @@ docs/docsMng/*
 !docs/docsMng/SUMMARY.md
 logo*.png
 logo.pptx
-
+src/main/resources/application-dev.*

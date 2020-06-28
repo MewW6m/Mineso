@@ -5,9 +5,10 @@ import app.model.User;
 import app.service.SettingsService;
 import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -15,7 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
  *　ユーザー関連ページを返すコントローラー実装
  * @author MewW6m　(https://github.com/MewW6m)
  */
-@Controller
+@RequestMapping("/api/user/")
+@RestController
 public class UserController {
 	
 	@Autowired
@@ -32,16 +34,15 @@ public class UserController {
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
 	@GetMapping("/@{userId}")
-	public ModelAndView getUserPage(@PathVariable("userId") String userId, ModelAndView mav) {
+	public User getUserPage(@PathVariable("userId") String userId, ModelAndView mav) {
 		User user = userservice.getUser(userId);
 		Settings settings = settingsService.getSettings(user.getUid());
 		if (settings.isUserenabled() && settings.isUservisibled()) {
-			mav.addObject(user);
-			mav.setViewName("user");
+			return user;
 		} else {
-			mav.setViewName("Top");
+			return new User();
 		}
-		return mav;
+
 	}
 
 	/**
@@ -52,9 +53,8 @@ public class UserController {
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
 	@GetMapping("/@{userId}/follow")
-	public ModelAndView getFollowPage(@PathVariable("userId") String userId, ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav;
+	public User getFollowPage(@PathVariable("userId") String userId, ModelAndView mav) {
+		return new User();
 	}
 
 	/**
@@ -65,8 +65,7 @@ public class UserController {
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
 	@GetMapping("/@{userId}/follower")
-	public ModelAndView getFollowerPage(@PathVariable("userId") String userId, ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav;
+	public User getFollowerPage(@PathVariable("userId") String userId, ModelAndView mav) {
+		return new User();
 	}
 }

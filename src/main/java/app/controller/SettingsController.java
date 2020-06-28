@@ -1,8 +1,10 @@
 package app.controller;
 
+import app.model.Settings;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -10,19 +12,19 @@ import org.springframework.web.servlet.ModelAndView;
  * 設定関連ページを返すコントローラー
  * @author MewW6m　(https://github.com/MewW6m)
  */
-@RequestMapping("/settings")
-@Controller
+@RequestMapping("/api/setting")
+@RestController
 public class SettingsController {
 
-	/**
-	 * settingProfilePageメソッド<br>
-	 * プロフィール設定ページにリダイレクトする
-	 * @return String リダイレクト
-	 */
-	@GetMapping("")
-	public String redirectProfilePage() {
-		return "redirect:/settings/profile";
-	}
+//	/**
+//	 * settingProfilePageメソッド<br>
+//	 * プロフィール設定ページにリダイレクトする
+//	 * @return String リダイレクト
+//	 */
+//	@GetMapping("")
+//	public String redirectProfilePage() {
+//		return "redirect:/settings/profile";
+//	}
 
 	/**
 	 * settingProfilePageメソッド<br>
@@ -30,10 +32,9 @@ public class SettingsController {
 	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
-	@GetMapping("/profile")
-    public ModelAndView settingProfilePage(ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav; 
+	@GetMapping("/profile/@{userId}")
+    public Settings settingProfilePage(ModelAndView mav) {
+		return new Settings();
 	}
 
 	/**
@@ -42,10 +43,9 @@ public class SettingsController {
 	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
-	@GetMapping("/account")
-    public ModelAndView settingAccountPage(ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav; 
+	@GetMapping("/account/@{userId}")
+    public Settings settingAccountPage(ModelAndView mav) {
+		return new Settings();
 	}
 
 	/**
@@ -54,10 +54,9 @@ public class SettingsController {
 	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
-	@GetMapping("/notification")
-    public ModelAndView settingNortificationPage(ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav; 
+	@GetMapping("/notification/@{userId}")
+    public Settings settingNortificationPage(ModelAndView mav) {
+		return new Settings();
 	}
 
 	/**
@@ -66,9 +65,8 @@ public class SettingsController {
 	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
 	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
 	 */
-	@GetMapping("/customize")
-    public ModelAndView settingCustomizePage(ModelAndView mav) {
-		mav.setViewName("Top");
-		return mav; 
+	@GetMapping("/customize/@{userId}")
+    public Settings settingCustomizePage(ModelAndView mav) {
+		return new Settings();
 	}
 }
