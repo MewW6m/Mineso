@@ -3,8 +3,6 @@ info:
   title: ''
   version: ''
   description: |-
-  
-
     <details><summary style="font-size:1.75em;">API一覧</summary><div>
     + 基本的にフロントがルーティング制御、バックがRestAPIサーバーの役割を行う。
 
@@ -62,24 +60,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/userInfo'
       operationId: get-login
       description: ユーザーの詳細(ログイン時トップリダイレクト)
+      parameters: []
     parameters:
-      - schema:
-          type: string
-        name: userId
-        in: path
-        required: true
-        description: ユーザーID
+      - $ref: '#/components/parameters/user'
   '/api/@{userId}/follow':
-    parameters:
-      - schema:
-          type: string
-        name: userId
-        in: path
-        required: true
-        description: ユーザーID
     get:
       summary: フォロー一覧取得
       tags:
@@ -90,17 +77,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/userList'
       operationId: get-@-userId-follow
       description: そのユーザーのフォロー一覧
-  '/api/@{userId}/follower':
     parameters:
-      - schema:
-          type: string
-        name: userId
-        in: path
-        required: true
-        description: ユーザーID
+      - $ref: '#/components/parameters/user'
+  '/api/@{userId}/follower':
     get:
       summary: フォロワー一覧取得
       tags:
@@ -111,9 +93,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/userList'
       operationId: get-@-userId-follower
       description: そのユーザーのフォロワーの一覧
+    parameters:
+      - $ref: '#/components/parameters/user'
   '/api/tag/{tagName}':
     parameters:
       - schema:
@@ -130,7 +114,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/userList'
       operationId: 'get-tag-#-tagname'
       tags:
         - API
@@ -144,10 +128,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
-              ref: '#/components/schemas/defaulthtml'
-              schema:
-                $ref: '#/components/schemas/defaulthtml'
+            application/json: {}
       operationId: get-nortification
       description: 通知
       security:
@@ -218,9 +199,39 @@ paths:
         - key: []
 components:
   schemas:
-    defaulthtml:
-      type: string
-      description: HTML
+    userInfo:
+      type: object
+      description: ユーザー情報
+      properties:
+        userId:
+          type: string
+          description: ユーザーID
+        userName:
+          type: string
+          description: ユーザー名
+        userMail:
+          type: string
+          description: メールアドレス
+        userDesc:
+          type: string
+          description: ユーザー説明
+        userimg:
+          type: string
+          description: ユーザー画像バイナリ
+          format: binary
+    userList:
+      type: array
+      description: ユーザー一覧
+      items:
+        $ref: '#/components/schemas/userInfo'
+  parameters:
+    user:
+      schema:
+        type: string
+      name: userId
+      in: path
+      required: true
+      description: ユーザーID
   securitySchemes:
     key:
       type: oauth2
