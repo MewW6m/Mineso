@@ -67,3 +67,6 @@ h2:before{
 .sc-dnqmqq.ioYTqA:before{
 	font-size:inherit !important;
 }
+div[id^="tag/"]{
+	display: none;
+}

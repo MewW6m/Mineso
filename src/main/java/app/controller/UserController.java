@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
  *　ユーザー関連ページを返すコントローラー実装
  * @author MewW6m　(https://github.com/MewW6m)
  */
-@RequestMapping("/api/user/")
+@RequestMapping("/api/")
 @RestController
 public class UserController {
 	
