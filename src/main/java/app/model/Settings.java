@@ -1,6 +1,8 @@
 package app.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
@@ -15,6 +17,8 @@ import javax.persistence.Id;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Component
 public class Settings{
 	@Id

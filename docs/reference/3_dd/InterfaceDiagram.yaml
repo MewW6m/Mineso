@@ -15,7 +15,8 @@ info:
     | /api/user/follow/{userId}   | POST     | フォロー更新         |
     | /api/user/follower/{userId} | GET      | フォロワー一覧取得   |
     | /api/user/follower/{userId} | POST     | フォロワー更新       |
-    | /api/tag/{tagName}                | GET      | タグ一覧取得         |
+    | /api/tag/{tagName} | GET      | タグ一覧取得         |
+    | /api/service/{serviceName}                | GET      | サービス一覧取得         |
     | /api/nortification/{userId} | GET      | 通知一覧取得             |
     | /api/nortification/{userId} | POST     | 通知フラグ更新       |
     | /api/setting/profile/{userId}    | GET      | プロフィール設定取得 |
@@ -62,7 +63,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/userInfo'
+                $ref: '#/components/schemas/userInfoRequired'
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-login
@@ -81,6 +82,23 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: ユーザーの更新
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: ユーザー情報の差分
+              properties:
+                userId:
+                  $ref: '#/components/schemas/userId'
+                userName:
+                  $ref: '#/components/schemas/userName'
+                userMail:
+                  $ref: '#/components/schemas/userMail'
+                userDesc:
+                  $ref: '#/components/schemas/userDesc'
+                userimg:
+                  $ref: '#/components/schemas/userimg'
   '/api/user/follow/{userId}':
     get:
       summary: フォロー一覧取得
@@ -106,6 +124,8 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのフォローを更新する
+      requestBody:
+        $ref: '#/components/requestBodies/userId'
   '/api/user/follower/{userId}':
     get:
       summary: フォロワー一覧取得
@@ -131,6 +151,8 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのフォロワーを更新する
+      requestBody:
+        $ref: '#/components/requestBodies/userId'
   '/api/tag/{tagName}':
     parameters:
       - schema:
@@ -150,6 +172,24 @@ paths:
       tags:
         - /api/tag/
       description: 'そのタグをタグ付けしている人の一覧を取得する '
+  '/api/service/{serviceName}':
+    parameters:
+      - schema:
+          type: string
+        name: serviceName
+        in: path
+        required: true
+    get:
+      summary: サービス一覧取得
+      responses:
+        '200':
+          $ref: '#/components/responses/userList'
+        default:
+          $ref: '#/components/responses/commonError'
+      operationId: get-api-service-serviceName
+      tags:
+        - /api/service/
+      description: サービスを登録しているユーザーの一覧を取得する
   "/api/nortification/{userId}'":
     get:
       summary: 通知取得
@@ -159,13 +199,35 @@ paths:
         '200':
           description: OK
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: array
+                description: 通知リスト
+                items:
+                  type: object
+                  description: 通知
+                  properties:
+                    norId:
+                      type: string
+                      description: 通知ID
+                    norTitle:
+                      type: string
+                      description: タイトル
+                    norDetail:
+                      type: string
+                      description: 詳細
+                    norCategory:
+                      type: string
+                      description: カテゴリ
+                  required:
+                    - norId
+                    - norTitle
+                    - norDetail
+                    - norCategory
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-nortification
       description: 通知
-      security:
-        - key: []
     post:
       summary: 通知フラグ更新
       tags:
@@ -181,11 +243,11 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                norId:
-                  type: string
-                  description: 通知ID
+              type: array
+              description: 通知IDリスト
+              items:
+                type: string
+                description: 通知ID
         description: ''
     parameters:
       - $ref: '#/components/parameters/user'
@@ -197,10 +259,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-profile
@@ -228,10 +286,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-account
@@ -259,10 +313,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-nortification
@@ -290,10 +340,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-customize
@@ -315,31 +361,47 @@ paths:
       - $ref: '#/components/parameters/user'
 components:
   schemas:
-    userInfo:
+    userId:
+      type: string
+      description: ユーザーID
+    userName:
+      type: string
+      description: ユーザー名
+    userMail:
+      type: string
+      description: メールアドレス
+    userDesc:
+      type: string
+      description: ユーザー説明
+    userimg:
+      type: string
+      description: ユーザー画像バイナリ
+      format: binary
+    userInfoRequired:
       type: object
       description: ユーザー情報
       properties:
         userId:
-          type: string
-          description: ユーザーID
+          $ref: '#/components/schemas/userId'
         userName:
-          type: string
-          description: ユーザー名
+          $ref: '#/components/schemas/userName'
         userMail:
-          type: string
-          description: メールアドレス
+          $ref: '#/components/schemas/userMail'
         userDesc:
-          type: string
-          description: ユーザー説明
+          $ref: '#/components/schemas/userDesc'
         userimg:
-          type: string
-          description: ユーザー画像バイナリ
-          format: binary
-    userList:
+          $ref: '#/components/schemas/userimg'
+      required:
+        - userId
+        - userName
+        - userMail
+        - userDesc
+        - userimg
+    userListRequired:
       type: array
       description: ユーザー一覧
       items:
-        $ref: '#/components/schemas/userInfo'
+        $ref: '#/components/schemas/userInfoRequired'
     error:
       type: object
       description: エラー内容
@@ -350,21 +412,36 @@ components:
         errorMessage:
           type: string
           description: エラーメッセージ
+      required:
+        - errorCode
+        - errorMessage
   parameters:
     user:
       schema:
-        type: string
+        $ref: '#/components/schemas/userId'
       name: userId
       in: path
       required: true
-      description: ユーザーID
+      description: そのユーザーのユーザーID
+  requestBodies:
+    userId:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                description: 更新する対象ユーザーID
+            required:
+              - userId
   responses:
     userList:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/userList'
+            $ref: '#/components/schemas/userListRequired'
     commonError:
       description: Error
       content:
@@ -391,6 +468,7 @@ tags:
   - name: /api/user/follow/
   - name: /api/user/follower/
   - name: /api/tag/
+  - name: /api/service/
   - name: /api/nortification/
   - name: /api/setting/profile/
   - name: /api/setting/account/

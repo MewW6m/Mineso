@@ -39,32 +39,33 @@ public class MainController {
 	}
 
 	/**
-	 * postAuthメソッド<br>
-	 * ログインする
-	 * @return String リダイレクト先
-	 */
-    @PostMapping("/auth/{socialType}")
-	public String postAuth(@PathVariable("socialType") String socialType) {
-		return "redirect:/@id1";
-	}
-
-	/**
 	 * getHelpPageメソッド<br>
 	 * Helpページを返す
 	 * @return String Helpページ
 	 */
 	@GetMapping("/help")
-    public String getHelpPage() {
+	public String getHelpPage() {
 		return "Help";
 	}
-	
+
 	/**
 	 * getTermsPageメソッド<br>
 	 * 利用規約ページを返す
 	 * @return String 利用規約ページ
 	 */
 	@GetMapping("/terms")
-    public String getTermsPage() {
+	public String getTermsPage() {
 		return "Terms";
 	}
+
+	/**
+	 * postAuthメソッド<br>
+	 * ログインする
+	 * @return String リダイレクト先
+	 */
+    @PostMapping("/api/auth/{socialType}")
+	public String postAuth(@PathVariable("socialType") String socialType) {
+		return "redirect:/@id1";
+	}
+
 }

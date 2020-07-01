@@ -10,19 +10,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Tag<br>
- *　タグ情報
+ * Nortification<br>
+ *　通知情報
  * @author MewW6m　(https://github.com/MewW6m)
  */
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class Tag {
-	@Id
-	private int tId;
-	@Column(unique=true)
-	private int tName;
+public class Nortification {
+    @Id
+    private String norId;
+    @Column(unique = true)
+    private String userId;
+    @Column
+    private String norTitle;
+    @Column
+    private String norDetail;
+    @Column
+    private String norCategory;
 }

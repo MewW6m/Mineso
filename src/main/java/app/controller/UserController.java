@@ -1,22 +1,22 @@
 package app.controller;
 
+import app.model.ErrorInfo;
 import app.model.Settings;
 import app.model.User;
 import app.service.SettingsService;
 import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * UserControllerImplクラス<br>
- *　ユーザー関連ページを返すコントローラー実装
+ * UserControllerクラス<br>
+ *　ユーザー関連情報を返すコントローラー
  * @author MewW6m　(https://github.com/MewW6m)
  */
-@RequestMapping("/api/")
 @RestController
 public class UserController {
 	
@@ -27,14 +27,13 @@ public class UserController {
 	private SettingsService settingsService;
 
 	/**
-	 * getUserPageメソッド<br>
-	 * 指定したユーザーページを返す
+	 * getUserInfoメソッド<br>
+	 * 指定したユーザー情報を返す
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
-	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
+	 * @return User 指定されたユーザー情報
 	 */
-	@GetMapping("/@{userId}")
-	public User getUserPage(@PathVariable("userId") String userId, ModelAndView mav) {
+	@GetMapping("/api/user/{userId}")
+	public User getUserInfo(@PathVariable("userId") String userId) {
 		User user = userservice.getUser(userId);
 		Settings settings = settingsService.getSettings(user.getUid());
 		if (settings.isUserenabled() && settings.isUservisibled()) {
@@ -45,26 +44,82 @@ public class UserController {
 	}
 
 	/**
-	 * getFollowPageメソッド<br>
-	 * 指定したユーザーフォローページを返す
+	 * postUserInfoメソッド<br>
+	 * 指定したユーザー情報を更新する
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
-	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
+	 *  @param user 更新するユーザー情報の内容
+	 * @return ErrorInfo エラー情報
 	 */
-	@GetMapping("/@{userId}/follow")
-	public User getFollowPage(@PathVariable("userId") String userId, ModelAndView mav) {
-		return new User();
+	@PostMapping("/api/user/{userId}")
+	public ErrorInfo postUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
+		return new ErrorInfo();
 	}
 
 	/**
-	 * getFollowerPageメソッド<br>
-	 * 指定したユーザーフォロワーページを返す
+	 * getFollowListメソッド<br>
+	 * 指定したユーザーのフォローユーザーリストを返す
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param mav テンプレートで利用するデータと、Viewに関する情報
-	 * @return ModelAndView テンプレートで利用するデータと、Viewに関する情報
+	 * @return List<User> フォローユーザーリスト
 	 */
-	@GetMapping("/@{userId}/follower")
-	public User getFollowerPage(@PathVariable("userId") String userId, ModelAndView mav) {
-		return new User();
+	@GetMapping("/api/user/follow/{userId}")
+	public List<User> getFollowList(@PathVariable("userId") String userId) {
+		return new ArrayList<User>();
+	}
+
+	/**
+	 * postFollowListメソッド<br>
+	 * 指定したユーザーのフォロー情報を更新する
+	 *  @param userId urlで指定されたユーザーID
+	 *  @param user 更新するユーザー情報(ユーザーID)
+	 * @return ErrorInfo エラー情報
+	 */
+	@PostMapping("/api/user/follow/{userId}")
+	public ErrorInfo postFollowList(@PathVariable("userId") String userId, @RequestBody User user) {
+		return new ErrorInfo();
+	}
+
+	/**
+	 * getFollowerListメソッド<br>
+	 * 指定したユーザーのフォロワーユーザーリストを返す
+	 *  @param userId urlで指定されたユーザーID
+	 * @return List<User> フォロワーユーザーリスト
+	 */
+	@GetMapping("/api/user/follower/{userId}")
+	public List<User> getFollowerList(@PathVariable("userId") String userId) {
+		return new ArrayList<User>();
+	}
+
+	/**
+	 * postFollowerListメソッド<br>
+	 * 指定したユーザーのフォロワー情報を更新する
+	 *  @param userId urlで指定されたユーザーID
+	 *  @param user 更新するユーザー情報(ユーザーID)
+	 * @return ErrorInfo エラー情報
+	 */
+	@PostMapping("/api/user/follower/{userId}")
+	public ErrorInfo postFollowerList(@PathVariable("userId") String userId, @RequestBody User user) {
+		return new ErrorInfo();
+	}
+
+	/**
+	 * getTagUserListメソッド<br>
+	 * 指定したタグのタグ付けユーザーリストを返す
+	 *  @param tagName urlで指定されたタグ名
+	 * @return List<User> タグ付けユーザーリスト
+	 */
+	@GetMapping("/api/tag/{tagName}")
+	public List<User> getTagUserList(@PathVariable("tagName") String tagName) {
+		return new ArrayList<User>();
+	}
+
+	/**
+	 * getServiceUserListメソッド<br>
+	 * 指定したサービスの登録ユーザーリストを返す
+	 *  @param serviceName urlで指定されたサービス名
+	 * @return List<User> タグ付けユーザーリスト
+	 */
+	@GetMapping("/api/service/{serviceName}")
+	public List<User> getServiceUserList(@PathVariable("serviceName") String serviceName) {
+		return new ArrayList<User>();
 	}
 }
