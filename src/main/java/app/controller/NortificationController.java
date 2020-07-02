@@ -30,11 +30,11 @@ public class NortificationController {
      * postNortificationメソッド<br>
      * 通知を更新する
      *  @param userId ユーザーID
-     *  @param norIdList 通知IDリスト
+     *  @param nIdList 通知IDリスト
      * @return ErrorInfo エラー情報
      */
     @PostMapping("/api/nortification/{userId}")
-    public ErrorInfo postNortification(@PathVariable("userId") String userId, @RequestBody List<String> norIdList){
+    public ErrorInfo postNortification(@PathVariable("userId") String userId, @RequestBody List<String> nIdList){
         return new ErrorInfo();
     }
 }

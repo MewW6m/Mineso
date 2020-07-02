@@ -10,8 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Services<br>
- *　サービス情報
+ * Settings<br>
+ *　設定情報
  * @author MewW6m　(https://github.com/MewW6m)
  */
 
@@ -20,13 +20,15 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class Services {
+public class Setting {
 	@Id
-	private int serviceId;
-	private int uId;
-	private boolean serviceDisabled;
-	@Column(unique=true)
-	private String serviceName;
-	private String serviceImage;
-	private String ServiceURL;
+	private int sid;
+	@Column
+	private int uid;
+	@Column
+	private boolean userenabled;
+	@Column
+	private boolean uservisibled;
+	@Column
+	private String designsettings;
 }

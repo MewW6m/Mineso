@@ -1,13 +1,12 @@
 package app.controller;
 
 import app.model.ErrorInfo;
-import app.model.Settings;
+import app.model.Setting;
 import app.model.User;
 import app.service.SettingsService;
 import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +34,8 @@ public class UserController {
 	@GetMapping("/api/user/{userId}")
 	public User getUserInfo(@PathVariable("userId") String userId) {
 		User user = userservice.getUser(userId);
-		Settings settings = settingsService.getSettings(user.getUid());
-		if (settings.isUserenabled() && settings.isUservisibled()) {
+		Setting setting = settingsService.getSettings(user.getUid());
+		if (setting.isUserenabled() && setting.isUservisibled()) {
 			return user;
 		} else {
 			return new User();
@@ -113,13 +112,13 @@ public class UserController {
 	}
 
 	/**
-	 * getServiceUserListメソッド<br>
-	 * 指定したサービスの登録ユーザーリストを返す
-	 *  @param serviceName urlで指定されたサービス名
+	 * getAppUserListメソッド<br>
+	 * 指定したアプリの登録ユーザーリストを返す
+	 *  @param appName urlで指定されたアプリ名
 	 * @return List<User> タグ付けユーザーリスト
 	 */
-	@GetMapping("/api/service/{serviceName}")
-	public List<User> getServiceUserList(@PathVariable("serviceName") String serviceName) {
+	@GetMapping("/api/app/{appName}")
+	public List<User> getAppUserList(@PathVariable("appName") String appName) {
 		return new ArrayList<User>();
 	}
 }

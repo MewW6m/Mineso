@@ -10,8 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Settings<br>
- *　設定情報
+ * App<br>
+ *　アプリ情報
  * @author MewW6m　(https://github.com/MewW6m)
  */
 
@@ -20,15 +20,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class Settings{
+public class App {
 	@Id
-	private int sid;
-	@Column
-	private int uid;
-	@Column
-	private boolean userenabled;
-	@Column
-	private boolean uservisibled;
-	@Column
-	private String designsettings;
+	private int aid;
+//	private int uId;
+	private boolean appdisabled;
+	@Column(unique=true)
+	private String appname;
+	private String appimgpath;
+	private String appurl;
 }

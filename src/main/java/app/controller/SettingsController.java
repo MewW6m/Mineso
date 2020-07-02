@@ -2,11 +2,9 @@ package app.controller;
 
 import app.config.JView;
 import app.model.ErrorInfo;
-import app.model.Settings;
+import app.model.Setting;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * SettingsController<br>
@@ -24,20 +22,20 @@ public class SettingsController {
 	 */
 	@JsonView(JView.Profile.class)
 	@GetMapping("/api/setting/profile/@{userId}")
-    public Settings getProfileSetting(@PathVariable("userId") String userId) {
-		return new Settings();
+    public Setting getProfileSetting(@PathVariable("userId") String userId) {
+		return new Setting();
 	}
 
 	/**
 	 * postProfileSettingメソッド<br>
 	 * プロフィール設定情報を更新する
 	 *  @param userId ユーザーID
-	 *  @param settings プロフィール設定情報
+	 *  @param setting プロフィール設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Profile.class)
 	@GetMapping("/api/setting/profile/@{userId}")
-	public ErrorInfo postProfileSetting(@PathVariable("userId") String userId, @RequestBody Settings settings) {
+	public ErrorInfo postProfileSetting(@PathVariable("userId") String userId, @RequestBody Setting setting) {
 		return new ErrorInfo();
 	}
 
@@ -49,20 +47,20 @@ public class SettingsController {
 	 */
 	@JsonView(JView.Account.class)
 	@GetMapping("/api/setting/account/@{userId}")
-    public Settings getAccountSetting(@PathVariable("userId") String userId) {
-		return new Settings();
+    public Setting getAccountSetting(@PathVariable("userId") String userId) {
+		return new Setting();
 	}
 
 	/**
 	 * postAccountSettingメソッド<br>
 	 * アカウント設定情報を更新する
 	 *  @param userId ユーザーID
-	 *  @param settings アカウント設定情報
+	 *  @param setting アカウント設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Account.class)
 	@GetMapping("/api/setting/account/@{userId}")
-	public ErrorInfo postAccountSetting(@PathVariable("userId") String userId, @RequestBody Settings settings) {
+	public ErrorInfo postAccountSetting(@PathVariable("userId") String userId, @RequestBody Setting setting) {
 		return new ErrorInfo();
 	}
 
@@ -74,20 +72,20 @@ public class SettingsController {
 	 */
 	@JsonView(JView.Nortification.class)
 	@GetMapping("/api/setting/notification/@{userId}")
-    public Settings getNortificationSetting(@PathVariable("userId") String userId) {
-		return new Settings();
+    public Setting getNortificationSetting(@PathVariable("userId") String userId) {
+		return new Setting();
 	}
 
 	/**
 	 * postNortificationSettingメソッド<br>
 	 * 通知設定情報を更新する
 	 *  @param userId ユーザーID
-	 *  @param settings 通知設定情報
+	 *  @param setting 通知設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Nortification.class)
 	@GetMapping("/api/setting/notification/@{userId}")
-	public ErrorInfo postNortificationSetting(@PathVariable("userId") String userId, @RequestBody Settings settings) {
+	public ErrorInfo postNortificationSetting(@PathVariable("userId") String userId, @RequestBody Setting setting) {
 		return new ErrorInfo();
 	}
 
@@ -99,20 +97,20 @@ public class SettingsController {
 	 */
 	@JsonView(JView.Customize.class)
 	@GetMapping("/api/setting/customize/@{userId}")
-    public Settings getCustomizeSetting(@PathVariable("userId") String userId) {
-		return new Settings();
+    public Setting getCustomizeSetting(@PathVariable("userId") String userId) {
+		return new Setting();
 	}
 
 	/**
 	 * postCustomizeSettingメソッド<br>
 	 * 表示設定情報を更新する
 	 *  @param userId ユーザーID
-	 *  @param settings 表示設定情報
+	 *  @param setting 表示設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Customize.class)
 	@GetMapping("/api/setting/customize/@{userId}")
-	public ErrorInfo postCustomizeSetting(@PathVariable("userId") String userId, @RequestBody Settings settings) {
+	public ErrorInfo postCustomizeSetting(@PathVariable("userId") String userId, @RequestBody Setting setting) {
 		return new ErrorInfo();
 	}
 }

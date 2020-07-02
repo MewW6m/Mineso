@@ -22,7 +22,7 @@ import javax.persistence.Id;
 @Component
 public class Tag {
 	@Id
-	private int tId;
+	private int tid;
 	@Column(unique=true)
-	private int tName;
+	private int tagname;
 }

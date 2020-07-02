@@ -40,7 +40,7 @@ public class User {
 	@Column
 	private String userdesc;
 	@Column
-	private String userimg;
+	private String userimgpath;
 
 /*
 	@Override

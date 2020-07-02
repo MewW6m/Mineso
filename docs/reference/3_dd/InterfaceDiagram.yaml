@@ -172,24 +172,25 @@ paths:
       tags:
         - /api/tag/
       description: 'そのタグをタグ付けしている人の一覧を取得する '
-  '/api/service/{serviceName}':
+  '/api/app/{appName}':
     parameters:
       - schema:
           type: string
-        name: serviceName
+        name: appName
         in: path
         required: true
+        description: アプリ名
     get:
-      summary: サービス一覧取得
+      summary: アプリ一覧取得
       responses:
         '200':
           $ref: '#/components/responses/userList'
         default:
           $ref: '#/components/responses/commonError'
-      operationId: get-api-service-serviceName
+      operationId: get-api-app-appName
       tags:
         - /api/service/
-      description: サービスを登録しているユーザーの一覧を取得する
+      description: アプリを登録しているユーザーの一覧を取得する
   "/api/nortification/{userId}'":
     get:
       summary: 通知取得
@@ -207,7 +208,7 @@ paths:
                   type: object
                   description: 通知
                   properties:
-                    norId:
+                    nid:
                       type: string
                       description: 通知ID
                     norTitle:
@@ -220,7 +221,7 @@ paths:
                       type: string
                       description: カテゴリ
                   required:
-                    - norId
+                    - nid
                     - norTitle
                     - norDetail
                     - norCategory

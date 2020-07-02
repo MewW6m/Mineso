@@ -21,13 +21,13 @@ import javax.persistence.Id;
 @Component
 public class Nortification {
     @Id
-    private String norId;
+    private int nid;
     @Column(unique = true)
-    private String userId;
+    private int uid;
     @Column
-    private String norTitle;
+    private String nortitle;
     @Column
-    private String norDetail;
+    private String nordetail;
     @Column
-    private String norCategory;
+    private String norcategory;
 }
