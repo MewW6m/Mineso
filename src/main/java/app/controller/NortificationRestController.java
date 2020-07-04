@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.model.ErrorInfo;
+import app.model.ErrorInfos;
 import app.model.Nortifications;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @RestController
-public class NortificationController {
+public class NortificationRestController {
 
     /**
      * getNortificationListメソッド<br>
@@ -34,7 +34,7 @@ public class NortificationController {
      * @return ErrorInfo エラー情報
      */
     @PostMapping("/api/nortification/{userId}")
-    public ErrorInfo postNortification(@PathVariable("userId") String userId, @RequestBody List<String> nIdList){
-        return new ErrorInfo();
+    public ErrorInfos postNortification(@PathVariable("userId") String userId, @RequestBody List<String> nIdList){
+        return new ErrorInfos();
     }
 }

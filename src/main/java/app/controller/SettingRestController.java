@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.config.JView;
-import app.model.ErrorInfo;
+import app.model.ErrorInfos;
 import app.model.Settings;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,18 @@ import org.springframework.web.bind.annotation.*;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @RestController
-public class SettingController {
+public class SettingRestController {
+
+	/**
+	 * postAuthメソッド<br>
+	 * ログインする
+	 * @return String リダイレクト先
+	 */
+	@PostMapping("/api/auth/{socialType}")
+	public String postAuth(@PathVariable("socialType") String socialType) {
+		return "redirect:/@id1";
+	}
+
 
 	/**
 	 * getProfileSettingメソッド<br>
@@ -35,8 +46,8 @@ public class SettingController {
 	 */
 	@JsonView(JView.Profile.class)
 	@PostMapping("/api/setting/profile/{uId}")
-	public ErrorInfo postProfileSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
-		return new ErrorInfo();
+	public ErrorInfos postProfileSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
+		return new ErrorInfos();
 	}
 
 	/**
@@ -60,8 +71,8 @@ public class SettingController {
 	 */
 	@JsonView(JView.Account.class)
 	@PostMapping("/api/setting/account/{uId}")
-	public ErrorInfo postAccountSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
-		return new ErrorInfo();
+	public ErrorInfos postAccountSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
+		return new ErrorInfos();
 	}
 
 	/**
@@ -85,8 +96,8 @@ public class SettingController {
 	 */
 	@JsonView(JView.Nortification.class)
 	@PostMapping("/api/setting/notification/{uId}")
-	public ErrorInfo postNortificationSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
-		return new ErrorInfo();
+	public ErrorInfos postNortificationSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
+		return new ErrorInfos();
 	}
 
 	/**
@@ -110,7 +121,7 @@ public class SettingController {
 	 */
 	@JsonView(JView.Customize.class)
 	@PostMapping("/api/setting/customize/{uId}")
-	public ErrorInfo postCustomizeSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
-		return new ErrorInfo();
+	public ErrorInfos postCustomizeSetting(@PathVariable("uId") String uId, @RequestBody Settings settings) {
+		return new ErrorInfos();
 	}
 }

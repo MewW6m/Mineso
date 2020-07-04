@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Entity;
 
 /**
- * ErrorInfo<br>
+ * ErrorInfos<br>
  *　エラー情報
  * @author MewW6m　(https://github.com/MewW6m)
  */
@@ -16,7 +16,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class ErrorInfo {
+public class ErrorInfos {
     private int errorCode;
     private String errorMessage;
 }

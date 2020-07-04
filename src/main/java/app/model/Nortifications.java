@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
- * Nortification<br>
+ * Nortifications<br>
  *　通知情報
  * @author MewW6m　(https://github.com/MewW6m)
  */

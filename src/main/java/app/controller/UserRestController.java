@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.model.ErrorInfo;
+import app.model.ErrorInfos;
 import app.model.Settings;
 import app.model.Users;
 import app.service.SettingsService;
@@ -17,7 +17,7 @@ import java.util.List;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @RestController
-public class UserController {
+public class UserRestController {
 	
 	@Autowired
 	private UserService userservice;
@@ -50,8 +50,8 @@ public class UserController {
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/{userId}")
-	public ErrorInfo postUserInfo(@PathVariable("userId") String userId, @RequestBody Users users) {
-		return new ErrorInfo();
+	public ErrorInfos postUserInfo(@PathVariable("userId") String userId, @RequestBody Users users) {
+		return new ErrorInfos();
 	}
 
 	/**
@@ -73,8 +73,8 @@ public class UserController {
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/follow/{userId}")
-	public ErrorInfo postFollowList(@PathVariable("userId") String userId, @RequestBody Users users) {
-		return new ErrorInfo();
+	public ErrorInfos postFollowList(@PathVariable("userId") String userId, @RequestBody Users users) {
+		return new ErrorInfos();
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class UserController {
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/follower/{userId}")
-	public ErrorInfo postFollowerList(@PathVariable("userId") String userId, @RequestBody Users users) {
-		return new ErrorInfo();
+	public ErrorInfos postFollowerList(@PathVariable("userId") String userId, @RequestBody Users users) {
+		return new ErrorInfos();
 	}
 
 	/**

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * App<br>
+ * Apps<br>
  *　アプリ情報
  * @author MewW6m　(https://github.com/MewW6m)
  */

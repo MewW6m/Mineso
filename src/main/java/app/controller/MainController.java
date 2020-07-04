@@ -24,48 +24,38 @@ public class MainController {
         return "Top";
     }
 
-	/**
-	 * getMainPageメソッド<br>
-	 * ログイン状況に応じて、ページをリダイレクトする
-	 * @return String リダイレクト先
-	 */
-	@GetMapping("/")
-	public String getMainPage() {
-		if (true) { // ログインしているとき
-			return "redirect:/main";
-		} else { // ログインしていないとき
-			return "redirect:/top";
-		}
-	}
-
-	/**
-	 * getHelpPageメソッド<br>
-	 * Helpページを返す
-	 * @return String Helpページ
-	 */
-	@GetMapping("/help")
-	public String getHelpPage() {
-		return "Help";
-	}
-
-	/**
-	 * getTermsPageメソッド<br>
-	 * 利用規約ページを返す
-	 * @return String 利用規約ページ
-	 */
-	@GetMapping("/terms")
-	public String getTermsPage() {
-		return "Terms";
-	}
-
-	/**
-	 * postAuthメソッド<br>
-	 * ログインする
-	 * @return String リダイレクト先
-	 */
-    @PostMapping("/api/auth/{socialType}")
-	public String postAuth(@PathVariable("socialType") String socialType) {
-		return "redirect:/@id1";
-	}
-
+//
+//	/**
+//	 * getMainPageメソッド<br>
+//	 * ログイン状況に応じて、ページをリダイレクトする
+//	 * @return String リダイレクト先
+//	 */
+//	@GetMapping("/")
+//	public String getMainPage() {
+//		if (true) { // ログインしているとき
+//			return "redirect:/main";
+//		} else { // ログインしていないとき
+//			return "redirect:/top";
+//		}
+//	}
+//
+//	/**
+//	 * getHelpPageメソッド<br>
+//	 * Helpページを返す
+//	 * @return String Helpページ
+//	 */
+//	@GetMapping("/help")
+//	public String getHelpPage() {
+//		return "Help";
+//	}
+//
+//	/**
+//	 * getTermsPageメソッド<br>
+//	 * 利用規約ページを返す
+//	 * @return String 利用規約ページ
+//	 */
+//	@GetMapping("/terms")
+//	public String getTermsPage() {
+//		return "Terms";
+//	}
 }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Tag<br>
+ * Tags<br>
  *　タグ情報
  * @author MewW6m　(https://github.com/MewW6m)
  */
