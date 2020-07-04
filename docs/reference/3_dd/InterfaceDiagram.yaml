@@ -17,16 +17,16 @@ info:
     | /api/user/follower/{userId} | POST     | フォロワー更新       |
     | /api/tag/{tagName} | GET      | タグ一覧取得         |
     | /api/service/{serviceName}                | GET      | サービス一覧取得         |
-    | /api/nortification/{userId} | GET      | 通知一覧取得             |
-    | /api/nortification/{userId} | POST     | 通知フラグ更新       |
-    | /api/setting/profile/{userId}    | GET      | プロフィール設定取得 |
-    | /api/setting/profile/{userId}    | POST     | プロフィール設定更新 |
-    | /api/setting/account/{userId}    | GET      | アカウント設定取得   |
-    | /api/setting/account/{userId}    | POST     | アカウント設定更新   |
-    | /api/setting/nortification/{userId}  | GET      | 通知設定取得         |
-    | /api/setting/nortification/{userId}  | POST     | 通知設定更新         |
-    | /api/setting/customize/{userId}  | GET      | 表示設定取得         |
-    | /api/setting/customize/{userId}  | POST     | 表示設定更新         |
+    | /api/nortification/{uId} | GET      | 通知一覧取得             |
+    | /api/nortification/{uId} | POST     | 通知フラグ更新       |
+    | /api/setting/profile/{uId}    | GET      | プロフィール設定取得 |
+    | /api/setting/profile/{uId}    | POST     | プロフィール設定更新 |
+    | /api/setting/account/{uId}    | GET      | アカウント設定取得   |
+    | /api/setting/account/{uId}    | POST     | アカウント設定更新   |
+    | /api/setting/nortification/{uId}  | GET      | 通知設定取得         |
+    | /api/setting/nortification/{uId}  | POST     | 通知設定更新         |
+    | /api/setting/customize/{uId}  | GET      | 表示設定取得         |
+    | /api/setting/customize/{uId}  | POST     | 表示設定更新         |
 
     </div></details>
 servers:
@@ -97,8 +97,8 @@ paths:
                   $ref: '#/components/schemas/userMail'
                 userDesc:
                   $ref: '#/components/schemas/userDesc'
-                userimg:
-                  $ref: '#/components/schemas/userimg'
+                userImgPath:
+                  $ref: '#/components/schemas/userImgPath'
   '/api/user/follow/{userId}':
     get:
       summary: フォロー一覧取得
@@ -191,7 +191,7 @@ paths:
       tags:
         - /api/service/
       description: アプリを登録しているユーザーの一覧を取得する
-  "/api/nortification/{userId}'":
+  "/api/nortification/{uId}'":
     get:
       summary: 通知取得
       tags:
@@ -251,8 +251,8 @@ paths:
                 description: 通知ID
         description: ''
     parameters:
-      - $ref: '#/components/parameters/user'
-  '/api/setting/profile/{userId}':
+      - $ref: '#/components/parameters/uId'
+  '/api/setting/profile/{uId}':
     get:
       summary: プロフィール設定取得
       tags:
@@ -278,8 +278,8 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのプロフィール設定を更新する
     parameters:
-      - $ref: '#/components/parameters/user'
-  '/api/setting/account/{userId}':
+      - $ref: '#/components/parameters/uId'
+  '/api/setting/account/{uId}':
     get:
       summary: アカウント設定取得
       tags:
@@ -305,8 +305,8 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのアカウント設定を更新する
     parameters:
-      - $ref: '#/components/parameters/user'
-  '/api/setting/nortification/{userId}':
+      - $ref: '#/components/parameters/uId'
+  '/api/setting/nortification/{uId}':
     get:
       summary: 通知設定取得
       tags:
@@ -332,8 +332,8 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーの通知設定更新
     parameters:
-      - $ref: '#/components/parameters/user'
-  '/api/setting/customize/{userId}':
+      - $ref: '#/components/parameters/uId'
+  '/api/setting/customize/{uId}':
     get:
       summary: 表示設定取得
       tags:
@@ -359,9 +359,12 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーの表示(デザイン)設定を更新する
     parameters:
-      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/uId'
 components:
   schemas:
+    uId:
+      type: integer
+      desccription: ユーザー固有ID
     userId:
       type: string
       description: ユーザーID
@@ -374,10 +377,9 @@ components:
     userDesc:
       type: string
       description: ユーザー説明
-    userimg:
+    userImgPath:
       type: string
-      description: ユーザー画像バイナリ
-      format: binary
+      description: ユーザー画像パス
     userInfoRequired:
       type: object
       description: ユーザー情報
@@ -390,14 +392,14 @@ components:
           $ref: '#/components/schemas/userMail'
         userDesc:
           $ref: '#/components/schemas/userDesc'
-        userimg:
-          $ref: '#/components/schemas/userimg'
+        userImgPath:
+          $ref: '#/components/schemas/userImgPath'
       required:
         - userId
         - userName
         - userMail
         - userDesc
-        - userimg
+        - userImgPath
     userListRequired:
       type: array
       description: ユーザー一覧
@@ -424,6 +426,13 @@ components:
       in: path
       required: true
       description: そのユーザーのユーザーID
+    uId:
+      schema:
+        $ref: '#/components/schemas/uId'
+      name: uId
+      in: path
+      required: true
+      description: ログイン中のユーザー固有ID
   requestBodies:
     userId:
       content:

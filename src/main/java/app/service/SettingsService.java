@@ -1,6 +1,6 @@
 package app.service;
 
-import app.model.Setting;
+import app.model.Settings;
 import app.repository.SettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class SettingsService {
      *  @param uid ユーザー情報ID
      * @return Settings 設定情報返す
      */
-    public Setting getSettings(int uid){
+    public Settings getSettings(int uid){
         return settingsRepository.findFirstByUid(uid);
     }
 }

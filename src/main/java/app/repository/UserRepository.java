@@ -3,7 +3,7 @@ package app.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import app.model.User;
+import app.model.Users;
 
 /**
  * UserRepository<br>
@@ -11,7 +11,7 @@ import app.model.User;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<Users, Long> {
 
 	/**
 	 * findFirstByUserId<br>
@@ -19,5 +19,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 *  @param userid 検索する項目
 	 * @return User ユーザー情報返す
 	 */
-	public User findFirstByUserid(String userid);
+	public Users findFirstByUserid(String userid);
 }

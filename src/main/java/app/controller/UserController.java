@@ -1,8 +1,8 @@
 package app.controller;
 
 import app.model.ErrorInfo;
-import app.model.Setting;
-import app.model.User;
+import app.model.Settings;
+import app.model.Users;
 import app.service.SettingsService;
 import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +32,13 @@ public class UserController {
 	 * @return User 指定されたユーザー情報
 	 */
 	@GetMapping("/api/user/{userId}")
-	public User getUserInfo(@PathVariable("userId") String userId) {
-		User user = userservice.getUser(userId);
-		Setting setting = settingsService.getSettings(user.getUid());
-		if (setting.isUserenabled() && setting.isUservisibled()) {
-			return user;
+	public Users getUserInfo(@PathVariable("userId") String userId) {
+		Users users = userservice.getUser(userId);
+		Settings settings = settingsService.getSettings(users.getUid());
+		if (users.isUdisabled() && settings.isUservisibled()) {
+			return users;
 		} else {
-			return new User();
+			return new Users();
 		}
 	}
 
@@ -46,11 +46,11 @@ public class UserController {
 	 * postUserInfoメソッド<br>
 	 * 指定したユーザー情報を更新する
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param user 更新するユーザー情報の内容
+	 *  @param users 更新するユーザー情報の内容
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/{userId}")
-	public ErrorInfo postUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
+	public ErrorInfo postUserInfo(@PathVariable("userId") String userId, @RequestBody Users users) {
 		return new ErrorInfo();
 	}
 
@@ -61,19 +61,19 @@ public class UserController {
 	 * @return List<User> フォローユーザーリスト
 	 */
 	@GetMapping("/api/user/follow/{userId}")
-	public List<User> getFollowList(@PathVariable("userId") String userId) {
-		return new ArrayList<User>();
+	public List<Users> getFollowList(@PathVariable("userId") String userId) {
+		return new ArrayList<Users>();
 	}
 
 	/**
 	 * postFollowListメソッド<br>
 	 * 指定したユーザーのフォロー情報を更新する
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param user 更新するユーザー情報(ユーザーID)
+	 *  @param users 更新するユーザー情報(ユーザーID)
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/follow/{userId}")
-	public ErrorInfo postFollowList(@PathVariable("userId") String userId, @RequestBody User user) {
+	public ErrorInfo postFollowList(@PathVariable("userId") String userId, @RequestBody Users users) {
 		return new ErrorInfo();
 	}
 
@@ -84,19 +84,19 @@ public class UserController {
 	 * @return List<User> フォロワーユーザーリスト
 	 */
 	@GetMapping("/api/user/follower/{userId}")
-	public List<User> getFollowerList(@PathVariable("userId") String userId) {
-		return new ArrayList<User>();
+	public List<Users> getFollowerList(@PathVariable("userId") String userId) {
+		return new ArrayList<Users>();
 	}
 
 	/**
 	 * postFollowerListメソッド<br>
 	 * 指定したユーザーのフォロワー情報を更新する
 	 *  @param userId urlで指定されたユーザーID
-	 *  @param user 更新するユーザー情報(ユーザーID)
+	 *  @param users 更新するユーザー情報(ユーザーID)
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/follower/{userId}")
-	public ErrorInfo postFollowerList(@PathVariable("userId") String userId, @RequestBody User user) {
+	public ErrorInfo postFollowerList(@PathVariable("userId") String userId, @RequestBody Users users) {
 		return new ErrorInfo();
 	}
 
@@ -107,8 +107,8 @@ public class UserController {
 	 * @return List<User> タグ付けユーザーリスト
 	 */
 	@GetMapping("/api/tag/{tagName}")
-	public List<User> getTagUserList(@PathVariable("tagName") String tagName) {
-		return new ArrayList<User>();
+	public List<Users> getTagUserList(@PathVariable("tagName") String tagName) {
+		return new ArrayList<Users>();
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class UserController {
 	 * @return List<User> タグ付けユーザーリスト
 	 */
 	@GetMapping("/api/app/{appName}")
-	public List<User> getAppUserList(@PathVariable("appName") String appName) {
-		return new ArrayList<User>();
+	public List<Users> getAppUserList(@PathVariable("appName") String appName) {
+		return new ArrayList<Users>();
 	}
 }

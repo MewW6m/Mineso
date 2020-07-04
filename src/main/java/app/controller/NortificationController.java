@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.model.ErrorInfo;
-import app.model.Nortification;
+import app.model.Nortifications;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class NortificationController {
      * @return List<Nortification> 通知リスト
      */
     @GetMapping("/api/nortification/{userId}")
-    public List<Nortification> getNortificationList(@PathVariable("userId") String userId){
-        return new ArrayList<Nortification>();
+    public List<Nortifications> getNortificationList(@PathVariable("userId") String userId){
+        return new ArrayList<Nortifications>();
     }
 
     /**

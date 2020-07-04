@@ -1,6 +1,6 @@
 package app.repository;
 
-import app.model.Setting;
+import app.model.Settings;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Repository
-public interface SettingsRepository extends JpaRepository<Setting, Long> {
+public interface SettingsRepository extends JpaRepository<Settings, Long> {
 
 	/**
 	 * findFirstByUidメソッド<br>
@@ -18,5 +18,5 @@ public interface SettingsRepository extends JpaRepository<Setting, Long> {
 	 *  @param uid ユーザー情報ID
 	 * @return Settings 設定情報
 	 */
-	public Setting findFirstByUid(int uid);
+	public Settings findFirstByUid(int uid);
 }
