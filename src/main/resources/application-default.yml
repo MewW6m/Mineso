@@ -1,6 +1,6 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: orange
     url: jdbc:mysql://localhost:3306/replace_dbname?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
@@ -10,10 +10,12 @@ spring:
 
   jpa:
     database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
       generate-ddl: create
       dialect: org.hibernate.dialect.MySQL5Dialect
+      use-new-id-generator-mappings: true
 
 #  security:
 #    oauth2:

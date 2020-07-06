@@ -59,11 +59,10 @@ public class Users {
 			inverseJoinColumns=@JoinColumn(name="tid")
 	)
 	private List<Tags> taglist;
-
-
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="uid", referencedColumnName="uid")
-	private Settings settings;
+//
+//	@OneToOne(cascade=CascadeType.ALL)
+//	@JoinColumn(name="uid", referencedColumnName="uid")
+//	private Settings settings;
 /*
 
 

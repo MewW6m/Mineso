@@ -1128,11 +1128,11 @@
 			<th>&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x540D;</th>
 			<td>&#xA0;</td>
 			<th>&#x4F5C;&#x6210;&#x65E5;</th>
-			<td>2020/07/04&#xA0;</td>
+			<td>2020/07/06&#xA0;</td>
 		</tr>
 		<tr>
 			<th>&#x30B9;&#x30AD;&#x30FC;&#x30DE;&#x540D;</th>
-			<td>&#xA0;</td>
+			<td>replace_dbname&#xA0;</td>
 			<th>&#x66F4;&#x65B0;&#x65E5;</th>
 			<td>&#xA0;</td>
 		</tr>
@@ -1177,10 +1177,10 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">1</td>
-			<td>&#x901A;&#x77E5;Id</td>
+			<td>&#x901A;&#x77E5;ID</td>
 			<td>nid</td>
 			<td>int auto_increment</td>
-			<td>Yes</td>
+			<td>Yes (PK)</td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -1282,6 +1282,12 @@
 			<th>&#x7A2E;&#x985E;</th>
 			<th>&#x5236;&#x7D04;&#x5B9A;&#x7FA9;</th>
 		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>PRIMARY</td>
+			<td>PRIMARY KEY</td>
+			<td>nid</td>
+		</tr>
 	</table>
 
 <br>
@@ -1301,6 +1307,13 @@
 			<th>&#x53C2;&#x7167;&#x5148;</th>
 			<th>&#x53C2;&#x7167;&#x5148;&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
 		
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>replace_dbname.`nortifications_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.users</td>
+			<td>uid</td>
+		</tr>
 	</table>
 
 <br>
@@ -1326,8 +1339,12 @@
 
 	</body>
 </html>
+<script>document.body.getElementsByClassName("markdown-section")[0].innerHTML = document.body.getElementsByClassName("markdown-section")[0].innerHTML.replace(/replace_dbname./g, "").replace(/8.0.20/g, "MYSQL 8.0.20");</script>
+
+
+
 <div class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal">Aleen<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal">More than a coder, more than a designer</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MewW6m all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">updated on</span>
-2020-07-04
+2020-07-06
 </p></div></div></div><div class="box__issues"></div></div>
                                 
                                 </section>
@@ -1371,7 +1388,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1.3.2.通知情報テーブル","level":"1.4.3.2","depth":3,"next":{"title":"3.1.3.3.設定情報テーブル","level":"1.4.3.3","depth":3,"path":"3_dd/Tables/settings.md","ref":"3_dd/Tables/settings.md","articles":[]},"previous":{"title":"3.1.3.1.アプリ情報テーブル","level":"1.4.3.1","depth":3,"path":"3_dd/Tables/apps.md","ref":"3_dd/Tables/apps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","custom-favicon","-sharing","collapsible-chapters","expand-active-chapter","livereload","lunr","search","uml","back-to-top-button","fontsettings","page-footer","include-html","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"collapsible-chapters":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"hide-published-with":{},"include-html":{},"fontsettings":{"family":"sans","size":2,"theme":"night"},"highlight":{},"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"favicon":"./reference/other/image/favicon.png","back-to-top-button":{},"custom-favicon":{},"expand-active-chapter":{},"page-footer":{"isShowIssues":false,"wisdom":"More than a coder, more than a designer","copyright":"Copyright &#169; MewW6m","styles (normal, symmetrical)":"normal","issueNum":"8","repo":"aleen42/PersonalWiki","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"yyyy-MM-dd","signature":"Aleen","token":"","baseUri":"https://aleen42.gitbooks.io/personalwiki/content/","copyrightColor":"#666","description":"updated on"},"sharing":{"facebook":true,"twitter":true,"google":true,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","twitter","google","weibo","instapaper","vk"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"dependencies":{"plantuml-encoder":"1.2.3"},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ja","gitbook":"*"},"file":{"path":"3_dd/Tables/nortifications.md","mtime":"2020-07-04T12:52:23.534Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-04T13:30:48.357Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1.3.2.通知情報テーブル","level":"1.4.3.2","depth":3,"next":{"title":"3.1.3.3.設定情報テーブル","level":"1.4.3.3","depth":3,"path":"3_dd/Tables/settings.md","ref":"3_dd/Tables/settings.md","articles":[]},"previous":{"title":"3.1.3.1.アプリ情報テーブル","level":"1.4.3.1","depth":3,"path":"3_dd/Tables/apps.md","ref":"3_dd/Tables/apps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","custom-favicon","-sharing","collapsible-chapters","expand-active-chapter","livereload","lunr","search","uml","back-to-top-button","fontsettings","page-footer","include-html","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"collapsible-chapters":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"hide-published-with":{},"include-html":{},"fontsettings":{"family":"sans","size":2,"theme":"night"},"highlight":{},"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"favicon":"./reference/other/image/favicon.png","back-to-top-button":{},"custom-favicon":{},"expand-active-chapter":{},"page-footer":{"isShowIssues":false,"wisdom":"More than a coder, more than a designer","copyright":"Copyright &#169; MewW6m","styles (normal, symmetrical)":"normal","issueNum":"8","repo":"aleen42/PersonalWiki","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"yyyy-MM-dd","signature":"Aleen","token":"","baseUri":"https://aleen42.gitbooks.io/personalwiki/content/","copyrightColor":"#666","description":"updated on"},"sharing":{"facebook":true,"twitter":true,"google":true,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","twitter","google","weibo","instapaper","vk"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"dependencies":{"plantuml-encoder":"1.2.3"},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ja","gitbook":"*"},"file":{"path":"3_dd/Tables/nortifications.md","mtime":"2020-07-05T23:00:39.798Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-06T20:59:59.856Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
