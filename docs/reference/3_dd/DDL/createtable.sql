@@ -1,6 +1,6 @@
--- Project Name : noname
--- Date/Time    : 2020/07/06 6:51:17
--- Author       : choke
+-- Project Name : MinesO
+-- Date/Time    : 2020/07/07 22:10:29
+-- Author       : MewW6m
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -10,13 +10,11 @@
   この機能は一時的に $$TableName のような一時テーブルを作成します。
 */
 
-set  FOREIGN_KEY_CHECKS = 0;
-
--- apps
--- BackupToTempTable
+-- アプリ情報テーブル
+--* BackupToTempTable
 drop table if exists apps cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table apps (
   aid int auto_increment not null comment 'アプリID'
   , adisabled bit(1) comment '使用可否'
@@ -28,11 +26,27 @@ create table apps (
 
 alter table apps add unique UK_mlijtd7t8f36dteoqieterg0n (aname) ;
 
--- nortifications
--- BackupToTempTable
+-- フォローテーブル
+--* BackupToTempTable
+drop table if exists follow cascade;
+
+--* RestoreFromTempTable
+create table follow (
+  followid int not null comment 'フォローID'
+  , followerid int not null comment 'フォロワーID'
+) comment 'フォローテーブル' ;
+
+create index FK3qa4finl2noongf5ffljbp0sx
+  on follow(followerid);
+
+create index FKl0dq021y87jngr1e7t2r372lo
+  on follow(followid);
+
+-- 通知情報テーブル
+--* BackupToTempTable
 drop table if exists nortifications cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table nortifications (
   nid int auto_increment not null comment '通知ID'
   , ndate datetime comment '通知日時'
@@ -46,11 +60,11 @@ create table nortifications (
 create index FK3ovues3ug4aw4p34xktkb2tgk
   on nortifications(uid);
 
--- settings
--- BackupToTempTable
+-- 設定情報テーブル
+--* BackupToTempTable
 drop table if exists settings cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table settings (
   sid int auto_increment not null comment '設定ID'
   , accountsetting1 varchar(255) comment 'アカウント設定1'
@@ -65,11 +79,11 @@ create table settings (
 create index FK1uqq8cp0p4oetssi3aalwq72l
   on settings(uid);
 
--- tags
--- BackupToTempTable
+-- タグ情報テーブル
+--* BackupToTempTable
 drop table if exists tags cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table tags (
   tid int auto_increment not null comment 'タグID'
   , tagname int comment 'タグ名'
@@ -78,11 +92,11 @@ create table tags (
 
 alter table tags add unique UK_lue8ev0k78gossarqmm2gvupy (tagname) ;
 
--- userapp
--- BackupToTempTable
+-- ユーザーアプリ中間テーブル
+--* BackupToTempTable
 drop table if exists userapp cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table userapp (
   uid int not null comment 'ユーザー固有ID'
   , aid int not null comment 'アプリID'
@@ -94,11 +108,11 @@ create index FKt5ofwg4g81oec3n3mb53oa05v
 create index FKrtpo8c0u5qb926q52jv53trvg
   on userapp(uid);
 
--- users
--- BackupToTempTable
+-- ユーザー情報テーブル
+--* BackupToTempTable
 drop table if exists users cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table users (
   uid int auto_increment not null comment 'ユーザー固有ID'
   , udesc varchar(255) comment '説明'
@@ -112,11 +126,11 @@ create table users (
 
 alter table users add unique UK_jyjiwnaabof8kpd0gclhcj2lh (userid) ;
 
--- usertag
--- BackupToTempTable
+-- ユーザータグ中間テーブル
+--* BackupToTempTable
 drop table if exists usertag cascade;
 
--- RestoreFromTempTable
+--* RestoreFromTempTable
 create table usertag (
   uid int not null comment 'ユーザー固有ID'
   , tid int not null comment 'タグID'
@@ -128,8 +142,13 @@ create index FKps4gynjrauigakr48icmfyoyd
 create index FKa3r9xi2vvkv5aih22212ly0ey
   on usertag(uid);
 
-alter table settings
-  add constraint settings_FK1 foreign key (uid) references users(uid)
+alter table follow
+  add constraint follow_FK1 foreign key (followerid) references users(uid)
+  on delete no action
+  on update no action;
+
+alter table follow
+  add constraint follow_FK2 foreign key (followid) references users(uid)
   on delete no action
   on update no action;
 
@@ -138,13 +157,8 @@ alter table nortifications
   on delete no action
   on update no action;
 
-alter table usertag
-  add constraint usertag_FK1 foreign key (uid) references users(uid)
-  on delete no action
-  on update no action;
-
-alter table usertag
-  add constraint usertag_FK2 foreign key (tid) references tags(tid)
+alter table settings
+  add constraint settings_FK1 foreign key (uid) references users(uid)
   on delete no action
   on update no action;
 
@@ -158,4 +172,13 @@ alter table userapp
   on delete no action
   on update no action;
 
-set  FOREIGN_KEY_CHECKS = 1;
+alter table usertag
+  add constraint usertag_FK1 foreign key (uid) references users(uid)
+  on delete no action
+  on update no action;
+
+alter table usertag
+  add constraint usertag_FK2 foreign key (tid) references tags(tid)
+  on delete no action
+  on update no action;
+

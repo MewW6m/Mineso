@@ -33,13 +33,16 @@ public class UserRestController {
 	 */
 	@GetMapping("/api/user/{userId}")
 	public Users getUserInfo(@PathVariable("userId") String userId) {
-		Users users = userservice.getUser(userId);
-		Settings settings = settingsService.getSettings(users.getUid());
-		if (users.isUdisabled() && settings.isUservisibled()) {
-			return users;
-		} else {
-			return new Users();
-		}
+//		Users users = userservice.getUser(userId);
+//		Settings settings = settingsService.getSettings(users.getUid());
+//		if (users.isUdisabled() && settings.isUservisibled()) {
+//			return users;
+//		} else {
+//			return new Users();
+//		}
+		// Users user = new Users(1, "user01", "user01", "e-mail@mail.com", "desc", "/img/path", false);
+		Users user = new Users();
+		return user;
 	}
 
 	/**

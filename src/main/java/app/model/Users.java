@@ -39,10 +39,6 @@ public class Users {
 	@Column(name = "udisabled")
 	private boolean udisabled;
 
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="sId")
-//	private Setting setting;
-
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(
 			name="userapp",
@@ -59,13 +55,16 @@ public class Users {
 			inverseJoinColumns=@JoinColumn(name="tid")
 	)
 	private List<Tags> taglist;
-//
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="uid", referencedColumnName="uid")
-//	private Settings settings;
-/*
 
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(
+			name="follow",
+			joinColumns=@JoinColumn(name="followid"),
+			inverseJoinColumns=@JoinColumn(name="followerid")
+	)
+	private List<Users> followlist;
 
+	/*
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();
