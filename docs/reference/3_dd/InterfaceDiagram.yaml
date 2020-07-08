@@ -9,13 +9,13 @@ info:
     | URL                           | メソッド | API名                |
     | :---------------------------- | :------- | :------------------- |
     | /api/auth/{socialType}            | POST     | ソーシャルログイン   |
-    | /api/user/{userid}      | GET      | ユーザー情報取得 |
-    | /api/user/{userid}      | POST     | ユーザー情報更新     |
-    | /api/user/follow/{userid}    | JSON     | フォロー一覧取得     |
-    | /api/user/follow/{userid}   | POST     | フォロー更新         |
-    | /api/user/follower/{userid} | GET      | フォロワー一覧取得   |
-    | /api/user/follower/{userid} | POST     | フォロワー更新       |
-    | /api/tag/{tagName} | GET      | タグ一覧取得         |
+    | /api/user/{uid}      | GET      | ユーザー情報取得 |
+    | /api/user/{uid}      | POST     | ユーザー情報更新     |
+    | /api/user/follow/{uid}    | JSON     | フォロー一覧取得     |
+    | /api/user/follow/{uid}   | POST     | フォロー更新         |
+    | /api/user/follower/{uid} | GET      | フォロワー一覧取得   |
+    | /api/user/follower/{uid} | POST     | フォロワー更新       |
+    | /api/tag/{tagname} | GET      | タグ一覧取得         |
     | /api/service/{serviceName}                | GET      | サービス一覧取得         |
     | /api/nortification/{uid} | GET      | 通知一覧取得             |
     | /api/nortification/{uid} | POST     | 通知フラグ更新       |
@@ -52,7 +52,7 @@ paths:
         in: path
         required: true
         description: ログインに使用するサービスの種類
-  '/api/user/{userid}':
+  '/api/user/{uid}':
     get:
       summary: ユーザー情報取得
       tags:
@@ -70,7 +70,7 @@ paths:
       description: ユーザーの詳細の取得
       parameters: []
     parameters:
-      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/uid'
     post:
       summary: ユーザー情報更新
       tags:
@@ -93,13 +93,13 @@ paths:
                   $ref: '#/components/schemas/userid'
                 uname:
                   $ref: '#/components/schemas/uname'
-                userMail:
-                  $ref: '#/components/schemas/userMail'
-                userDesc:
-                  $ref: '#/components/schemas/userDesc'
-                userImgPath:
-                  $ref: '#/components/schemas/userImgPath'
-  '/api/user/follow/{userid}':
+                umail:
+                  $ref: '#/components/schemas/umail'
+                udesc:
+                  $ref: '#/components/schemas/udesc'
+                uimgpath:
+                  $ref: '#/components/schemas/uimgpath'
+  '/api/user/follow/{uid}':
     get:
       summary: フォロー一覧取得
       tags:
@@ -112,7 +112,7 @@ paths:
       operationId: get-@-userid-follow
       description: そのユーザーのフォロー一覧を取得する
     parameters:
-      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/uid'
     post:
       summary: フォロー更新
       tags:
@@ -125,8 +125,21 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのフォローを更新する
       requestBody:
-        $ref: '#/components/requestBodies/userid'
-  '/api/user/follower/{userid}':
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                followid:
+                  type: string
+                  description: フォロー/フォロワー更新するユーザーの固有ID
+                followerid:
+                  type: string
+                  description: ログイン中のユーザーの固有ID
+              required:
+                - followid
+                - followerid
+  '/api/user/follower/{uid}':
     get:
       summary: フォロワー一覧取得
       tags:
@@ -139,7 +152,7 @@ paths:
       operationId: get-@-userid-follower
       description: そのユーザーのフォロワーの一覧を取得する
     parameters:
-      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/uid'
     post:
       summary: フォロワー更新
       tags:
@@ -152,12 +165,25 @@ paths:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのフォロワーを更新する
       requestBody:
-        $ref: '#/components/requestBodies/userid'
-  '/api/tag/{tagName}':
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                followid:
+                  type: string
+                  description: ログイン中のユーザーの固有ID
+                followerid:
+                  type: string
+                  description: フォロー/フォロワー更新するユーザーの固有ID
+              required:
+                - followid
+                - followerid
+  '/api/tag/{tagname}':
     parameters:
       - schema:
           type: string
-        name: tagName
+        name: tagname
         in: path
         required: true
         description: タグ名
@@ -172,11 +198,11 @@ paths:
       tags:
         - /api/tag/
       description: 'そのタグをタグ付けしている人の一覧を取得する '
-  '/api/app/{appName}':
+  '/api/app/{aname}':
     parameters:
       - schema:
           type: string
-        name: appName
+        name: aname
         in: path
         required: true
         description: アプリ名
@@ -187,7 +213,7 @@ paths:
           $ref: '#/components/responses/userList'
         default:
           $ref: '#/components/responses/commonError'
-      operationId: get-api-app-appName
+      operationId: get-api-app-aname
       tags:
         - /api/service/
       description: アプリを登録しているユーザーの一覧を取得する
@@ -211,20 +237,25 @@ paths:
                     nid:
                       type: string
                       description: 通知ID
-                    norTitle:
+                    ntitle:
                       type: string
                       description: タイトル
-                    norDetail:
+                    ndetail:
                       type: string
                       description: 詳細
-                    norCategory:
+                    ntype:
                       type: string
                       description: カテゴリ
+                    ndate:
+                      type: string
+                      description: 通知日時
+                      format: date-time
                   required:
                     - nid
-                    - norTitle
-                    - norDetail
-                    - norCategory
+                    - ntitle
+                    - ndetail
+                    - ntype
+                    - ndate
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-nortification
@@ -260,6 +291,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: プロフィール設定
+                properties:
+                  sid:
+                    type: integer
+                    description: 設定ID
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-profile
@@ -277,6 +317,16 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのプロフィール設定を更新する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: プロフィール設定
+              properties:
+                sid:
+                  type: integer
+                  description: 設定ID
     parameters:
       - $ref: '#/components/parameters/uid'
   '/api/setting/account/{uid}':
@@ -287,6 +337,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: アカウント設定
+                properties:
+                  sid:
+                    type: integer
+                    description: 設定ID
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-account
@@ -304,6 +363,16 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーのアカウント設定を更新する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: アカウント設定
+              properties:
+                sid:
+                  type: integer
+                  description: 設定ID
     parameters:
       - $ref: '#/components/parameters/uid'
   '/api/setting/nortification/{uid}':
@@ -314,6 +383,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: 通知設定
+                properties:
+                  sid:
+                    type: integer
+                    description: 設定ID
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-nortification
@@ -331,6 +409,16 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーの通知設定更新
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 通知設定
+              properties:
+                sid:
+                  type: integer
+                  description: 設定ID
     parameters:
       - $ref: '#/components/parameters/uid'
   '/api/setting/customize/{uid}':
@@ -341,6 +429,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: 表示設定
+                properties:
+                  sid:
+                    type: integer
+                    description: 設定ID
         default:
           $ref: '#/components/responses/commonError'
       operationId: get-setting-customize
@@ -358,26 +455,35 @@ paths:
         default:
           $ref: '#/components/responses/commonError'
       description: そのユーザーの表示(デザイン)設定を更新する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 表示設定
+              properties:
+                sid:
+                  type: integer
+                  description: 設定ID
     parameters:
       - $ref: '#/components/parameters/uid'
 components:
   schemas:
     uid:
       type: integer
-      desccription: ユーザー固有ID
     userid:
       type: string
       description: ユーザーID
     uname:
       type: string
       description: ユーザー名
-    userMail:
+    umail:
       type: string
       description: メールアドレス
-    userDesc:
+    udesc:
       type: string
       description: ユーザー説明
-    userImgPath:
+    uimgpath:
       type: string
       description: ユーザー画像パス
     userInfoRequired:
@@ -388,18 +494,18 @@ components:
           $ref: '#/components/schemas/userid'
         uname:
           $ref: '#/components/schemas/uname'
-        userMail:
-          $ref: '#/components/schemas/userMail'
-        userDesc:
-          $ref: '#/components/schemas/userDesc'
-        userImgPath:
-          $ref: '#/components/schemas/userImgPath'
+        umail:
+          $ref: '#/components/schemas/umail'
+        udesc:
+          $ref: '#/components/schemas/udesc'
+        uimgpath:
+          $ref: '#/components/schemas/uimgpath'
       required:
         - userid
         - uname
-        - userMail
-        - userDesc
-        - userImgPath
+        - umail
+        - udesc
+        - uimgpath
     userListRequired:
       type: array
       description: ユーザー一覧
@@ -409,42 +515,23 @@ components:
       type: object
       description: エラー内容
       properties:
-        errorCode:
+        code:
           type: string
           description: エラーコード
-        errorMessage:
+        message:
           type: string
           description: エラーメッセージ
       required:
-        - errorCode
-        - errorMessage
+        - code
+        - message
   parameters:
-    user:
-      schema:
-        $ref: '#/components/schemas/userid'
-      name: userid
-      in: path
-      required: true
-      description: そのユーザーのユーザーID
     uid:
       schema:
         $ref: '#/components/schemas/uid'
       name: uid
       in: path
       required: true
-      description: ログイン中のユーザー固有ID
-  requestBodies:
-    userid:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              userid:
-                type: string
-                description: 更新する対象ユーザーID
-            required:
-              - userid
+      description: ログイン中のユーザーの固有ID
   responses:
     userList:
       description: OK
