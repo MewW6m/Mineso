@@ -20,19 +20,23 @@ import java.util.List;
 @NoArgsConstructor
 @Component
 public class Apps {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aid", nullable = false, updatable = false, insertable = false)
 	private int aid;
+
 	@Column(name = "adisabled")
 	private boolean adisabled;
+
 	@Column(name = "aname", unique=true, nullable = false)
 	private String aname;
+
 	@Column(name = "aimgpath")
 	private String aimgpath;
+
 	@Column(name = "aurl", nullable = false)
 	private String aurl;
-
 
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(

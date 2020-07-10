@@ -1,5 +1,7 @@
 package app.model;
 
+import app.config.JView;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,19 +22,30 @@ import java.util.Date;
 @NoArgsConstructor
 @Component
 public class Nortifications {
+
+    @JsonView(JView.NortificationInfo.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid")
     private int nid;
+
+    @JsonView(JView.NortificationInfo.class)
     @Column(name = "ntitle")
     private String ntitle;
+
+    @JsonView(JView.NortificationInfo.class)
     @Column(name = "ndetail")
     private String ndetail;
+
+    @JsonView(JView.NortificationInfo.class)
     @Column(name = "ntype")
     private String ntype;
+
+    @JsonView(JView.NortificationInfo.class)
     @Column(name = "ndate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date ndate;
+
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="uid", referencedColumnName="uid", nullable = false)
     private Users users;

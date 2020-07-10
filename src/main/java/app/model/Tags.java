@@ -20,10 +20,12 @@ import java.util.List;
 @NoArgsConstructor
 @Component
 public class Tags {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tid", nullable = false, updatable = false, insertable = false)
 	private int tid;
+
 	@Column(name = "tagname", unique=true)
 	private int tagname;
 

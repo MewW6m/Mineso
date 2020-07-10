@@ -1,0 +1,31 @@
+{
+  "name": "MinesO",
+  "version": "1.0.0",
+  "description": "![イメージ画像](/docs/reference/other/image/test.png)",
+  "main": "index.js",
+  "directories": {
+    "doc": "./docs/reference/3_dd/",
+	"assets" : "./src/main/resources/static/",
+	"lib": "./src/main/resources/static/lib/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MewW6m/MinesO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MewW6m/MinesO/issues"
+  },
+  "homepage": "https://github.com/MewW6m/MinesO#readme",
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

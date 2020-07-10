@@ -21,23 +21,31 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Component
 public class Settings {
+
+	@JsonView(JView.Public.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sid")
 	private int sid;
+
 	@Column(name = "uid", nullable = false, updatable = false, insertable = false)
 	private int uid;
+
 	@Column(name = "uservisibled")
 	private boolean uservisibled;
+
 	@JsonView(JView.Account.class)
 	@Column(name = "accountsetting1")
 	private String accountsetting1;
+
 	@JsonView(JView.Profile.class)
 	@Column(name = "profilesetting1")
 	private String profilesetting1;
+
 	@JsonView(JView.Nortification.class)
 	@Column(name = "norsetting1")
 	private String norsetting1;
+
 	@JsonView(JView.Customize.class)
 	@Column(name = "customizesetting1")
 	private String customizesetting1;

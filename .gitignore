@@ -159,3 +159,4 @@ docs/docsMng/*
 logo*.png
 logo.pptx
 src/main/resources/application-dev.*
+node_modules/

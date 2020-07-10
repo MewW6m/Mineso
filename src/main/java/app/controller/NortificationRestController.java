@@ -1,10 +1,14 @@
 package app.controller;
 
+import app.config.JView;
 import app.model.ErrorInfos;
 import app.model.Nortifications;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,23 +22,33 @@ public class NortificationRestController {
     /**
      * getNortificationListメソッド<br>
      * 通知情報リストを返す
-     *  @param userId ユーザーID
+     *  @param uid ユーザーID
      * @return List<Nortification> 通知リスト
      */
-    @GetMapping("/api/nortification/{userId}")
-    public List<Nortifications> getNortificationList(@PathVariable("userId") String userId){
-        return new ArrayList<Nortifications>();
+    @JsonView(JView.NortificationInfo.class)
+    @GetMapping("/api/nortification/{uid}")
+    public List<Nortifications> getNortificationList(@PathVariable("uid") String uid){
+        List<Nortifications> norList = new ArrayList<>();
+        Nortifications nor = new Nortifications();
+        nor.setNid(1);
+        nor.setNtitle("norTitle1");
+        nor.setNdetail("norDetail1");
+        nor.setNtype("type1");
+        nor.setNdate(new Date());
+        norList.add(nor);
+        norList.add(nor);
+        return norList;
     }
 
     /**
      * postNortificationメソッド<br>
      * 通知を更新する
-     *  @param userId ユーザーID
+     *  @param uid ユーザーID
      *  @param nIdList 通知IDリスト
      * @return ErrorInfo エラー情報
      */
-    @PostMapping("/api/nortification/{userId}")
-    public ErrorInfos postNortification(@PathVariable("userId") String userId, @RequestBody List<String> nIdList){
+    @PostMapping("/api/nortification/{uid}")
+    public ErrorInfos postNortification(@PathVariable("uid") String uid, @RequestBody List<String> nIdList){
         return new ErrorInfos();
     }
 }

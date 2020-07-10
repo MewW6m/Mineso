@@ -9,6 +9,12 @@ public class JView {
     public static class Public {
     }
 
+    public static class UserInfo extends Public {
+    }
+
+    public static class NortificationInfo extends Public {
+    }
+
     public static class Profile extends Public {
     }
 

@@ -1,5 +1,7 @@
 package app.model;
 
+import app.config.JView;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -26,16 +28,27 @@ public class Users {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "uid", nullable = false, updatable = false, insertable = false)
 	private int uid;
+
+	@JsonView(JView.UserInfo.class)
 	@Column(name = "userid", unique = true , nullable = false)
 	private String userid;
+
+	@JsonView(JView.UserInfo.class)
 	@Column(name = "uname", nullable = false)
 	private String uname;
+
+	@JsonView(JView.UserInfo.class)
 	@Column(name = "umail")
 	private String umail;
+
+	@JsonView(JView.UserInfo.class)
 	@Column(name = "udesc")
 	private String udesc;
+
+	@JsonView(JView.UserInfo.class)
 	@Column(name = "uimgpath")
 	private String uimgpath;
+
 	@Column(name = "udisabled")
 	private boolean udisabled;
 
