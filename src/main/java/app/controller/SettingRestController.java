@@ -3,8 +3,12 @@ package app.controller;
 import app.config.JView;
 import app.model.ErrorInfos;
 import app.model.Settings;
+import app.service.SettingsService;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * SettingsController<br>
@@ -14,8 +18,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class SettingRestController {
 
+	@Autowired
+	private SettingsService settingsService;
+	
 	/**
-	 * postAuthメソッド<br>
+	 * postAuth
 	 * ログインする。SpringSecurityの方で実装予定。(本メソッドは削除予定)
 	 * @return String リダイレクト先
 	 */
@@ -26,22 +33,19 @@ public class SettingRestController {
 
 
 	/**
-	 * getProfileSettingメソッド<br>
+	 * getProfileSetting<br>
 	 * プロフィール設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
 	 * @return Settings プロフィール設定情報
 	 */
 	@JsonView(JView.Profile.class)
 	@GetMapping("/api/setting/profile/{uid}")
-    public Settings getProfileSetting(@PathVariable("uid") String uid) {
-		Settings settings = new Settings();
-		settings.setSid(1);
-		settings.setProfilesetting1("prof");
-		return settings;
+    public Settings getProfileSetting(@PathVariable("uid") int uid) {
+		return settingsService.getSettings(uid);
 	}
 
 	/**
-	 * postProfileSettingメソッド<br>
+	 * postProfileSetting<br>
 	 * プロフィール設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings プロフィール設定情報
@@ -49,27 +53,25 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Profile.class)
 	@PostMapping("/api/setting/profile/{uid}")
-	public ErrorInfos postProfileSetting(@PathVariable("uid") String uid, @RequestBody Settings settings) {
+	public ErrorInfos postProfileSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
+		settingsService.postSettings(uid, settingMap);
 		return new ErrorInfos();
 	}
 
 	/**
-	 * getAccountSettingメソッド<br>
+	 * getAccountSetting<br>
 	 * アカウント設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
 	 * @return Settings アカウント設定情報
 	 */
 	@JsonView(JView.Account.class)
 	@GetMapping("/api/setting/account/{uid}")
-    public Settings getAccountSetting(@PathVariable("uid") String uid) {
-		Settings settings = new Settings();
-		settings.setSid(1);
-		settings.setAccountsetting1("acc");
-		return settings;
+    public Settings getAccountSetting(@PathVariable("uid") int uid) {
+		return settingsService.getSettings(uid);
 	}
 
 	/**
-	 * postAccountSettingメソッド<br>
+	 * postAccountSetting<br>
 	 * アカウント設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings アカウント設定情報
@@ -77,27 +79,25 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Account.class)
 	@PostMapping("/api/setting/account/{uid}")
-	public ErrorInfos postAccountSetting(@PathVariable("uid") String uid, @RequestBody Settings settings) {
+	public ErrorInfos postAccountSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
+		settingsService.postSettings(uid, settingMap);
 		return new ErrorInfos();
 	}
 
 	/**
-	 * getNortificationSettingメソッド<br>
+	 * getNortificationSetting<br>
 	 * 通知設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
 	 * @return Settings 通知設定情報
 	 */
 	@JsonView(JView.Nortification.class)
 	@GetMapping("/api/setting/nortification/{uid}")
-    public Settings getNortificationSetting(@PathVariable("uid") String uid) {
-		Settings settings = new Settings();
-		settings.setSid(1);
-		settings.setNorsetting1("nor");
-		return settings;
+    public Settings getNortificationSetting(@PathVariable("uid") int uid) {
+		return settingsService.getSettings(uid);
 	}
 
 	/**
-	 * postNortificationSettingメソッド<br>
+	 * postNortificationSetting<br>
 	 * 通知設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings 通知設定情報
@@ -105,27 +105,25 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Nortification.class)
 	@PostMapping("/api/setting/nortification/{uid}")
-	public ErrorInfos postNortificationSetting(@PathVariable("uid") String uid, @RequestBody Settings settings) {
+	public ErrorInfos postNortificationSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
+		settingsService.postSettings(uid, settingMap);
 		return new ErrorInfos();
 	}
 
 	/**
-	 * getCustomizeSettingメソッド<br>
+	 * getCustomizeSetting<br>
 	 * 表示設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
 	 * @return Settings 表示設定情報
 	 */
 	@JsonView(JView.Customize.class)
 	@GetMapping("/api/setting/customize/{uid}")
-    public Settings getCustomizeSetting(@PathVariable("uid") String uid) {
-		Settings settings = new Settings();
-		settings.setSid(1);
-		settings.setCustomizesetting1("cus");
-		return settings;
+    public Settings getCustomizeSetting(@PathVariable("uid") int uid) {
+		return settingsService.getSettings(uid);
 	}
 
 	/**
-	 * postCustomizeSettingメソッド<br>
+	 * postCustomizeSetting<br>
 	 * 表示設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings 表示設定情報
@@ -133,7 +131,8 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Customize.class)
 	@PostMapping("/api/setting/customize/{uid}")
-	public ErrorInfos postCustomizeSetting(@PathVariable("uid") String uid, @RequestBody Settings settings) {
+	public ErrorInfos postCustomizeSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
+		settingsService.postSettings(uid, settingMap);
 		return new ErrorInfos();
 	}
 }

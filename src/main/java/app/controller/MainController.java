@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
 	/**
-	 * getTopPageメソッド<br>
+	 * getTopPage<br>
 	 * Topページを返す
 	 * @return String Topページ
 	 */
@@ -26,7 +26,7 @@ public class MainController {
 
 //
 //	/**
-//	 * getMainPageメソッド<br>
+//	 * getMainPage<br>
 //	 * ログイン状況に応じて、ページをリダイレクトする
 //	 * @return String リダイレクト先
 //	 */
@@ -40,7 +40,7 @@ public class MainController {
 //	}
 //
 //	/**
-//	 * getHelpPageメソッド<br>
+//	 * getHelpPage<br>
 //	 * Helpページを返す
 //	 * @return String Helpページ
 //	 */
@@ -50,7 +50,7 @@ public class MainController {
 //	}
 //
 //	/**
-//	 * getTermsPageメソッド<br>
+//	 * getTermsPage<br>
 //	 * 利用規約ページを返す
 //	 * @return String 利用規約ページ
 //	 */

@@ -36,11 +36,12 @@ sourceCompatibility = '14'
 
 
 bootRun {
-
+    jvmArgs = ['--illegal-access=deny']
 }
 
 test {
     useJUnitPlatform()
+    jvmArgs = ['--illegal-access=deny']
 }
 
 tasks.withType(JavaCompile) {

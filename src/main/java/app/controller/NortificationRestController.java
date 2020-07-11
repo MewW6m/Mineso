@@ -20,14 +20,14 @@ import java.util.List;
 public class NortificationRestController {
 
     /**
-     * getNortificationListメソッド<br>
+     * getNortificationList<br>
      * 通知情報リストを返す
      *  @param uid ユーザーID
      * @return List<Nortification> 通知リスト
      */
     @JsonView(JView.NortificationInfo.class)
     @GetMapping("/api/nortification/{uid}")
-    public List<Nortifications> getNortificationList(@PathVariable("uid") String uid){
+    public List<Nortifications> getNortificationList(@PathVariable("uid") int uid){
         List<Nortifications> norList = new ArrayList<>();
         Nortifications nor = new Nortifications();
         nor.setNid(1);
@@ -41,14 +41,14 @@ public class NortificationRestController {
     }
 
     /**
-     * postNortificationメソッド<br>
+     * postNortification<br>
      * 通知を更新する
      *  @param uid ユーザーID
      *  @param nIdList 通知IDリスト
      * @return ErrorInfo エラー情報
      */
     @PostMapping("/api/nortification/{uid}")
-    public ErrorInfos postNortification(@PathVariable("uid") String uid, @RequestBody List<String> nIdList){
+    public ErrorInfos postNortification(@PathVariable("uid") int uid, @RequestBody List<Integer> nIdList){
         return new ErrorInfos();
     }
 }

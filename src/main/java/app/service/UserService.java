@@ -20,7 +20,7 @@ public class UserService  {
     UserRepository userRepository;
 
     /**
-     * getUserメソッド<br>
+     * getUser<br>
      * ユーザー情報(ユーザーと設定)を設定する
      *  @param userId ユーザーID
      * @return User ユーザー情報返す

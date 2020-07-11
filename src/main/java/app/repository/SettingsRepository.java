@@ -4,6 +4,8 @@ import app.model.Settings;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * SettingsRepository<br>
  * 設定をDBから取得する
@@ -13,10 +15,10 @@ import org.springframework.stereotype.Repository;
 public interface SettingsRepository extends JpaRepository<Settings, Long> {
 
 	/**
-	 * findFirstByUidメソッド<br>
+	 * findFirstByUid<br>
 	 * 設定を{key,value}をもとにDBから取得するメソッド
 	 *  @param uid ユーザー情報ID
 	 * @return Settings 設定情報
 	 */
-	public Settings findFirstByUid(int uid);
+	public Optional<Settings> findFirstByUid(int uid);
 }

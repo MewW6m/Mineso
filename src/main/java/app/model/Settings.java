@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import javax.persistence.*;
  */
 
 @Entity
+@DynamicUpdate(value = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

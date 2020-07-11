@@ -28,7 +28,7 @@ public class UserRestController {
 	private SettingsService settingsService;
 
 	/**
-	 * getUserInfoメソッド<br>
+	 * getUserInfo<br>
 	 * 指定したユーザー情報を返す
 	 *  @param uid urlで指定されたユーザーID
 	 * @return User 指定されたユーザー情報
@@ -54,7 +54,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * postUserInfoメソッド<br>
+	 * postUserInfo<br>
 	 * 指定したユーザー情報を更新する
 	 *  @param uid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報の内容
@@ -66,7 +66,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * getFollowListメソッド<br>
+	 * getFollowList<br>
 	 * 指定したユーザーのフォローユーザーリストを返す
 	 *  @param uid urlで指定されたユーザーID
 	 * @return List<User> フォローユーザーリスト
@@ -87,7 +87,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * postFollowListメソッド<br>
+	 * postFollowList<br>
 	 * 指定したユーザーのフォロー情報を更新する
 	 *  @param uid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報(ユーザーID)
@@ -99,7 +99,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * getFollowerListメソッド<br>
+	 * getFollowerList<br>
 	 * 指定したユーザーのフォロワーユーザーリストを返す
 	 *  @param uid urlで指定されたユーザーID
 	 * @return List<User> フォロワーユーザーリスト
@@ -120,7 +120,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * postFollowerListメソッド<br>
+	 * postFollowerList<br>
 	 * 指定したユーザーのフォロワー情報を更新する
 	 *  @param uid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報(ユーザーID)
@@ -132,7 +132,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * getTagUserListメソッド<br>
+	 * getTagUserList<br>
 	 * 指定したタグのタグ付けユーザーリストを返す
 	 *  @param tagName urlで指定されたタグ名
 	 * @return List<User> タグ付けユーザーリスト
@@ -153,7 +153,7 @@ public class UserRestController {
 	}
 
 	/**
-	 * getAppUserListメソッド<br>
+	 * getAppUserList<br>
 	 * 指定したアプリの登録ユーザーリストを返す
 	 *  @param aname urlで指定されたアプリ名
 	 * @return List<User> タグ付けユーザーリスト
