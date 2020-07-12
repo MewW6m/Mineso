@@ -7,7 +7,10 @@ import app.model.Users;
 import app.service.SettingsService;
 import app.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -58,10 +61,11 @@ public class UserRestController {
 	 * 指定したユーザー情報を更新する
 	 *  @param uid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報の内容
+	 *  @param error 検証結果
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/{uid}")
-	public ErrorInfos postUserInfo(@PathVariable("uid") String uid, @RequestBody Users users) {
+	public ErrorInfos postUserInfo(@PathVariable("uid") String uid, @RequestBody @JsonView(JView.UserInfo.class) @Validated Users users, BindingResult error) {
 		return new ErrorInfos();
 	}
 
@@ -93,6 +97,7 @@ public class UserRestController {
 	 *  @param users 更新するユーザー情報(ユーザーID)
 	 * @return ErrorInfo エラー情報
 	 */
+	@JsonView(JView.UserInfo.class)
 	@PostMapping("/api/user/follow/{uid}")
 	public ErrorInfos postFollowList(@PathVariable("uid") String uid, @RequestBody Users users) {
 		return new ErrorInfos();

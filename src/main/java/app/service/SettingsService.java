@@ -39,8 +39,7 @@ public class SettingsService {
      */
     @Transactional(readOnly = false)
     public void postSettings(int uid, Map<String, Object> settingMap) throws Exception {
-        Settings settings = settingsRepository.findFirstByUid(uid)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found!"));
+        Settings settings = settingsRepository.findFirstByUid(uid).orElseThrow(() -> new Exception());
         util.mapping(settings, settingMap);
         settingsRepository.saveAndFlush(settings);
 

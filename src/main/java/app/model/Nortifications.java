@@ -1,14 +1,12 @@
 package app.model;
 
-import app.config.JView;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -23,29 +21,32 @@ import java.util.Date;
 @Component
 public class Nortifications {
 
-    @JsonView(JView.NortificationInfo.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "nid")
+    @Column(name = "nid", nullable = false)
     private int nid;
 
-    @JsonView(JView.NortificationInfo.class)
-    @Column(name = "ntitle")
+    @JsonIgnore
+    @Column(name = "uid", nullable = false, updatable = false, insertable = false)
+    private int uid;
+
+    @Column(name = "ntitle", nullable = false)
     private String ntitle;
 
-    @JsonView(JView.NortificationInfo.class)
-    @Column(name = "ndetail")
+    @Column(name = "ndetail", nullable = false)
     private String ndetail;
 
-    @JsonView(JView.NortificationInfo.class)
-    @Column(name = "ntype")
+    @Column(name = "ntype", nullable = false)
     private String ntype;
 
-    @JsonView(JView.NortificationInfo.class)
-    @Column(name = "ndate")
+    @Column(name = "ndate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date ndate;
 
+    @Column(name = "nflag", nullable = false)
+    private Boolean nflag;
+
+    @JsonIgnore
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="uid", referencedColumnName="uid", nullable = false)
     private Users users;

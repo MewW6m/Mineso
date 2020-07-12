@@ -16,7 +16,7 @@ public interface SettingsRepository extends JpaRepository<Settings, Long> {
 
 	/**
 	 * findFirstByUid<br>
-	 * 設定を{key,value}をもとにDBから取得するメソッド
+	 * 設定情報をuidをもとにDBから取得するメソッド
 	 *  @param uid ユーザー情報ID
 	 * @return Settings 設定情報
 	 */

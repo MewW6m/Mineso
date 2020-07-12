@@ -48,7 +48,7 @@ public class SettingRestController {
 	 * postProfileSetting<br>
 	 * プロフィール設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
-	 *  @param settings プロフィール設定情報
+	 *  @param settingMap プロフィール設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Profile.class)
@@ -74,7 +74,7 @@ public class SettingRestController {
 	 * postAccountSetting<br>
 	 * アカウント設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
-	 *  @param settings アカウント設定情報
+	 *  @param settingMap アカウント設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Account.class)
@@ -100,7 +100,7 @@ public class SettingRestController {
 	 * postNortificationSetting<br>
 	 * 通知設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
-	 *  @param settings 通知設定情報
+	 *  @param settingMap 通知設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Nortification.class)
@@ -126,7 +126,7 @@ public class SettingRestController {
 	 * postCustomizeSetting<br>
 	 * 表示設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
-	 *  @param settings 表示設定情報
+	 *  @param settingMap 表示設定情報
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Customize.class)

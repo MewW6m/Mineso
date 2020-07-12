@@ -1,6 +1,7 @@
 package app.model;
 
 import app.config.JView;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -31,10 +34,12 @@ public class Users {
 
 	@JsonView(JView.UserInfo.class)
 	@Column(name = "userid", unique = true , nullable = false)
+	@NotBlank
 	private String userid;
 
 	@JsonView(JView.UserInfo.class)
 	@Column(name = "uname", nullable = false)
+	@NotBlank
 	private String uname;
 
 	@JsonView(JView.UserInfo.class)
@@ -49,6 +54,7 @@ public class Users {
 	@Column(name = "uimgpath")
 	private String uimgpath;
 
+	@JsonIgnore
 	@Column(name = "udisabled")
 	private boolean udisabled;
 

@@ -12,8 +12,8 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      #ddl-auto: update
-      #generate-ddl: create
+#     ddl-auto: update
+#     generate-ddl: create
       dialect: org.hibernate.dialect.MySQL5Dialect
       use-new-id-generator-mappings: true
 

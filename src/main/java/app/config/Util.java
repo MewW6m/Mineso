@@ -29,8 +29,6 @@ public class Util {
     public void mapping(Object entity, Map<String, Object> map /*, String[] ignoreFields*/) throws Exception {
         Boolean errFlg = false;
         for(Map.Entry<String, Object> en : map.entrySet()){
-//            System.out.println(entry.getKey());
-//            System.out.println(entry.getValue());
 
             String key = en.getKey().substring(0, 1).toUpperCase() + en.getKey().substring(1);
             //if(!Arrays.asList(ignoreFields).contains(key)) {
