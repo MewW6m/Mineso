@@ -53,8 +53,8 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Profile.class)
 	@PostMapping("/api/setting/profile/{uid}")
-	public ErrorInfos postProfileSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
-		settingsService.postSettings(uid, settingMap);
+	public ErrorInfos postProfileSetting(@PathVariable("uid") int uid, @RequestBody @JsonView(JView.Profile.class) Settings settings) throws Exception {
+		settingsService.postSettings(uid, settings);
 		return new ErrorInfos();
 	}
 
@@ -79,8 +79,8 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Account.class)
 	@PostMapping("/api/setting/account/{uid}")
-	public ErrorInfos postAccountSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
-		settingsService.postSettings(uid, settingMap);
+	public ErrorInfos postAccountSetting(@PathVariable("uid") int uid, @RequestBody @JsonView(JView.Account.class) Settings settings) throws Exception {
+		settingsService.postSettings(uid, settings);
 		return new ErrorInfos();
 	}
 
@@ -105,8 +105,8 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Nortification.class)
 	@PostMapping("/api/setting/nortification/{uid}")
-	public ErrorInfos postNortificationSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
-		settingsService.postSettings(uid, settingMap);
+	public ErrorInfos postNortificationSetting(@PathVariable("uid") int uid, @RequestBody @JsonView(JView.Nortification.class) Settings settings) throws Exception {
+		settingsService.postSettings(uid, settings);
 		return new ErrorInfos();
 	}
 
@@ -131,8 +131,8 @@ public class SettingRestController {
 	 */
 	@JsonView(JView.Customize.class)
 	@PostMapping("/api/setting/customize/{uid}")
-	public ErrorInfos postCustomizeSetting(@PathVariable("uid") int uid, @RequestBody Map<String, Object> settingMap) throws Exception {
-		settingsService.postSettings(uid, settingMap);
+	public ErrorInfos postCustomizeSetting(@PathVariable("uid") int uid, @RequestBody @JsonView(JView.Customize.class) Settings settings) throws Exception {
+		settingsService.postSettings(uid, settings);
 		return new ErrorInfos();
 	}
 }

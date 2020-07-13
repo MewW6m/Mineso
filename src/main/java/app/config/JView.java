@@ -6,6 +6,10 @@ package app.config;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 public class JView {
+
+    public static interface Ignore {
+    }
+
     public static interface Public {
     }
 
@@ -28,8 +32,5 @@ public class JView {
     }
 
     public static interface commonSetting extends Profile, Account, Nortification, Customize{
-    }
-
-    public static interface Ignore {
     }
 }

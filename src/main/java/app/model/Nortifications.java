@@ -24,11 +24,11 @@ public class Nortifications {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid", nullable = false)
-    private int nid;
+    private Integer nid;
 
     @JsonIgnore
     @Column(name = "uid", nullable = false, updatable = false, insertable = false)
-    private int uid;
+    private Integer uid;
 
     @Column(name = "ntitle", nullable = false)
     private String ntitle;

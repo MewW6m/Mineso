@@ -30,16 +30,17 @@ public class NortificationService {
     /**
      * postNorList<br>
      * 通知を更新する
-     *  @param uid ユーザー情報ID
      *  @oaran nid 通知ID
      * @return List<Nortifications> 通知リスト返す
      */
+    public void updateNorList(List<Integer> nid) throws Exception {
+        for (Integer i : nid){ updateNor(i); }
+    }
+
     @Transactional(readOnly = false)
-    public void updateNorList(int uid, List<Integer> nid) throws Exception {
-        for (Integer i : nid){
-            Nortifications nor = nortificationRepository.findFirstByNid(i).orElseThrow(() -> new Exception());
+    public void updateNor(Integer nid) throws Exception {
+            Nortifications nor = nortificationRepository.findFirstByNid(nid).orElseThrow(() -> new Exception());
             nor.setNflag(true);
             nortificationRepository.saveAndFlush(nor);
-        }
     }
 }

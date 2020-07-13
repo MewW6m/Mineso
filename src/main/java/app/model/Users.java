@@ -30,7 +30,7 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "uid", nullable = false, updatable = false, insertable = false)
-	private int uid;
+	private Integer uid;
 
 	@JsonView(JView.UserInfo.class)
 	@Column(name = "userid", unique = true , nullable = false)
@@ -56,7 +56,7 @@ public class Users {
 
 	@JsonIgnore
 	@Column(name = "udisabled")
-	private boolean udisabled;
+	private Boolean udisabled;
 
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(

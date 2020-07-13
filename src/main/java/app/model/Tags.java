@@ -24,10 +24,10 @@ public class Tags {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tid", nullable = false, updatable = false, insertable = false)
-	private int tid;
+	private Integer tid;
 
 	@Column(name = "tagname", unique=true)
-	private int tagname;
+	private Integer tagname;
 
 
 	@ManyToMany(cascade=CascadeType.ALL)

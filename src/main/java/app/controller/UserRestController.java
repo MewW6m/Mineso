@@ -33,106 +33,74 @@ public class UserRestController {
 	/**
 	 * getUserInfo<br>
 	 * 指定したユーザー情報を返す
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 * @return User 指定されたユーザー情報
 	 */
 	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/user/{uid}")
-	public Users getUserInfo(@PathVariable("uid") String uid) {
-//		Users users = userservice.getUser(uid);
-//		Settings settings = settingsService.getSettings(users.getUid());
-//		if (users.isUdisabled() && settings.isUservisibled()) {
-//			return users;
-//		} else {
-//			return new Users();
-//		}
-		// Users user = new Users(1, "user01", "user01", "e-mail@mail.com", "desc", "/img/path", false);
-		Users user = new Users();
-		user.setUserid("ac01");
-		user.setUname("user01");
-		user.setUmail("mailaddress");
-		user.setUdesc("desc");
-		user.setUimgpath("/path");
-		return user;
+	@GetMapping("/api/user/{userid}")
+	public Users getUserInfo(@PathVariable("userid") String userid) throws Exception {
+		return userservice.getUser(userid);
 	}
 
 	/**
 	 * postUserInfo<br>
 	 * 指定したユーザー情報を更新する
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報の内容
 	 *  @param error 検証結果
 	 * @return ErrorInfo エラー情報
 	 */
-	@PostMapping("/api/user/{uid}")
-	public ErrorInfos postUserInfo(@PathVariable("uid") String uid, @RequestBody @JsonView(JView.UserInfo.class) @Validated Users users, BindingResult error) {
+	@PostMapping("/api/user/{userid}")
+	public ErrorInfos postUserInfo(@PathVariable("userid") String userid, @RequestBody @JsonView(JView.UserInfo.class) @Validated Users users, BindingResult error) {
 		return new ErrorInfos();
 	}
 
 	/**
 	 * getFollowList<br>
 	 * 指定したユーザーのフォローユーザーリストを返す
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 * @return List<User> フォローユーザーリスト
 	 */
 	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/user/follow/{uid}")
-	public List<Users> getFollowList(@PathVariable("uid") String uid) {
-		Users user = new Users();
-		List<Users> userList = new ArrayList<Users>();
-		user.setUserid("ac01");
-		user.setUname("user01");
-		user.setUmail("mailaddress");
-		user.setUdesc("desc");
-		user.setUimgpath("/path");
-		userList.add(user);
-		userList.add(user);
-		return userList;
+	@GetMapping("/api/user/follow/{userid}")
+	public List<Users> getFollowList(@PathVariable("userid") String userid) {
+		return getFollow(userid);
 	}
 
 	/**
 	 * postFollowList<br>
 	 * 指定したユーザーのフォロー情報を更新する
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報(ユーザーID)
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.UserInfo.class)
-	@PostMapping("/api/user/follow/{uid}")
-	public ErrorInfos postFollowList(@PathVariable("uid") String uid, @RequestBody Users users) {
+	@PostMapping("/api/user/follow/{userid}")
+	public ErrorInfos postFollowList(@PathVariable("userid") String userid, @RequestBody Users users) {
 		return new ErrorInfos();
 	}
 
 	/**
 	 * getFollowerList<br>
 	 * 指定したユーザーのフォロワーユーザーリストを返す
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 * @return List<User> フォロワーユーザーリスト
 	 */
 	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/user/follower/{uid}")
-	public List<Users> getFollowerList(@PathVariable("uid") String uid) {
-		Users user = new Users();
-		List<Users> userList = new ArrayList<Users>();
-		user.setUserid("ac01");
-		user.setUname("user01");
-		user.setUmail("mailaddress");
-		user.setUdesc("desc");
-		user.setUimgpath("/path");
-		userList.add(user);
-		userList.add(user);
-		return userList;
+	@GetMapping("/api/user/follower/{userid}")
+	public List<Users> getFollowerList(@PathVariable("userid") String userid) {
+		return getFollower(userid);
 	}
 
 	/**
 	 * postFollowerList<br>
 	 * 指定したユーザーのフォロワー情報を更新する
-	 *  @param uid urlで指定されたユーザーID
+	 *  @param userid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報(ユーザーID)
 	 * @return ErrorInfo エラー情報
 	 */
-	@PostMapping("/api/user/follower/{uid}")
-	public ErrorInfos postFollowerList(@PathVariable("uid") String uid, @RequestBody Users users) {
+	@PostMapping("/api/user/follower/{userid}")
+	public ErrorInfos postFollowerList(@PathVariable("userid") String userid, @RequestBody Users users) {
 		return new ErrorInfos();
 	}
 

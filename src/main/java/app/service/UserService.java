@@ -1,8 +1,11 @@
 package app.service;
 
+import app.model.Settings;
 import app.model.Users;
+import app.repository.SettingsRepository;
 import app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -17,17 +20,27 @@ public class UserService  {
 //public class UserService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private SettingsRepository settingsRepository;
 
     /**
      * getUser<br>
      * ユーザー情報(ユーザーと設定)を設定する
-     *  @param userId ユーザーID
-     * @return User ユーザー情報返す
+     *  @param userid ユーザーID
      */
-    public Users getUser(String userid) {
-    	return userRepository.findFirstByUserid(userid);
+    public Users getUser(String userid) throws Exception {
+    	Users user = userRepository.findFirstByUserid(userid);
+        Settings settings = settingsRepository.findFirstByUid(user.getUid()).orElseThrow(() -> new Exception());
+        if(settings.getUservisibled() && !user.getUdisabled()){
+            return user;
+        } else {
+            throw new Exception();
+        }
     }
+
+
 
 /*
     @Override

@@ -24,10 +24,10 @@ public class Apps {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aid", nullable = false, updatable = false, insertable = false)
-	private int aid;
+	private Integer aid;
 
 	@Column(name = "adisabled")
-	private boolean adisabled;
+	private Boolean adisabled;
 
 	@Column(name = "aname", unique=true, nullable = false)
 	private String aname;

@@ -2,12 +2,17 @@ package app.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Util<br>
@@ -20,26 +25,30 @@ public class Util {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
-     * mapping<br>
-     * マップからエンティティにマッピングする
-     *  @param entity マッピング先のエンティティ
-     *  @param map マッピング元のマップ
-     * @return Settings 設定情報返す
+     * copyNonNullProperties<br>
+     * Beanをコピーする
+     * @param src 上書きするBean要素
+     * @param target 上書きされるBean要素
      */
-    public void mapping(Object entity, Map<String, Object> map /*, String[] ignoreFields*/) throws Exception {
-        Boolean errFlg = false;
-        for(Map.Entry<String, Object> en : map.entrySet()){
+    public void copyNonNullProperties(Object src, Object target) {
+        BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
+    }
 
-            String key = en.getKey().substring(0, 1).toUpperCase() + en.getKey().substring(1);
-            //if(!Arrays.asList(ignoreFields).contains(key)) {
-            try {
-                Method getMethod = entity.getClass().getMethod("get" + key);
-                Method setMethod = entity.getClass().getMethod("set" + key, getMethod.getReturnType());
-                setMethod.invoke(entity, en.getValue());
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                logger.error(e.toString());
-            }
-            //}
+    /**
+     * getNullPropertyNames<br>
+     * nullのプロパティリストを返す
+     * @param source Bean要素
+     * @return プロパティリスト
+     */
+    public String[] getNullPropertyNames (Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+        Set<String> emptyNames = new HashSet<String>();
+        for(java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) emptyNames.add(pd.getName());
         }
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
 }

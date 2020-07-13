@@ -31,33 +31,33 @@ public class Settings {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sid")
-	@NotNull
-	private int sid;
+//	@NotNull(groups = {JView.Account.class,JView.Profile.class, JView.Nortification.class, JView.Customize.class})
+	private Integer sid;
 
 	@Column(name = "uid", nullable = false, updatable = false, insertable = false)
-	private int uid;
+	private Integer uid;
 
 	@Column(name = "uservisibled")
-	private boolean uservisibled;
+	private Boolean uservisibled;
 
 	@JsonView(JView.Account.class)
 	@Column(name = "accountsetting1")
-	@NotBlank
+	@NotBlank(groups = JView.Account.class)
 	private String accountsetting1;
 
 	@JsonView(JView.Profile.class)
 	@Column(name = "profilesetting1")
-	@NotBlank
+	@NotBlank(groups = JView.Profile.class)
 	private String profilesetting1;
 
 	@JsonView(JView.Nortification.class)
 	@Column(name = "norsetting1")
-	@NotBlank
+	@NotBlank(groups = JView.Nortification.class)
 	private String norsetting1;
 
 	@JsonView(JView.Customize.class)
 	@Column(name = "customizesetting1")
-	@NotBlank
+	@NotBlank(groups = JView.Customize.class)
 	private String customizesetting1;
 
 	@JsonIgnore

@@ -44,7 +44,7 @@ public class NortificationRestController {
      */
     @PostMapping("/api/nortification/{uid}")
     public ErrorInfos postNortification(@PathVariable("uid") int uid, @RequestBody List<Integer> nIdList) throws Exception {
-        nortificationService.updateNorList(uid, nIdList);
+        nortificationService.updateNorList(nIdList);
         return new ErrorInfos();
     }
 }

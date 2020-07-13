@@ -35,13 +35,12 @@ public class SettingsService {
      * postSettings<br>
      * 設定情報を設定する
      *  @param uid ユーザー情報ID
-     *  @param settingMap 設定情報
+     *  @param settings 設定情報
      */
     @Transactional(readOnly = false)
-    public void postSettings(int uid, Map<String, Object> settingMap) throws Exception {
-        Settings settings = settingsRepository.findFirstByUid(uid).orElseThrow(() -> new Exception());
-        util.mapping(settings, settingMap);
-        settingsRepository.saveAndFlush(settings);
-
+    public void postSettings(int uid, Settings settings) throws Exception {
+        Settings baseSettings = settingsRepository.findFirstByUid(uid).orElseThrow(() -> new Exception());
+        util.copyNonNullProperties(settings, baseSettings);
+        settingsRepository.saveAndFlush(baseSettings);
     }
 }
