@@ -2,12 +2,10 @@ package app.controller;
 
 import app.config.JView;
 import app.model.ErrorInfos;
-import app.model.Settings;
 import app.model.Users;
 import app.service.SettingsService;
 import app.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -39,7 +37,7 @@ public class UserRestController {
 	@JsonView(JView.UserInfo.class)
 	@GetMapping("/api/user/{userid}")
 	public Users getUserInfo(@PathVariable("userid") String userid) throws Exception {
-		return userservice.getUser(userid);
+		return userservice.getUser(userid, true);
 	}
 
 	/**
@@ -51,7 +49,11 @@ public class UserRestController {
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/{userid}")
-	public ErrorInfos postUserInfo(@PathVariable("userid") String userid, @RequestBody @JsonView(JView.UserInfo.class) @Validated Users users, BindingResult error) {
+	public ErrorInfos postUserInfo(@PathVariable("userid") String userid,
+								   @RequestBody @JsonView(JView.UserInfo.class) Users users,
+								   BindingResult error) throws Exception {
+		Users baseUsers = getUserInfo(userid);
+		userservice.postUser(users, baseUsers);
 		return new ErrorInfos();
 	}
 
@@ -63,7 +65,7 @@ public class UserRestController {
 	 */
 	@JsonView(JView.UserInfo.class)
 	@GetMapping("/api/user/follow/{userid}")
-	public List<Users> getFollowList(@PathVariable("userid") String userid) {
+	public List<Users> getFollowList(@PathVariable("userid") String userid) throws Exception  {
 		return userservice.getFollow(userid);
 	}
 
@@ -71,12 +73,12 @@ public class UserRestController {
 	 * postFollowList<br>
 	 * 指定したユーザーのフォロー情報を更新する
 	 *  @param userid urlで指定されたユーザーID
-	 *  @param users 更新するユーザー情報(ユーザーID)
+	 *  @param uid 更新するユーザー固有ID
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.UserInfo.class)
 	@PostMapping("/api/user/follow/{userid}")
-	public ErrorInfos postFollowList(@PathVariable("userid") String userid, @RequestBody Users users) {
+	public ErrorInfos postFollowList(@PathVariable("userid") String userid, @RequestBody Integer uid) {
 		return new ErrorInfos();
 	}
 
@@ -88,7 +90,7 @@ public class UserRestController {
 	 */
 	@JsonView(JView.UserInfo.class)
 	@GetMapping("/api/user/follower/{userid}")
-	public List<Users> getFollowerList(@PathVariable("userid") String userid) {
+	public List<Users> getFollowerList(@PathVariable("userid") String userid) throws Exception  {
 		return userservice.getFollower(userid);
 	}
 

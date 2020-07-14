@@ -1,5 +1,6 @@
 package app.service;
 
+import app.config.Util;
 import app.model.Settings;
 import app.model.Users;
 import app.repository.SettingsRepository;
@@ -30,30 +31,75 @@ public class UserService  {
     @Autowired
     private SettingsRepository settingsRepository;
 
+    @Autowired
+    private Util util;
+
     /**
      * getUser<br>
-     * ユーザー情報(ユーザーと設定)を設定する
+     * ユーザー情報(ユーザーと設定)を取得する
      *  @param userid ユーザーID
+     *  @param getCntFlg フォロー数取得可否
      */
-    public Users getUser(String userid) throws Exception {
-    	Users user = userRepository.findFirstByUserid(userid);
-        List<List<Integer>> followList = userRepository.getFollowCount(user.getUid());
-    	user.setFollowCount(followList.get(0).get(0));
-        user.setFollowerCount(followList.get(0).get(1));
-        Settings settings = settingsRepository.findFirstByUid(user.getUid()).orElseThrow(() -> new Exception());
-        if(settings.getUservisibled() && !user.getUdisabled()){
-            return user;
+    public Users getUser(String userid, Boolean getCntFlg) throws Exception {
+    	Users users = userRepository.findFirstByUserid(userid);
+        Settings settings = settingsRepository.findFirstByUid(users.getUid()).orElseThrow(() -> new Exception());
+        if(settings.getUservisibled() && !users.getUdisabled()){
+            if(getCntFlg) {
+                List<List<Integer>> followList = userRepository.getFollowCount(users.getUid());
+                users.setFollowCount(followList.get(0).get(0));
+                users.setFollowerCount(followList.get(0).get(1));
+            }
+            return users;
         } else {
             throw new Exception();
         }
     }
 
-    public List<Users> getFollow(String userid) {
-        return new ArrayList<Users>();
+    /**
+     * postUser<br>
+     * ユーザー情報を更新する
+     * @param users
+     * @throws Exception
+     */
+    public void postUser(Users users, Users baseUsers) throws Exception {
+        if (users.getUserid()!=null && (users.getUid() == baseUsers.getUid())) {
+            util.copyNonNullProperties(users, baseUsers);
+            userRepository.saveAndFlush(baseUsers);
+        }
     }
 
-    public List<Users> getFollower(String userid) {
-        return new ArrayList<Users>();
+    /**
+     * getUser<br>
+     * フォロー情報を取得する
+     *  @param userid ユーザーID
+     * @return フォローリスト
+     */
+    public List<Users> getFollow(String userid) throws Exception {
+        Users users = userRepository.findFirstByUserid(userid);
+        Settings settings = settingsRepository.findFirstByUid(users.getUid()).orElseThrow(() -> new Exception());
+        if(settings.getUservisibled() && !users.getUdisabled()){
+            return userRepository.getFollow(users.getUid());
+        } else {
+            throw new Exception();
+        }
+    }
+
+
+
+    /**
+     * getUser<br>
+     * フォローワー情報を取得する
+     *  @param userid ユーザーID
+     * @return フォロワーリスト
+     */
+    public List<Users> getFollower(String userid) throws Exception {
+        Users users = userRepository.findFirstByUserid(userid);
+        Settings settings = settingsRepository.findFirstByUid(users.getUid()).orElseThrow(() -> new Exception());
+        if(settings.getUservisibled() && !users.getUdisabled()){
+            return userRepository.getFollower(users.getUid());
+        } else {
+            throw new Exception();
+        }
     }
 
 

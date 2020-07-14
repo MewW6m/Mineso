@@ -12,7 +12,9 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Users<br>
@@ -21,6 +23,7 @@ import java.util.List;
  */
 
 @Entity
+@Table(name="users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +33,7 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "uid", nullable = false, updatable = false, insertable = false)
+	@NotNull()
 	private Integer uid;
 
 	@JsonView(JView.UserInfo.class)
@@ -83,15 +87,25 @@ public class Users {
 	)
 	private List<Tags> taglist;
 
+	@Transient
+	private List<Users> followlist;
+
+	@Transient
+	private List<Users> followerlist;
 
 	//@JoinTable(name="follow", joinColumns=@JoinColumn(table="users", name="followerid", referencedColumnName="uid"), inverseJoinColumns=@JoinColumn(table="users",name="followid", referencedColumnName="uid"))
 //	@JoinTable(name="follow", joinColumns=@JoinColumn(name="followid", referencedColumnName = "uid"), inverseJoinColumns=@JoinColumn(name="followerid", referencedColumnName = "uid"))
 
-//	@ManyToMany(fetch = FetchType.EAGER)
+//	@ManyToMany(cascade={CascadeType.ALL})
 //	@JoinTable(name = "follow",
-//			joinColumns = @JoinColumn(name = "followerid"),
-//			inverseJoinColumns = @JoinColumn(name = "uid"))
-//	private List<Users> follow;
+//			joinColumns={@JoinColumn(name = "followid", referencedColumnName="uid")},
+//			inverseJoinColumns={@JoinColumn(name = "followerid", referencedColumnName="uid")})
+//	private List<Users> users;
+
+//
+//	@ManyToMany(mappedBy="users")
+//	private List<Users> followered;
+
 
 
 

@@ -27,4 +27,11 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
 	@Query(value = "SELECT SUM(CASE X.kbn WHEN 'follow' THEN X.cnt ELSE 0 END) AS follow_count, SUM(CASE X.kbn WHEN 'follower' THEN X.cnt ELSE 0 END) AS follower_count FROM (SELECT 'follow' AS kbn, fl.followerid AS followerid, count(fl.followid) AS cnt FROM follow fl GROUP BY fl.followerid UNION ALL SELECT 'follower' AS kbn, flw.followid AS followerid, count(flw.followerid) AS cnt FROM follow flw GROUP BY flw.followid) X WHERE  X.followerid = ?1 GROUP BY X.followerid;", nativeQuery = true)
 	public List<List<Integer>> getFollowCount(Integer uid);
+
+	@Query(value = "SELECT c.* FROM follow b INNER JOIN users c ON b.followid = c.uid WHERE b.followerid = ?1 ;", nativeQuery = true)
+	public List<Users> getFollow(Integer uid);
+
+	@Query(value = "SELECT c.* FROM follow b INNER JOIN users c ON b.followerid = c.uid WHERE b.followid = ?1 ;", nativeQuery = true)
+	public List<Users> getFollower(Integer uid);
+
 }
