@@ -64,7 +64,7 @@ public class UserRestController {
 	@JsonView(JView.UserInfo.class)
 	@GetMapping("/api/user/follow/{userid}")
 	public List<Users> getFollowList(@PathVariable("userid") String userid) {
-		return getFollow(userid);
+		return userservice.getFollow(userid);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class UserRestController {
 	@JsonView(JView.UserInfo.class)
 	@GetMapping("/api/user/follower/{userid}")
 	public List<Users> getFollowerList(@PathVariable("userid") String userid) {
-		return getFollower(userid);
+		return userservice.getFollower(userid);
 	}
 
 	/**

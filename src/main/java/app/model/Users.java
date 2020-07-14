@@ -58,6 +58,14 @@ public class Users {
 	@Column(name = "udisabled")
 	private Boolean udisabled;
 
+	@JsonView(JView.UserInfo.class)
+	@Transient
+	private Integer FollowCount;
+
+	@JsonView(JView.UserInfo.class)
+	@Transient
+	private Integer FollowerCount;
+
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(
 			name="userapp",
@@ -75,13 +83,17 @@ public class Users {
 	)
 	private List<Tags> taglist;
 
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(
-			name="follow",
-			joinColumns=@JoinColumn(name="followid"),
-			inverseJoinColumns=@JoinColumn(name="followerid")
-	)
-	private List<Users> followlist;
+
+	//@JoinTable(name="follow", joinColumns=@JoinColumn(table="users", name="followerid", referencedColumnName="uid"), inverseJoinColumns=@JoinColumn(table="users",name="followid", referencedColumnName="uid"))
+//	@JoinTable(name="follow", joinColumns=@JoinColumn(name="followid", referencedColumnName = "uid"), inverseJoinColumns=@JoinColumn(name="followerid", referencedColumnName = "uid"))
+
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinTable(name = "follow",
+//			joinColumns = @JoinColumn(name = "followerid"),
+//			inverseJoinColumns = @JoinColumn(name = "uid"))
+//	private List<Users> follow;
+
+
 
 	/*
 	@Override

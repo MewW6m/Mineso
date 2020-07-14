@@ -10,6 +10,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * UserService<br>
  * ユーザー情報を取得する
@@ -32,12 +37,23 @@ public class UserService  {
      */
     public Users getUser(String userid) throws Exception {
     	Users user = userRepository.findFirstByUserid(userid);
+        List<List<Integer>> followList = userRepository.getFollowCount(user.getUid());
+    	user.setFollowCount(followList.get(0).get(0));
+        user.setFollowerCount(followList.get(0).get(1));
         Settings settings = settingsRepository.findFirstByUid(user.getUid()).orElseThrow(() -> new Exception());
         if(settings.getUservisibled() && !user.getUdisabled()){
             return user;
         } else {
             throw new Exception();
         }
+    }
+
+    public List<Users> getFollow(String userid) {
+        return new ArrayList<Users>();
+    }
+
+    public List<Users> getFollower(String userid) {
+        return new ArrayList<Users>();
     }
 
 
