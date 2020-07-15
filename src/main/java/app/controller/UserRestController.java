@@ -8,7 +8,6 @@ import app.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -49,11 +48,11 @@ public class UserRestController {
 	 * @return ErrorInfo エラー情報
 	 */
 	@PostMapping("/api/user/{userid}")
-	public ErrorInfos postUserInfo(@PathVariable("userid") String userid,
-								   @RequestBody @JsonView(JView.UserInfo.class) Users users,
+	public ErrorInfos postUserInfo(@RequestBody @JsonView(JView.UserInfo.class) Users users,
 								   BindingResult error) throws Exception {
-		Users baseUsers = getUserInfo(userid);
-		userservice.postUser(users, baseUsers);
+		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
+		Integer myUid = 1;
+		userservice.postUser(users, myUid);
 		return new ErrorInfos();
 	}
 
@@ -70,15 +69,32 @@ public class UserRestController {
 	}
 
 	/**
-	 * postFollowList<br>
-	 * 指定したユーザーのフォロー情報を更新する
-	 *  @param userid urlで指定されたユーザーID
-	 *  @param uid 更新するユーザー固有ID
+	 * addFollow<br>
+	 * 指定したユーザーをフォローする
+	 *  @param targetUid 更新するユーザー固有ID
 	 * @return ErrorInfo エラー情報
 	 */
-	@JsonView(JView.UserInfo.class)
-	@PostMapping("/api/user/follow/{userid}")
-	public ErrorInfos postFollowList(@PathVariable("userid") String userid, @RequestBody Integer uid) {
+	@JsonView(JView.Public.class)
+	@PostMapping("/api/user/follow/add/{targetUid}")
+	public ErrorInfos addFollow(@RequestParam Integer targetUid) {
+		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
+		Integer myUid = 1;
+		userservice.insertFollow(targetUid, myUid);
+		return new ErrorInfos();
+	}
+
+	/**
+	 * addFollow<br>
+	 * 指定したユーザーをフォローする
+	 *  @param targetUid 更新するユーザー固有ID
+	 * @return ErrorInfo エラー情報
+	 */
+	@JsonView(JView.Public.class)
+	@PostMapping("/api/user/follow/del/{targetUid}")
+	public ErrorInfos delFollow(@RequestParam Integer targetUid) {
+		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
+		Integer myUid = 1;
+		userservice.deleteFollow(targetUid, myUid);
 		return new ErrorInfos();
 	}
 
@@ -94,17 +110,22 @@ public class UserRestController {
 		return userservice.getFollower(userid);
 	}
 
-	/**
-	 * postFollowerList<br>
-	 * 指定したユーザーのフォロワー情報を更新する
-	 *  @param userid urlで指定されたユーザーID
-	 *  @param users 更新するユーザー情報(ユーザーID)
-	 * @return ErrorInfo エラー情報
-	 */
-	@PostMapping("/api/user/follower/{userid}")
-	public ErrorInfos postFollowerList(@PathVariable("userid") String userid, @RequestBody Users users) {
-		return new ErrorInfos();
-	}
+//	/**
+//	 * postFollower<br>
+//	 * 指定したユーザーのフォロワー情報を更新する
+//	 *  @param targetUid 更新するユーザー固有ID
+//	 *  @param cdFlg 更新フラグ(0:追加/1:削除)
+//	 * @return ErrorInfo エラー情報
+//	 */
+//	@PostMapping("/api/user/follower/{userid}")
+//	public ErrorInfos postFollower(@RequestBody Integer targetUid, @RequestBody Boolean cdFlg) {
+//		Integer myUid = 1;
+//		if(!cdFlg)
+//			userservice.addFollower(targetUid, myUid);
+//		else
+//			userservice.delFollower(targetUid, myUid);
+//			return new ErrorInfos();
+//	}
 
 	/**
 	 * getTagUserList<br>

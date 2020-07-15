@@ -1,8 +1,10 @@
 package app.service;
 
 import app.config.Util;
+import app.model.Follow;
 import app.model.Settings;
 import app.model.Users;
+import app.repository.FollowRepository;
 import app.repository.SettingsRepository;
 import app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,9 @@ public class UserService  {
     private SettingsRepository settingsRepository;
 
     @Autowired
+    private FollowRepository followRepository;
+
+    @Autowired
     private Util util;
 
     /**
@@ -58,11 +63,12 @@ public class UserService  {
     /**
      * postUser<br>
      * ユーザー情報を更新する
-     * @param users
+     * @param users ユーザー情報
      * @throws Exception
      */
-    public void postUser(Users users, Users baseUsers) throws Exception {
-        if (users.getUserid()!=null && (users.getUid() == baseUsers.getUid())) {
+    public void postUser(Users users, Integer myUid) throws Exception {
+        Users baseUsers = userRepository.findFirstByUid(myUid);
+        if (users.getUserid() != null && (users.getUid() == baseUsers.getUid())) {
             util.copyNonNullProperties(users, baseUsers);
             userRepository.saveAndFlush(baseUsers);
         }
@@ -84,6 +90,27 @@ public class UserService  {
         }
     }
 
+    /**
+     * insertFollow<br>
+     * フォロー情報を追加する
+     * @param targetUid フォローのuid
+     * @param myUid 自身のuid
+     */
+    public void insertFollow(Integer targetUid, Integer myUid){
+        Follow follow = new Follow(myUid, targetUid);
+        followRepository.saveAndFlush(follow);
+    }
+
+    /**
+     * deleteFollow<br>
+     * フォロー情報を削除する
+     * @param targetUid フォローのuid
+     * @param myUid 自身のuid
+     */
+    public void deleteFollow(Integer targetUid, Integer myUid){
+        Follow follow = new Follow(myUid, targetUid);
+        followRepository.delete(follow);
+    }
 
 
     /**
@@ -102,8 +129,25 @@ public class UserService  {
         }
     }
 
-
-
+//    /**
+//     * postFollow<br>
+//     * フォロワー情報を追加する
+//     * @param targetUid フォロワーのuid
+//     * @param myUid 自身のuid
+//     */
+//    public void addFollower(Integer targetUid, Integer myUid){
+//
+//    }
+//
+//    /**
+//     * delFollower<br>
+//     * フォロワー情報を削除する
+//     * @param targetUid フォロワーのuid
+//     * @param myUid 自身のuid
+//     */
+//    public void delFollower(Integer targetUid, Integer myUid){
+//
+//    }
 /*
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {

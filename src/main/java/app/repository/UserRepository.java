@@ -11,15 +11,23 @@ import java.util.List;
 
 /**
  * UserRepository<br>
- * ユーザー情報をDBから取得する
+ * ユーザー情報をDBに直接操作する
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
 
 	/**
+	 * findFirstByUid<br>
+	 * 1人のユーザー情報をuidをもとにDBから検索し取得する
+	 *  @param uid 検索する項目
+	 * @return User ユーザー情報返す
+	 */
+	public Users findFirstByUid(Integer uid);
+
+	/**
 	 * findFirstByUserId<br>
-	 * 1人のユーザー情報を{key,value}をもとにDBから検索し取得する
+	 * 1人のユーザー情報をuseridをもとにDBから検索し取得する
 	 *  @param userid 検索する項目
 	 * @return User ユーザー情報返す
 	 */

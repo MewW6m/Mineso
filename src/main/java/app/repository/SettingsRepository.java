@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * SettingsRepository<br>
- * 設定をDBから取得する
+ * 設定をDBDBに直接操作する
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Repository

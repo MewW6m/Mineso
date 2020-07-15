@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * NortificationRepository<br>
+ * 通知情報をDBに直接操作する
+ * @author MewW6m　(https://github.com/MewW6m)
+ */
 @Repository
 public interface NortificationRepository extends JpaRepository<Nortifications, Long> {
 
