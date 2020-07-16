@@ -27,14 +27,17 @@ public class Tags {
 	private Integer tid;
 
 	@Column(name = "tagname", unique=true)
-	private Integer tagname;
+	private String tagname;
 
+	public Tags(String tagname){
+		this.tagname = tagname;
+	}
 
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(
-			name="usertag",
+			name="usertag"/*,
 			joinColumns=@JoinColumn(name="tid"),
-			inverseJoinColumns=@JoinColumn(name="uid")
+			inverseJoinColumns=@JoinColumn(name="uid")*/
 	)
-	private List<Users> userlist;
+	private List<Users> users;
 }

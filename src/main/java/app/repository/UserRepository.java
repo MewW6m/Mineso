@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import app.model.Users;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**

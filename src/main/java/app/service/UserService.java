@@ -20,7 +20,7 @@ import java.util.Map;
 
 /**
  * UserService<br>
- * ユーザー情報を取得する
+ * ユーザー情報を操作するビジネスロジック
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Service
@@ -129,25 +129,6 @@ public class UserService  {
         }
     }
 
-//    /**
-//     * postFollow<br>
-//     * フォロワー情報を追加する
-//     * @param targetUid フォロワーのuid
-//     * @param myUid 自身のuid
-//     */
-//    public void addFollower(Integer targetUid, Integer myUid){
-//
-//    }
-//
-//    /**
-//     * delFollower<br>
-//     * フォロワー情報を削除する
-//     * @param targetUid フォロワーのuid
-//     * @param myUid 自身のuid
-//     */
-//    public void delFollower(Integer targetUid, Integer myUid){
-//
-//    }
 /*
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {

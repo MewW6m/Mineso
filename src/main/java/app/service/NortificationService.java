@@ -8,6 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * NortificationService<br>
+ * 通知情報を操作するビジネスロジック
+ * @author MewW6m　(https://github.com/MewW6m)
+ */
 @Service
 @Transactional(readOnly = true)
 public class NortificationService {

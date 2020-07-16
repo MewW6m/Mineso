@@ -42,7 +42,6 @@ public class UserRestController {
 	/**
 	 * postUserInfo<br>
 	 * 指定したユーザー情報を更新する
-	 *  @param userid urlで指定されたユーザーID
 	 *  @param users 更新するユーザー情報の内容
 	 *  @param error 検証結果
 	 * @return ErrorInfo エラー情報
@@ -108,64 +107,5 @@ public class UserRestController {
 	@GetMapping("/api/user/follower/{userid}")
 	public List<Users> getFollowerList(@PathVariable("userid") String userid) throws Exception  {
 		return userservice.getFollower(userid);
-	}
-
-//	/**
-//	 * postFollower<br>
-//	 * 指定したユーザーのフォロワー情報を更新する
-//	 *  @param targetUid 更新するユーザー固有ID
-//	 *  @param cdFlg 更新フラグ(0:追加/1:削除)
-//	 * @return ErrorInfo エラー情報
-//	 */
-//	@PostMapping("/api/user/follower/{userid}")
-//	public ErrorInfos postFollower(@RequestBody Integer targetUid, @RequestBody Boolean cdFlg) {
-//		Integer myUid = 1;
-//		if(!cdFlg)
-//			userservice.addFollower(targetUid, myUid);
-//		else
-//			userservice.delFollower(targetUid, myUid);
-//			return new ErrorInfos();
-//	}
-
-	/**
-	 * getTagUserList<br>
-	 * 指定したタグのタグ付けユーザーリストを返す
-	 *  @param tagName urlで指定されたタグ名
-	 * @return List<User> タグ付けユーザーリスト
-	 */
-	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/tag/{tagName}")
-	public List<Users> getTagUserList(@PathVariable("tagName") String tagName) {
-		Users user = new Users();
-		List<Users> userList = new ArrayList<Users>();
-		user.setUserid("ac01");
-		user.setUname("user01");
-		user.setUmail("mailaddress");
-		user.setUdesc("desc");
-		user.setUimgpath("/path");
-		userList.add(user);
-		userList.add(user);
-		return userList;
-	}
-
-	/**
-	 * getAppUserList<br>
-	 * 指定したアプリの登録ユーザーリストを返す
-	 *  @param aname urlで指定されたアプリ名
-	 * @return List<User> タグ付けユーザーリスト
-	 */
-	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/app/{aname}")
-	public List<Users> getAppUserList(@PathVariable("aname") String aname) {
-		Users user = new Users();
-		List<Users> userList = new ArrayList<Users>();
-		user.setUserid("ac01");
-		user.setUname("user01");
-		user.setUmail("mailaddress");
-		user.setUdesc("desc");
-		user.setUimgpath("/path");
-		userList.add(user);
-		userList.add(user);
-		return userList;
 	}
 }
