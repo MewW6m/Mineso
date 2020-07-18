@@ -38,7 +38,7 @@ public class Apps {
 	@Column(name = "aurl", nullable = false)
 	private String aurl;
 
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.DETACH)
 	@JoinTable(
 			name="userapp",
 			joinColumns=@JoinColumn(name="aid"),

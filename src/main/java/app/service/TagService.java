@@ -7,7 +7,9 @@ import app.repository.TagRepository;
 import app.repository.UserTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +18,7 @@ import java.util.List;
  * @author MewW6m　(https://github.com/MewW6m)
  */
 @Service
+@Transactional(readOnly = true)
 public class TagService {
 
     @Autowired
@@ -25,35 +28,62 @@ public class TagService {
     private UserTagRepository userTagRepository;
 
     /**
-     * insertTagname<br>
-     * タグ名からタグを追加する
-     * @param tagname タグ名
-     * @param uid ユーザー固有ID
+     * selectTagList
+     * タグリストを取得する<br>
+     * @return タグリスト
      */
-    public void insertTagname(String tagname, Integer uid){
-        tagRepository.saveAndFlush(new Tags(tagname));
-        insertUserTag(tagname, uid);
+    public List<Tags> selectTagList(){
+        return tagRepository.findAll();
     }
 
     /**
      * insertUserTag<br>
-     * ユーザータグ関連情報を追加する
+     * ユーザータグ関連情報を追加する(タグがなければタグも登録する)
      * @param tagname タグ名
      * @param uid ユーザー固有ID
      */
+    @Transactional(readOnly = false)
     public void insertUserTag(String tagname, Integer uid){
+        // タグを検索する
         Tags tags = tagRepository.findFirstByTagname(tagname);
+        // タグがない場合
+        if(tags == null){
+            // タグを追加する
+            tagRepository.saveAndFlush(new Tags(tagname));
+            tags = tagRepository.findFirstByTagname(tagname);
+        }
+        // ユーザータグ関連情報を追加する
         userTagRepository.saveAndFlush(new UserTag(uid, tags.getTid()));
     }
 
     /**
-     * selectTagUserList<br>
+     * deleteUsertag<br>
+     * ユーザータグ関連情報を削除する
+     * @param tagname
+     * @param uid
+     */
+    @Transactional(readOnly = false)
+    public void deleteUsertag(String tagname, Integer uid){
+        // タグを検索する
+        Tags tags = tagRepository.findFirstByTagname(tagname);
+        // ユーザータグ関連情報を削除する
+        userTagRepository.deleteUserTagByUidIsAndTidIs(uid, tags.getTid());
+    }
+
+    /**
+     * selectUserListByTags<br>
      * タグ名からユーザーリストを取得する
      * @param tagname タグ名
      * @return ユーザーリスト
      */
-    public List<Users> selectTagList(String tagname){
+    public List<Users> selectUserListByTags(String tagname){
+        // タグを検索する
         Tags tags = tagRepository.findFirstByTagname(tagname);
-        return tags.getUsers();
+        List<Users> usersList = new ArrayList<>();
+        // ユーザーリストを作成する
+        tags.getUsertag().forEach((ut) ->{
+            usersList.add(ut.getUsers());
+        });
+        return usersList;
     }
 }

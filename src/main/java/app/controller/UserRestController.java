@@ -9,8 +9,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +31,7 @@ public class UserRestController {
 	 *  @param userid urlで指定されたユーザーID
 	 * @return User 指定されたユーザー情報
 	 */
-	@JsonView(JView.UserInfo.class)
+	@JsonView(JView.UserDetail.class)
 	@GetMapping("/api/user/{userid}")
 	public Users getUserInfo(@PathVariable("userid") String userid) throws Exception {
 		return userservice.getUser(userid, true);

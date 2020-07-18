@@ -47,7 +47,7 @@ public class Nortifications {
     private Boolean nflag;
 
     @JsonIgnore
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.DETACH)
     @JoinColumn(name="uid", referencedColumnName="uid", nullable = false)
     private Users users;
 }

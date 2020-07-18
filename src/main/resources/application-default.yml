@@ -16,7 +16,12 @@ spring:
 #     generate-ddl: create
       dialect: org.hibernate.dialect.MySQL5Dialect
       use-new-id-generator-mappings: true
+      show-sql: true
 
+  logging:
+    level:
+      org:
+        hibernate: debug
 #  security:
 #    oauth2:
 #      client:

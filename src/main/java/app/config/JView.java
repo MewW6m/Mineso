@@ -16,7 +16,14 @@ public class JView {
     public static interface UserInfo extends Public {
     }
 
+    public static interface UserDetail extends UserInfo {
+    }
+
     public static interface NortificationInfo extends Public {
+    }
+
+    public static interface TagInfo  extends Public{
+
     }
 
     public static interface Profile extends Public {

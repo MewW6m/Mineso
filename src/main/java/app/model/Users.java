@@ -3,18 +3,13 @@ package app.model;
 import app.config.JView;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
-
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Users<br>
@@ -24,7 +19,9 @@ import java.util.Set;
 
 @Entity
 @Table(name="users")
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(exclude="usertag")
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
@@ -46,7 +43,7 @@ public class Users {
 	@NotBlank
 	private String uname;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonIgnore
 	@Column(name = "umail")
 	private String umail;
 
@@ -62,52 +59,43 @@ public class Users {
 	@Column(name = "udisabled")
 	private Boolean udisabled;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView(JView.UserDetail.class)
 	@Transient
 	private Integer FollowCount;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView(JView.UserDetail.class)
 	@Transient
 	private Integer FollowerCount;
+//
+//	@ManyToMany(cascade=CascadeType.DETACH)
+//	@JoinTable(
+//			name="userapp",
+//			joinColumns=@JoinColumn(name="uid", insertable = false, updatable = false),
+//			inverseJoinColumns=@JoinColumn(name="aid")
+//	)
+//	private List<Apps> appsList;
+//
+//
+//	@OneToMany(cascade=CascadeType.DETACH)
+//	@JoinTable(
+//			name="usertag",
+//			joinColumns=@JoinColumn(name="uid"),
+//			inverseJoinColumns=@JoinColumn(name="tid")
+//	)
+//	private List<Tags> taglist;
 
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(
-			name="userapp",
-			joinColumns=@JoinColumn(name="uid"),
-			inverseJoinColumns=@JoinColumn(name="aid")
-	)
-	private List<Apps> appsList;
-
-
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(
-			name="usertag",
-			joinColumns=@JoinColumn(name="uid"),
-			inverseJoinColumns=@JoinColumn(name="tid")
-	)
-	private List<Tags> taglist;
-
+	@JsonView(JView.UserDetail.class)
 	@Transient
 	private List<Users> followlist;
 
+	@JsonView(JView.UserDetail.class)
 	@Transient
 	private List<Users> followerlist;
 
-	//@JoinTable(name="follow", joinColumns=@JoinColumn(table="users", name="followerid", referencedColumnName="uid"), inverseJoinColumns=@JoinColumn(table="users",name="followid", referencedColumnName="uid"))
-//	@JoinTable(name="follow", joinColumns=@JoinColumn(name="followid", referencedColumnName = "uid"), inverseJoinColumns=@JoinColumn(name="followerid", referencedColumnName = "uid"))
 
-//	@ManyToMany(cascade={CascadeType.ALL})
-//	@JoinTable(name = "follow",
-//			joinColumns={@JoinColumn(name = "followid", referencedColumnName="uid")},
-//			inverseJoinColumns={@JoinColumn(name = "followerid", referencedColumnName="uid")})
-//	private List<Users> users;
-
-//
-//	@ManyToMany(mappedBy="users")
-//	private List<Users> followered;
-
-
-
+	@JsonView(JView.UserDetail.class)
+	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+	private List<UserTag> usertag;
 
 	/*
 	@Override

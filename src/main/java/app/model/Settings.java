@@ -61,7 +61,7 @@ public class Settings {
 	private String customizesetting1;
 
 	@JsonIgnore
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.DETACH)
 	@JoinColumn(name="uid", referencedColumnName="uid")
 	private Users users;
 }

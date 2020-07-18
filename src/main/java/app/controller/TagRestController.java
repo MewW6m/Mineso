@@ -2,6 +2,7 @@ package app.controller;
 
 import app.config.JView;
 import app.model.ErrorInfos;
+import app.model.Tags;
 import app.model.Users;
 import app.service.TagService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -26,33 +27,42 @@ public class TagRestController {
     private TagService tagService;
 
     /**
-     * registTagname<br>
-     * タグを登録する
+     * registUserTag<br>
+     * ユーザータグを登録する
      * @param tagName タグ名
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/tag/{tagname}")
-    public ErrorInfos registTagname(@PathVariable("tagname") String tagName){
-        Integer myUid = 1;
-        tagService.insertTagname(tagName, myUid);
-        return new ErrorInfos();
-    }
-
-    /**
-     * addUserToTagname<br>
-     * タグにユーザーを追加する
-     * @param tagName タグ名
-     * @return
-     */
-    @JsonView(JView.Public.class)
-    @PostMapping("/api/usertag/{tagname}")
-    public ErrorInfos addUserToTagname(@PathVariable("tagname") String tagName){
+    @PostMapping("/api/tag/regist/{tagname}")
+    public ErrorInfos registUserTag(@PathVariable("tagname") String tagName) {
         Integer myUid = 1;
         tagService.insertUserTag(tagName, myUid);
         return new ErrorInfos();
     }
 
+    /**
+     * deleteUserTag<br>
+     * ユーザータグを削除する
+     * @param tagName
+     * @return
+     */
+    @JsonView(JView.Public.class)
+    @PostMapping("/api/tag/remove/{tagname}")
+    public ErrorInfos removeUserTag(@PathVariable("tagname") String tagName) {
+        Integer myUid = 1;
+        tagService.deleteUsertag(tagName, myUid);
+        return new ErrorInfos();
+    }
+
+    /**
+     *
+     * @return
+     */
+    @JsonView(JView.TagInfo.class)
+    @GetMapping("/api/tag/get")
+    public List<Tags> getTagList(){
+        return tagService.selectTagList();
+    }
 
     /**
      * getTagUserList<br>
@@ -61,18 +71,8 @@ public class TagRestController {
      * @return List<User> タグ付けユーザーリスト
      */
     @JsonView(JView.UserInfo.class)
-    @GetMapping("/api/tag/{tagname}")
+    @GetMapping("/api/tag/get/{tagname}")
     public List<Users> getTagUserList(@PathVariable("tagname") String tagname) {
-        /*Users user = new Users();
-        List<Users> userList = new ArrayList<Users>();
-        user.setUserid("ac01");
-        user.setUname("user01");
-        user.setUmail("mailaddress");
-        user.setUdesc("desc");
-        user.setUimgpath("/path");
-        userList.add(user);
-        userList.add(user);
-        return userList;*/
-        return tagService.selectTagList(tagname);
+        return tagService.selectUserListByTags(tagname);
     }
 }
