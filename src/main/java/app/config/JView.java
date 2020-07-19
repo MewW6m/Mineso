@@ -23,7 +23,9 @@ public class JView {
     }
 
     public static interface TagInfo  extends Public{
+    }
 
+    public static interface AppInfo  extends Public{
     }
 
     public static interface Profile extends Public {

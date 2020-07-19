@@ -1,6 +1,5 @@
 package app.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +12,10 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserTagKey implements Serializable {
+public class UserAppKey  implements Serializable {
     @Column(name = "uid", nullable = false)
     private Integer uid;
 
-    @Column(name = "tid", nullable = false)
-    private Integer tid;
+    @Column(name = "aid", nullable = false)
+    private Integer aid;
 }

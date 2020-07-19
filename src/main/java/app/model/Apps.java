@@ -1,5 +1,7 @@
 package app.model;
 
+import app.config.JView;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ import java.util.List;
 @Component
 public class Apps {
 
+	@JsonView(JView.AppInfo.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aid", nullable = false, updatable = false, insertable = false)
@@ -29,20 +32,18 @@ public class Apps {
 	@Column(name = "adisabled")
 	private Boolean adisabled;
 
+	@JsonView(JView.AppInfo.class)
 	@Column(name = "aname", unique=true, nullable = false)
 	private String aname;
 
+	@JsonView(JView.AppInfo.class)
 	@Column(name = "aimgpath")
 	private String aimgpath;
 
+	@JsonView(JView.AppInfo.class)
 	@Column(name = "aurl", nullable = false)
 	private String aurl;
-
-	@ManyToMany(cascade=CascadeType.DETACH)
-	@JoinTable(
-			name="userapp",
-			joinColumns=@JoinColumn(name="aid"),
-			inverseJoinColumns=@JoinColumn(name="uid")
-	)
-	private List<Apps> applist;
+	
+	@OneToMany(mappedBy = "apps", cascade = CascadeType.ALL)
+	private List<UserApp> userapp;
 }

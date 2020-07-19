@@ -26,6 +26,30 @@ public class TagRestController {
     @Autowired
     private TagService tagService;
 
+
+    /**
+     * getTagList<br>
+     * タグリストを取得する
+     * @return
+     */
+    @JsonView(JView.TagInfo.class)
+    @GetMapping("/api/tag/get")
+    public List<Tags> getTagList(){
+        return tagService.selectTagList();
+    }
+
+    /**
+     * getTagUserList<br>
+     * 指定したタグのタグ付けユーザーリストを返す
+     *  @param tagname タグ名
+     * @return List<User> タグ付けユーザーリスト
+     */
+    @JsonView(JView.UserInfo.class)
+    @GetMapping("/api/tag/get/{tagname}")
+    public List<Users> getTagUserList(@PathVariable("tagname") String tagname) {
+        return tagService.selectUserListByTags(tagname);
+    }
+
     /**
      * registUserTag<br>
      * ユーザータグを登録する
@@ -52,27 +76,5 @@ public class TagRestController {
         Integer myUid = 1;
         tagService.deleteUsertag(tagName, myUid);
         return new ErrorInfos();
-    }
-
-    /**
-     *
-     * @return
-     */
-    @JsonView(JView.TagInfo.class)
-    @GetMapping("/api/tag/get")
-    public List<Tags> getTagList(){
-        return tagService.selectTagList();
-    }
-
-    /**
-     * getTagUserList<br>
-     * 指定したタグのタグ付けユーザーリストを返す
-     *  @param tagname タグ名
-     * @return List<User> タグ付けユーザーリスト
-     */
-    @JsonView(JView.UserInfo.class)
-    @GetMapping("/api/tag/get/{tagname}")
-    public List<Users> getTagUserList(@PathVariable("tagname") String tagname) {
-        return tagService.selectUserListByTags(tagname);
     }
 }

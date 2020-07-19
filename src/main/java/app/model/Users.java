@@ -75,14 +75,7 @@ public class Users {
 //	)
 //	private List<Apps> appsList;
 //
-//
-//	@OneToMany(cascade=CascadeType.DETACH)
-//	@JoinTable(
-//			name="usertag",
-//			joinColumns=@JoinColumn(name="uid"),
-//			inverseJoinColumns=@JoinColumn(name="tid")
-//	)
-//	private List<Tags> taglist;
+
 
 	@JsonView(JView.UserDetail.class)
 	@Transient
@@ -96,6 +89,11 @@ public class Users {
 	@JsonView(JView.UserDetail.class)
 	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
 	private List<UserTag> usertag;
+
+
+	@JsonView(JView.UserDetail.class)
+	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+	private List<UserApp> userapp;
 
 	/*
 	@Override

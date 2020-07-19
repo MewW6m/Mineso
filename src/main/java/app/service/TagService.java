@@ -37,6 +37,23 @@ public class TagService {
     }
 
     /**
+     * selectUserListByTags<br>
+     * タグ名からユーザーリストを取得する
+     * @param tagname タグ名
+     * @return ユーザーリスト
+     */
+    public List<Users> selectUserListByTags(String tagname){
+        // タグを検索する
+        Tags tags = tagRepository.findFirstByTagname(tagname);
+        List<Users> usersList = new ArrayList<>();
+        // ユーザーリストを作成する
+        tags.getUsertag().forEach((ut) ->{
+            usersList.add(ut.getUsers());
+        });
+        return usersList;
+    }
+
+    /**
      * insertUserTag<br>
      * ユーザータグ関連情報を追加する(タグがなければタグも登録する)
      * @param tagname タグ名
@@ -53,14 +70,14 @@ public class TagService {
             tags = tagRepository.findFirstByTagname(tagname);
         }
         // ユーザータグ関連情報を追加する
-        userTagRepository.saveAndFlush(new UserTag(uid, tags.getTid()));
+        userTagRepository.insertUserTagByUidIsAndTidIs(uid, tags.getTid());
     }
 
     /**
      * deleteUsertag<br>
      * ユーザータグ関連情報を削除する
-     * @param tagname
-     * @param uid
+     * @param tagname タグ名
+     * @param uid ユーザー固有ID
      */
     @Transactional(readOnly = false)
     public void deleteUsertag(String tagname, Integer uid){
@@ -68,22 +85,5 @@ public class TagService {
         Tags tags = tagRepository.findFirstByTagname(tagname);
         // ユーザータグ関連情報を削除する
         userTagRepository.deleteUserTagByUidIsAndTidIs(uid, tags.getTid());
-    }
-
-    /**
-     * selectUserListByTags<br>
-     * タグ名からユーザーリストを取得する
-     * @param tagname タグ名
-     * @return ユーザーリスト
-     */
-    public List<Users> selectUserListByTags(String tagname){
-        // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tagname);
-        List<Users> usersList = new ArrayList<>();
-        // ユーザーリストを作成する
-        tags.getUsertag().forEach((ut) ->{
-            usersList.add(ut.getUsers());
-        });
-        return usersList;
     }
 }

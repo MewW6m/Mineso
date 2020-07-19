@@ -1,7 +1,6 @@
 package app.model;
 
 import lombok.*;
-import org.hibernate.annotations.SQLDelete;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -14,7 +13,6 @@ import javax.persistence.*;
 public class UserTag {
 
     public UserTag (Integer uid, Integer tid){
-        userTagKey = new UserTagKey();
         userTagKey.setUid(uid);
         userTagKey.setTid(tid);
     }
@@ -40,4 +38,5 @@ public class UserTag {
     public Integer getTid(){ return userTagKey.getTid(); }
     public void setUid(Integer uid){ userTagKey.setUid(uid); }
     public void setTid(Integer tid){ userTagKey.setTid(tid); }
+
 }
