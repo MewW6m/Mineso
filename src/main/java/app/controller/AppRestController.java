@@ -3,14 +3,12 @@ package app.controller;
 import app.config.JView;
 import app.model.Apps;
 import app.model.ErrorInfos;
-import app.model.Tags;
 import app.model.Users;
 import app.service.AppService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
