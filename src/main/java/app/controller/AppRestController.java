@@ -29,21 +29,9 @@ public class AppRestController {
      * @return
      */
     @JsonView(JView.AppInfo.class)
-    @GetMapping("/api/app/get")
+    @GetMapping("/api/app")
     public List<Apps> getAppList(){
         return appService.selectAppList();
-    }
-
-    /**
-     * getAppUserList<br>
-     * 指定したアプリの登録ユーザーリストを返す
-     *  @param aname urlで指定されたアプリ名
-     * @return List<User> アプリを登録しているユーザーリスト
-     */
-    @JsonView(JView.UserInfo.class)
-    @GetMapping("/api/app/get/{aname}")
-    public List<Users> getAppUserList(@PathVariable("aname") String aname) {
-        return appService.selectUserListByApps(aname);
     }
 
     /**
@@ -53,10 +41,22 @@ public class AppRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/app/regist")
+    @PostMapping("/api/app")
     public ErrorInfos registApp(@RequestBody Apps apps){
         appService.insertApp(apps);
         return new ErrorInfos();
+    }
+
+    /**
+     * getAppUserList<br>
+     * 指定したアプリの登録ユーザーリストを返す
+     *  @param aname urlで指定されたアプリ名
+     * @return List<User> アプリを登録しているユーザーリスト
+     */
+    @JsonView(JView.UserInfo.class)
+    @GetMapping("/api/app/{aname}")
+    public List<Users> getAppUserList(@PathVariable("aname") String aname) {
+        return appService.selectUserListByApps(aname);
     }
 
     /**
@@ -66,7 +66,7 @@ public class AppRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/app/regist/{aid}")
+    @PostMapping("/api/app/{aid}")
     public ErrorInfos registUserApp(@PathVariable Integer aid){
         Integer myUid = 1;
         appService.insertUserApp(aid, myUid);
@@ -80,7 +80,7 @@ public class AppRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/app/remove/{aid}")
+    @DeleteMapping("/api/app/{aid}")
     public ErrorInfos removeApp(@PathVariable Integer aid){
         Integer myUid = 1;
         appService.deleteUserapp(aid, myUid);

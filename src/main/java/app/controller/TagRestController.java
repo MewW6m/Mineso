@@ -33,7 +33,7 @@ public class TagRestController {
      * @return
      */
     @JsonView(JView.TagInfo.class)
-    @GetMapping("/api/tag/get")
+    @GetMapping("/api/tag")
     public List<Tags> getTagList(){
         return tagService.selectTagList();
     }
@@ -57,7 +57,7 @@ public class TagRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/tag/regist/{tagname}")
+    @PostMapping("/api/tag/add/{tagname}")
     public ErrorInfos registUserTag(@PathVariable("tagname") String tagName) {
         Integer myUid = 1;
         tagService.insertUserTag(tagName, myUid);
@@ -71,7 +71,7 @@ public class TagRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/tag/remove/{tagname}")
+    @PostMapping("/api/tag/del/{tagname}")
     public ErrorInfos removeUserTag(@PathVariable("tagname") String tagName) {
         Integer myUid = 1;
         tagService.deleteUsertag(tagName, myUid);

@@ -68,30 +68,30 @@ public class UserRestController {
 	/**
 	 * addFollow<br>
 	 * 指定したユーザーをフォローする
-	 *  @param targetUid 更新するユーザー固有ID
+	 *  @param followuid 更新するユーザー固有ID
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Public.class)
-	@PostMapping("/api/user/follow/add/{targetUid}")
-	public ErrorInfos addFollow(@RequestParam Integer targetUid) {
+	@PostMapping("/api/user/follow/{followuid}")
+	public ErrorInfos addFollow(@RequestParam Integer followuid) {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
 		Integer myUid = 1;
-		userservice.insertFollow(targetUid, myUid);
+		userservice.insertFollow(followuid, myUid);
 		return new ErrorInfos();
 	}
 
 	/**
 	 * addFollow<br>
-	 * 指定したユーザーをフォローする
-	 *  @param targetUid 更新するユーザー固有ID
+	 * 指定したユーザーをフォロー解除する
+	 *  @param followuid 更新するユーザー固有ID
 	 * @return ErrorInfo エラー情報
 	 */
 	@JsonView(JView.Public.class)
-	@PostMapping("/api/user/follow/del/{targetUid}")
-	public ErrorInfos delFollow(@RequestParam Integer targetUid) {
+	@DeleteMapping("/api/user/follow/{followuid}")
+	public ErrorInfos delFollow(@RequestParam Integer followuid) {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
 		Integer myUid = 1;
-		userservice.deleteFollow(targetUid, myUid);
+		userservice.deleteFollow(followuid, myUid);
 		return new ErrorInfos();
 	}
 
