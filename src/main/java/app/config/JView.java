@@ -42,4 +42,7 @@ public class JView {
 
     public static interface commonSetting extends Profile, Account, Nortification, Customize{
     }
+
+    public static interface follow extends Public{}
+    public static interface follower extends Public{}
 }

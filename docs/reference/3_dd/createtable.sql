@@ -65,11 +65,11 @@ drop table if exists tags cascade;
 --* RestoreFromTempTable
 create table tags (
   tid int auto_increment not null comment 'タグId'
-  , tagname int comment 'タグ名'
+  , tname int comment 'タグ名'
 ) comment 'タグ情報テーブル' ;
 
 create unique index UK_lue8ev0k78gossarqmm2gvupy
-  on tags(tagname);
+  on tags(tname);
 
 -- userapp
 --* BackupToTempTable

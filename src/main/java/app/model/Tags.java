@@ -23,8 +23,8 @@ import java.util.List;
 @Component
 public class Tags {
 
-	public Tags(String tagname){
-		this.tagname = tagname;
+	public Tags(String tname){
+		this.tname = tname;
 	}
 
 	@JsonView(JView.TagInfo.class)
@@ -34,8 +34,8 @@ public class Tags {
 	private Integer tid;
 
 	@JsonView(JView.TagInfo.class)
-	@Column(name = "tagname", unique=true)
-	private String tagname;
+	@Column(name = "tname", unique=true)
+	private String tname;
 
 	@OneToMany(mappedBy = "tags", cascade = CascadeType.ALL)
 	private List<UserTag> usertag;

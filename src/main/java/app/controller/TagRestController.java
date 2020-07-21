@@ -7,10 +7,7 @@ import app.model.Users;
 import app.service.TagService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +38,13 @@ public class TagRestController {
     /**
      * getTagUserList<br>
      * 指定したタグのタグ付けユーザーリストを返す
-     *  @param tagname タグ名
+     *  @param tname タグ名
      * @return List<User> タグ付けユーザーリスト
      */
     @JsonView(JView.UserInfo.class)
-    @GetMapping("/api/tag/get/{tagname}")
-    public List<Users> getTagUserList(@PathVariable("tagname") String tagname) {
-        return tagService.selectUserListByTags(tagname);
+    @GetMapping("/api/tag/@{tname}")
+    public List<Users> getTagUserList(@PathVariable("tname") String tname) {
+        return tagService.selectUserListByTags(tname);
     }
 
     /**
@@ -57,8 +54,8 @@ public class TagRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/tag/add/{tagname}")
-    public ErrorInfos registUserTag(@PathVariable("tagname") String tagName) {
+    @PostMapping("/api/tag/@{tname}")
+    public ErrorInfos registUserTag(@PathVariable("tname") String tagName) {
         Integer myUid = 1;
         tagService.insertUserTag(tagName, myUid);
         return new ErrorInfos();
@@ -71,8 +68,8 @@ public class TagRestController {
      * @return
      */
     @JsonView(JView.Public.class)
-    @PostMapping("/api/tag/del/{tagname}")
-    public ErrorInfos removeUserTag(@PathVariable("tagname") String tagName) {
+    @DeleteMapping("/api/tag/@{tname}")
+    public ErrorInfos removeUserTag(@PathVariable("tname") String tagName) {
         Integer myUid = 1;
         tagService.deleteUsertag(tagName, myUid);
         return new ErrorInfos();

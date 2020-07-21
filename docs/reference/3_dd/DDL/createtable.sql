@@ -86,11 +86,11 @@ drop table if exists tags cascade;
 --* RestoreFromTempTable
 create table tags (
   tid int auto_increment not null comment 'タグID'
-  , tagname int comment 'タグ名'
+  , tname int comment 'タグ名'
   , constraint tags_PKC primary key (tid)
 ) comment 'タグ情報テーブル' ;
 
-alter table tags add unique UK_lue8ev0k78gossarqmm2gvupy (tagname) ;
+alter table tags add unique UK_lue8ev0k78gossarqmm2gvupy (tname) ;
 
 -- ユーザーアプリ中間テーブル
 --* BackupToTempTable

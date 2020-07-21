@@ -39,12 +39,12 @@ public class TagService {
     /**
      * selectUserListByTags<br>
      * タグ名からユーザーリストを取得する
-     * @param tagname タグ名
+     * @param tname タグ名
      * @return ユーザーリスト
      */
-    public List<Users> selectUserListByTags(String tagname){
+    public List<Users> selectUserListByTags(String tname){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tagname);
+        Tags tags = tagRepository.findFirstByTagname(tname);
         List<Users> usersList = new ArrayList<>();
         // ユーザーリストを作成する
         tags.getUsertag().forEach((ut) ->{
@@ -56,18 +56,18 @@ public class TagService {
     /**
      * insertUserTag<br>
      * ユーザータグ関連情報を追加する(タグがなければタグも登録する)
-     * @param tagname タグ名
+     * @param tname タグ名
      * @param uid ユーザー固有ID
      */
     @Transactional(readOnly = false)
-    public void insertUserTag(String tagname, Integer uid){
+    public void insertUserTag(String tname, Integer uid){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tagname);
+        Tags tags = tagRepository.findFirstByTagname(tname);
         // タグがない場合
         if(tags == null){
             // タグを追加する
-            tagRepository.saveAndFlush(new Tags(tagname));
-            tags = tagRepository.findFirstByTagname(tagname);
+            tagRepository.saveAndFlush(new Tags(tname));
+            tags = tagRepository.findFirstByTagname(tname);
         }
         // ユーザータグ関連情報を追加する
         userTagRepository.insertUserTagByUidIsAndTidIs(uid, tags.getTid());
@@ -76,13 +76,13 @@ public class TagService {
     /**
      * deleteUsertag<br>
      * ユーザータグ関連情報を削除する
-     * @param tagname タグ名
+     * @param tname タグ名
      * @param uid ユーザー固有ID
      */
     @Transactional(readOnly = false)
-    public void deleteUsertag(String tagname, Integer uid){
+    public void deleteUsertag(String tname, Integer uid){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tagname);
+        Tags tags = tagRepository.findFirstByTagname(tname);
         // ユーザータグ関連情報を削除する
         userTagRepository.deleteUserTagByUidIsAndTidIs(uid, tags.getTid());
     }

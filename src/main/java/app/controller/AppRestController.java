@@ -54,7 +54,7 @@ public class AppRestController {
      * @return List<User> アプリを登録しているユーザーリスト
      */
     @JsonView(JView.UserInfo.class)
-    @GetMapping("/api/app/{aname}")
+    @GetMapping("/api/app/@{aname}")
     public List<Users> getAppUserList(@PathVariable("aname") String aname) {
         return appService.selectUserListByApps(aname);
     }

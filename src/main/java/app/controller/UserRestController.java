@@ -32,7 +32,7 @@ public class UserRestController {
 	 * @return User 指定されたユーザー情報
 	 */
 	@JsonView(JView.UserDetail.class)
-	@GetMapping("/api/user/{userid}")
+	@GetMapping("/api/user/@{userid}")
 	public Users getUserInfo(@PathVariable("userid") String userid) throws Exception {
 		return userservice.getUser(userid, true);
 	}
@@ -44,7 +44,8 @@ public class UserRestController {
 	 *  @param error 検証結果
 	 * @return ErrorInfo エラー情報
 	 */
-	@PostMapping("/api/user/{userid}")
+	@JsonView(JView.Public.class)
+	@PostMapping("/api/user/@{userid}")
 	public ErrorInfos postUserInfo(@RequestBody @JsonView(JView.UserInfo.class) Users users,
 								   BindingResult error) throws Exception {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
@@ -59,8 +60,8 @@ public class UserRestController {
 	 *  @param userid urlで指定されたユーザーID
 	 * @return List<User> フォローユーザーリスト
 	 */
-	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/user/follow/{userid}")
+	@JsonView(JView.follow.class)
+	@GetMapping("/api/user/follow/@{userid}")
 	public List<Users> getFollowList(@PathVariable("userid") String userid) throws Exception  {
 		return userservice.getFollow(userid);
 	}
@@ -101,8 +102,8 @@ public class UserRestController {
 	 *  @param userid urlで指定されたユーザーID
 	 * @return List<User> フォロワーユーザーリスト
 	 */
-	@JsonView(JView.UserInfo.class)
-	@GetMapping("/api/user/follower/{userid}")
+	@JsonView(JView.follower.class)
+	@GetMapping("/api/user/follower/@{userid}")
 	public List<Users> getFollowerList(@PathVariable("userid") String userid) throws Exception  {
 		return userservice.getFollower(userid);
 	}
