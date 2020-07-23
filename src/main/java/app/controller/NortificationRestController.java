@@ -1,16 +1,11 @@
 package app.controller;
 
-import app.config.JView;
-import app.model.ErrorInfos;
+import app.model.Response;
 import app.model.Nortifications;
 import app.service.NortificationService;
-import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,11 +35,11 @@ public class NortificationRestController {
      * 通知を更新する
      *  @param uid ユーザーID
      *  @param nIdList 通知IDリスト
-     * @return ErrorInfo エラー情報
+     * @return Response レスポンス情報
      */
     @PostMapping("/api/nortification/{uid}")
-    public ErrorInfos postNortification(@PathVariable("uid") int uid, @RequestBody List<Integer> nIdList) throws Exception {
+    public Response postNortification(@PathVariable("uid") int uid, @RequestBody List<Integer> nIdList) throws Exception {
         nortificationService.updateNorList(nIdList);
-        return new ErrorInfos();
+        return new Response();
     }
 }

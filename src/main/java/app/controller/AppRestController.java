@@ -2,7 +2,7 @@ package app.controller;
 
 import app.config.JView;
 import app.model.Apps;
-import app.model.ErrorInfos;
+import app.model.Response;
 import app.model.Users;
 import app.service.AppService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -42,9 +42,9 @@ public class AppRestController {
      */
     @JsonView(JView.Public.class)
     @PostMapping("/api/app")
-    public ErrorInfos registApp(@RequestBody Apps apps){
+    public Response registApp(@RequestBody Apps apps){
         appService.insertApp(apps);
-        return new ErrorInfos();
+        return new Response();
     }
 
     /**
@@ -67,10 +67,10 @@ public class AppRestController {
      */
     @JsonView(JView.Public.class)
     @PostMapping("/api/app/{aid}")
-    public ErrorInfos registUserApp(@PathVariable Integer aid){
+    public Response registUserApp(@PathVariable Integer aid){
         Integer myUid = 1;
         appService.insertUserApp(aid, myUid);
-        return new ErrorInfos();
+        return new Response();
     }
 
     /**
@@ -81,9 +81,9 @@ public class AppRestController {
      */
     @JsonView(JView.Public.class)
     @DeleteMapping("/api/app/{aid}")
-    public ErrorInfos removeApp(@PathVariable Integer aid){
+    public Response removeApp(@PathVariable Integer aid){
         Integer myUid = 1;
         appService.deleteUserapp(aid, myUid);
-        return new ErrorInfos();
+        return new Response();
     }
 }

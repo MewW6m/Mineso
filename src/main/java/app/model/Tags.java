@@ -27,13 +27,13 @@ public class Tags {
 		this.tname = tname;
 	}
 
-	@JsonView(JView.TagInfo.class)
+	@JsonView({JView.TagInfo.class, JView.UserDetail.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tid", nullable = false, updatable = false, insertable = false)
 	private Integer tid;
 
-	@JsonView(JView.TagInfo.class)
+	@JsonView({JView.TagInfo.class, JView.UserDetail.class})
 	@Column(name = "tname", unique=true)
 	private String tname;
 

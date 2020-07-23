@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.config.JView;
-import app.model.ErrorInfos;
+import app.model.Response;
 import app.model.Users;
 import app.service.SettingsService;
 import app.service.UserService;
@@ -42,16 +42,31 @@ public class UserRestController {
 	 * 指定したユーザー情報を更新する
 	 *  @param users 更新するユーザー情報の内容
 	 *  @param error 検証結果
-	 * @return ErrorInfo エラー情報
+	 * @return Response レスポンス情報
 	 */
 	@JsonView(JView.Public.class)
 	@PostMapping("/api/user/@{userid}")
-	public ErrorInfos postUserInfo(@RequestBody @JsonView(JView.UserInfo.class) Users users,
-								   BindingResult error) throws Exception {
+	public Response postUserInfo(@RequestBody @JsonView(JView.UserInfo.class) Users users,
+								 BindingResult error) throws Exception {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
 		Integer myUid = 1;
 		userservice.postUser(users, myUid);
-		return new ErrorInfos();
+		return new Response();
+	}
+
+	/**
+	 * delUserInfo<br>
+	 * 指定したユーザー情報を削除する
+	 * @return
+	 * @throws Exception
+	 */
+	@JsonView(JView.Public.class)
+	@DeleteMapping("/api/user/@{userid}")
+	public Response delUserInfo() throws Exception {
+		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
+		Integer myUid = 1;
+//		userservice.postUser(users, myUid);
+		return new Response();
 	}
 
 	/**
@@ -70,30 +85,30 @@ public class UserRestController {
 	 * addFollow<br>
 	 * 指定したユーザーをフォローする
 	 *  @param followuid 更新するユーザー固有ID
-	 * @return ErrorInfo エラー情報
+	 * @return Response レスポンス情報
 	 */
 	@JsonView(JView.Public.class)
 	@PostMapping("/api/user/follow/{followuid}")
-	public ErrorInfos addFollow(@RequestParam Integer followuid) {
+	public Response addFollow(@RequestParam Integer followuid) {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
 		Integer myUid = 1;
 		userservice.insertFollow(followuid, myUid);
-		return new ErrorInfos();
+		return new Response();
 	}
 
 	/**
 	 * addFollow<br>
 	 * 指定したユーザーをフォロー解除する
 	 *  @param followuid 更新するユーザー固有ID
-	 * @return ErrorInfo エラー情報
+	 * @return Response レスポンス情報
 	 */
 	@JsonView(JView.Public.class)
 	@DeleteMapping("/api/user/follow/{followuid}")
-	public ErrorInfos delFollow(@RequestParam Integer followuid) {
+	public Response delFollow(@RequestParam Integer followuid) {
 		// 個々の処理は、認証用のjwtからuidを取り出し、それを使用する
 		Integer myUid = 1;
 		userservice.deleteFollow(followuid, myUid);
-		return new ErrorInfos();
+		return new Response();
 	}
 
 	/**

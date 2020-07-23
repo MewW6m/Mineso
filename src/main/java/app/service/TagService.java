@@ -44,7 +44,7 @@ public class TagService {
      */
     public List<Users> selectUserListByTags(String tname){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tname);
+        Tags tags = tagRepository.findFirstByTname(tname);
         List<Users> usersList = new ArrayList<>();
         // ユーザーリストを作成する
         tags.getUsertag().forEach((ut) ->{
@@ -62,12 +62,12 @@ public class TagService {
     @Transactional(readOnly = false)
     public void insertUserTag(String tname, Integer uid){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tname);
+        Tags tags = tagRepository.findFirstByTname(tname);
         // タグがない場合
         if(tags == null){
             // タグを追加する
             tagRepository.saveAndFlush(new Tags(tname));
-            tags = tagRepository.findFirstByTagname(tname);
+            tags = tagRepository.findFirstByTname(tname);
         }
         // ユーザータグ関連情報を追加する
         userTagRepository.insertUserTagByUidIsAndTidIs(uid, tags.getTid());
@@ -82,7 +82,7 @@ public class TagService {
     @Transactional(readOnly = false)
     public void deleteUsertag(String tname, Integer uid){
         // タグを検索する
-        Tags tags = tagRepository.findFirstByTagname(tname);
+        Tags tags = tagRepository.findFirstByTname(tname);
         // ユーザータグ関連情報を削除する
         userTagRepository.deleteUserTagByUidIsAndTidIs(uid, tags.getTid());
     }

@@ -43,9 +43,9 @@ public class Users {
 	@NotBlank
 	private String uname;
 
-	@JsonIgnore
-	@Column(name = "umail")
-	private String umail;
+//	@JsonIgnore
+//	@Column(name = "umail")
+//	private String umail;
 
 	@JsonView({JView.UserInfo.class, JView.follow.class})
 	@Column(name = "udesc")

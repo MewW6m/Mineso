@@ -5,14 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Util<br>
@@ -22,7 +21,33 @@ import java.util.Set;
 
 @Component
 public class Util {
+
+    @Autowired
+    private MessageSource messageSource;
+
     private final Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    /**
+     * getMessage<br>
+     * message.propertiesからメッセージを取得する
+     * @param messageId メッセージID
+     * @return メッセージ
+     */
+    public String getMessage(String messageId){
+        return messageSource.getMessage(messageId, null , Locale.JAPAN);
+    }
+
+    /**
+     * getMessage<br>
+     * message.propertiesからメッセージを取得する
+     * @param messageId メッセージID
+     * @param args メッセージに挿入する値
+     * @return メッセージ
+     */
+    public String getMessage(String messageId, String[] args){
+        return messageSource.getMessage(messageId, args, Locale.JAPAN);
+    }
 
     /**
      * copyNonNullProperties<br>

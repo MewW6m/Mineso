@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TagRepository  extends JpaRepository<Tags, Long> {
 
-    public Tags findFirstByTagname(String tname);
+    public Tags findFirstByTname(String tname);
 
 }

@@ -1,5 +1,8 @@
 package app.config;
 
+import app.model.Response;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +15,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class ErrorHandler extends ResponseEntityExceptionHandler {
 
+    @Autowired
+    private Util util;
+
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<>(body, headers, status);
+        Response res = new Response(status.value(), util.getMessage(String.valueOf(status.value())));
+        return new ResponseEntity<>(res, headers, status);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) {
-        String body = "test";
-//        try{ body = new ObjectMapper().writeValueAsBytes(new ErrorInfos(1, "error")); } catch (Exception e){}
-        return super.handleExceptionInternal(ex, body, null, HttpStatus.INTERNAL_SERVER_ERROR, request);
+        return super.handleExceptionInternal(ex, "", null, HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 }
