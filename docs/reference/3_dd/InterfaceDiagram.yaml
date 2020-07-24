@@ -11,31 +11,31 @@ info:
     | :------------------------------- | :------- | :----------------------------------------------- |
     | /api/auth/{socialType}           | POST     | ソーシャルログイン                               |
     | /api/user/@{userid}               | GET      | 指定したユーザー情報を返す                       |
-    | /api/user/@{userid}               | POST     | 指定したユーザー情報を更新する                   |
+    | /api/user/@{userid}               | PATCH     | 指定したユーザー情報を更新する                   |
     | /api/user/@{userid}               | DELETE   | 指定したユーザー情報を削除する                |
     | /api/user/follow/@{userid}        | GET      | 指定したユーザーのフォローユーザーリストを返す   |
-    | /api/user/follow/{followuid} | POST     | 指定したユーザーをフォローする                   |
-    | /api/user/follow/{followuid} | DELETE | 指定したユーザーをフォロー解除する               |
+    | /api/user/follow/@{userid} | POST     | 指定したユーザーをフォローする                   |
+    | /api/user/follow/@{userid} | DELETE | 指定したユーザーをフォロー解除する               |
     | /api/user/follower/@{userid}      | GET      | 指定したユーザーのフォロワーユーザーリストを返す |
-    | /api/setting/profile/{uid}       | GET      | プロフィール設定情報を返す                       |
-    | /api/setting/profile/{uid}       | POST     | プロフィール設定情報を更新する                   |
-    | /api/setting/account/{uid}       | GET      | アカウント設定情報を返す                         |
-    | /api/setting/account/{uid}       | POST     | アカウント設定情報を更新する                     |
-    | /api/setting/nortification/{uid} | GET      | 通知設定情報を返す                               |
-    | /api/setting/nortification/{uid} | POST     | 通知設定情報を更新する                           |
-    | /api/setting/customize/{uid}     | GET      | 表示設定情報を返す                               |
-    | /api/setting/customize/{uid}     | POST     | 表示設定情報を更新する                           |
-    | /api/nortification/{uid}         | GET      | 通知情報リストを返す                             |
-    | /api/nortification/{uid}         | POST     | 通知を更新する                                   |
+    | /api/setting/profile       | GET      | プロフィール設定情報を返す                       |
+    | /api/setting/profile       | PATCH     | プロフィール設定情報を更新する                   |
+    | /api/setting/account       | GET      | アカウント設定情報を返す                         |
+    | /api/setting/account       | PATCH     | アカウント設定情報を更新する                     |
+    | /api/setting/nortification | GET      | 通知設定情報を返す                               |
+    | /api/setting/nortification | PATCH     | 通知設定情報を更新する                           |
+    | /api/setting/customize     | GET      | 表示設定情報を返す                               |
+    | /api/setting/customize     | PATCH     | 表示設定情報を更新する                           |
+    | /api/nortification         | GET      | 通知情報リストを返す                             |
+    | /api/nortification         | PATCH     | 通知を更新する                                   |
     | /api/tag                     | GET      | タグリストを取得する                             |
     | /api/tag/@{tname}           | GET      | 指定したタグのタグ付けユーザーリストを返す       |
-    | /api/tag/@{tname}        | POST     | ユーザータグを登録する                           |
+    | /api/tag/@{tname}        | PUT     | ユーザータグを登録する                           |
     | /api/tag/@{tname}        | DELETE | ユーザータグを削除する                           |
     | /api/app                 | GET      | アプリリストを取得する                           |
-    | /api/app | POST     | アプリを登録する                                 |
+    | /api/app | PUT     | アプリを登録する                                 |
     | /api/app/@{aname}             | GET      | 指定したアプリの登録ユーザーリストを返す         |
-    | /api/app/{aid}            | POST     | ユーザーアプリ関連情報を登録する                 |
-    | /api/app/{aid}            | DELETE | ユーザーアプリ関連情報を削除する                 |
+    | /api/app/@{aname}            | POST     | ユーザーアプリ関連情報を登録する                 |
+    | /api/app/@{aname}            | DELETE | ユーザーアプリ関連情報を削除する                 |
 
     </div></details>
 servers:
@@ -84,7 +84,7 @@ paths:
       parameters: []
     parameters:
       - $ref: '#/components/parameters/puserid'
-    post:
+    patch:
       summary: ユーザー情報更新
       tags:
         - '/api/user/@{userid}'
@@ -214,7 +214,7 @@ paths:
       description: プロフィール設定情報を返す
       security:
         - key: []
-    post:
+    patch:
       summary: プロフィール設定更新
       tags:
         - /api/setting/profile
@@ -264,7 +264,7 @@ paths:
       description: アカウント設定情報を返す
       security:
         - key: []
-    post:
+    patch:
       summary: アカウント設定更新
       tags:
         - /api/setting/account
@@ -314,7 +314,7 @@ paths:
       description: 通知設定情報を返す
       security:
         - key: []
-    post:
+    patch:
       summary: 通知設定更新
       tags:
         - /api/setting/nortification
@@ -362,7 +362,7 @@ paths:
       description: 表示(デザイン)設定を返す
       security:
         - key: []
-    post:
+    patch:
       summary: 表示設定更新
       tags:
         - /api/setting/customize
@@ -430,7 +430,7 @@ paths:
           $ref: '#/components/responses/commonResponse'
       operationId: get-nortification
       description: 通知情報リストを返す
-    post:
+    patch:
       summary: 通知フラグ更新
       tags:
         - /api/nortification
@@ -492,7 +492,7 @@ paths:
           $ref: '#/components/responses/userList'
         default:
           $ref: '#/components/responses/commonResponse'
-    post:
+    put:
       summary: タグにユーザー紐づけ
       tags:
         - '/api/tag/@{tname}'
@@ -540,7 +540,7 @@ paths:
         default:
           $ref: '#/components/responses/commonResponse'
       description: アプリリストを取得する
-    post:
+    put:
       summary: アプリ登録/更新
       tags:
         - /api/app
