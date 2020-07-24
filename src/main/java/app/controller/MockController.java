@@ -19,7 +19,7 @@ public class MockController {
         return "{\"userid\": \"string\",\"uname\": \"string\",\"udesc\": \"string\",\"uimgpath\": \"string\",\"followcount\": 0,\"followercount\": 0,\"taglist\": [{\"tid\": 0,\"tname\": \"string\"}],\"applist\": [{\"aid\": 0,\"aname\": \"string\",\"aimgpath\": \"string\",\"aurl\": \"string\"}]}";
     }
 
-    @PostMapping("/api/user/@{userid}")
+    @PatchMapping("/api/user/@{userid}")
     public String postUserInfo(@RequestBody @JsonView(JView.UserInfo.class) Users users, BindingResult error) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @DeleteMapping("/api/user/@{userid}")
@@ -44,45 +44,43 @@ public class MockController {
     @GetMapping("/api/setting/profile")
     public String getProfileSetting() { return "{\"sid\": 0}"; }
 
-    @PostMapping("/api/setting/profile")
+    @PatchMapping("/api/setting/profile")
     public String postProfileSetting(@RequestBody @JsonView(JView.Profile.class) Settings settings) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @GetMapping("/api/setting/account")
     public String getAccountSetting() { return "{\"sid\": 0,\"umail\": \"string\"}"; }
 
-    @PostMapping("/api/setting/account")
+    @PatchMapping("/api/setting/account")
     public String postAccountSetting(@RequestBody @JsonView(JView.Account.class) Settings settings) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @GetMapping("/api/setting/nortification")
     public String getNortificationSetting() { return "{\"sid\": 0}"; }
 
-    @PostMapping("/api/setting/nortification")
+    @PatchMapping("/api/setting/nortification")
     public String postNortificationSetting(@RequestBody @JsonView(JView.Nortification.class) Settings settings) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @GetMapping("/api/setting/customize")
     public String getCustomizeSetting() { return "{\"sid\": 0}"; }
 
-    @PostMapping("/api/setting/customize")
+    @PatchMapping("/api/setting/customize")
     public String postCustomizeSetting(@RequestBody @JsonView(JView.Customize.class) Settings settings) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
 
     @GetMapping("/api/nortification")
     public String getNortificationList() throws Exception { return "[{\"nid\": \"string\",\"ntitle\": \"string\",\"ndetail\": \"string\",\"ntype\": \"string\",\"ndate\": \"2020-07-23T06:00:28Z\"}]"; }
 
-    @PostMapping("/api/nortification")
+    @PatchMapping("/api/nortification")
     public String postNortification(@RequestBody List<Integer> nIdList) throws Exception { return "{\"code\": 0,\"message\": \"string\"}"; }
 
-    // mada
     @GetMapping("/api/tag")
     public String getTagList(){
         return "[{\"tid\": 0,\"tname\": \"string\"}]";
     }
 
-    //mada
     @GetMapping("/api/tag/@{tname}")
     public String getTagUserList(@PathVariable("tname") String tname) { return "[{\"userid\": \"string\",\"uname\": \"string\",\"udesc\": \"string\",\"uimgpath\": \"string\"}]"; }
 
-    @PostMapping("/api/tag/@{tname}")
+    @PutMapping("/api/tag/@{tname}")
     public String registUserTag(@PathVariable("tname") String tname)  { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @DeleteMapping("/api/tag/@{tname}")
@@ -91,7 +89,7 @@ public class MockController {
     @GetMapping("/api/app")
     public String getAppList(){ return "[{\"aid\": 0,\"aname\": \"string\",\"aimgpath\": \"string\",\"aurl\": \"string\"}]"; }
 
-    @PostMapping("/api/app")
+    @PutMapping("/api/app")
     public String registApp(@RequestBody Apps apps) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
     @GetMapping("/api/app/@{aname}")
