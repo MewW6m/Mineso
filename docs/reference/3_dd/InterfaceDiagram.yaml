@@ -195,7 +195,7 @@ paths:
     get:
       summary: プロフィール設定取得
       tags:
-        - '/api/setting/profile'
+        - /api/setting/profile
       responses:
         '200':
           description: OK
@@ -217,7 +217,7 @@ paths:
     post:
       summary: プロフィール設定更新
       tags:
-        - '/api/setting/profile'
+        - /api/setting/profile
       operationId: post-api-setting-profile
       responses:
         '200':
@@ -243,7 +243,7 @@ paths:
     get:
       summary: アカウント設定取得
       tags:
-        - '/api/setting/account'
+        - /api/setting/account
       responses:
         '200':
           description: OK
@@ -267,7 +267,7 @@ paths:
     post:
       summary: アカウント設定更新
       tags:
-        - '/api/setting/account'
+        - /api/setting/account
       operationId: post-api-setting-account
       responses:
         '200':
@@ -295,7 +295,7 @@ paths:
     get:
       summary: 通知設定取得
       tags:
-        - '/api/setting/nortification'
+        - /api/setting/nortification
       responses:
         '200':
           description: OK
@@ -317,7 +317,7 @@ paths:
     post:
       summary: 通知設定更新
       tags:
-        - '/api/setting/nortification'
+        - /api/setting/nortification
       operationId: post-api-setting-nortification
       responses:
         '200':
@@ -343,7 +343,7 @@ paths:
     get:
       summary: 表示設定取得
       tags:
-        - '/api/setting/customize'
+        - /api/setting/customize
       responses:
         '200':
           description: OK
@@ -365,7 +365,7 @@ paths:
     post:
       summary: 表示設定更新
       tags:
-        - '/api/setting/customize'
+        - /api/setting/customize
       operationId: post-api-setting-customize
       responses:
         '200':
@@ -391,7 +391,7 @@ paths:
     get:
       summary: 通知取得
       tags:
-        - '/api/nortification'
+        - /api/nortification
       responses:
         '200':
           description: OK
@@ -433,7 +433,7 @@ paths:
     post:
       summary: 通知フラグ更新
       tags:
-        - '/api/nortification'
+        - /api/nortification
       operationId: post-api-nortification
       responses:
         '200':
@@ -452,7 +452,7 @@ paths:
               type: array
               description: 通知IDリスト
               items:
-                type: string
+                type: integer
                 description: 通知ID
         description: ''
   /api/tag:
@@ -555,6 +555,11 @@ paths:
         default:
           $ref: '#/components/responses/commonResponse'
       description: アプリを登録する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoAppRequired'
     parameters: []
   '/api/app/@{aname}':
     parameters:
@@ -610,14 +615,14 @@ tags:
   - name: '/api/user/@{userid}'
   - name: '/api/user/follow/@{userid}'
   - name: '/api/user/follower/@{userid}'
-  - name: '/api/setting/profile'
-  - name: '/api/setting/account'
-  - name: '/api/setting/nortification'
-  - name: '/api/setting/customize'
-  - name: '/api/nortification'
-  - name: '/api/tag'
+  - name: /api/setting/profile
+  - name: /api/setting/account
+  - name: /api/setting/nortification
+  - name: /api/setting/customize
+  - name: /api/nortification
+  - name: /api/tag
   - name: '/api/tag/@{tname}'
-  - name: '/api/app'
+  - name: /api/app
   - name: '/api/app/@{aname}'
 components:
   parameters:

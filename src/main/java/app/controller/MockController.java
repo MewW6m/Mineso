@@ -63,7 +63,7 @@ public class MockController {
     public String getCustomizeSetting() { return "{\"sid\": 0}"; }
 
     @PostMapping("/api/setting/customize")
-    public String postCustomizeSetting(@RequestBody @JsonView(JView.Customize.class) Settings settings) { return "{\"sid\": 0,\"umail\": \"string\"}"; }
+    public String postCustomizeSetting(@RequestBody @JsonView(JView.Customize.class) Settings settings) { return "{\"code\": 0,\"message\": \"string\"}"; }
 
 
     @GetMapping("/api/nortification")
