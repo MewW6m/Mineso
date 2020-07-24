@@ -23,19 +23,19 @@ import java.util.List;
 @Component
 public class Tags {
 
-	public Tags(String tagname){
-		this.tagname = tagname;
+	public Tags(String tname){
+		this.tname = tname;
 	}
 
-	@JsonView(JView.TagInfo.class)
+	@JsonView({JView.TagInfo.class, JView.UserDetail.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tid", nullable = false, updatable = false, insertable = false)
 	private Integer tid;
 
-	@JsonView(JView.TagInfo.class)
-	@Column(name = "tagname", unique=true)
-	private String tagname;
+	@JsonView({JView.TagInfo.class, JView.UserDetail.class})
+	@Column(name = "tname", unique=true)
+	private String tname;
 
 	@OneToMany(mappedBy = "tags", cascade = CascadeType.ALL)
 	private List<UserTag> usertag;

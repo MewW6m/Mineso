@@ -23,7 +23,7 @@ import java.util.List;
 @Component
 public class Apps {
 
-	@JsonView(JView.AppInfo.class)
+	@JsonView({JView.AppInfo.class, JView.UserDetail.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aid", nullable = false, updatable = false, insertable = false)
@@ -32,15 +32,15 @@ public class Apps {
 	@Column(name = "adisabled")
 	private Boolean adisabled;
 
-	@JsonView(JView.AppInfo.class)
+	@JsonView({JView.AppInfo.class, JView.UserDetail.class})
 	@Column(name = "aname", unique=true, nullable = false)
 	private String aname;
 
-	@JsonView(JView.AppInfo.class)
+	@JsonView({JView.AppInfo.class, JView.UserDetail.class})
 	@Column(name = "aimgpath")
 	private String aimgpath;
 
-	@JsonView(JView.AppInfo.class)
+	@JsonView({JView.AppInfo.class, JView.UserDetail.class})
 	@Column(name = "aurl", nullable = false)
 	private String aurl;
 	

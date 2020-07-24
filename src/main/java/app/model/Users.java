@@ -33,25 +33,25 @@ public class Users {
 	@NotNull()
 	private Integer uid;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView({JView.UserInfo.class, JView.follow.class})
 	@Column(name = "userid", unique = true , nullable = false)
 	@NotBlank
 	private String userid;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView({JView.UserInfo.class, JView.follow.class})
 	@Column(name = "uname", nullable = false)
 	@NotBlank
 	private String uname;
 
-	@JsonIgnore
-	@Column(name = "umail")
-	private String umail;
+//	@JsonIgnore
+//	@Column(name = "umail")
+//	private String umail;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView({JView.UserInfo.class, JView.follow.class})
 	@Column(name = "udesc")
 	private String udesc;
 
-	@JsonView(JView.UserInfo.class)
+	@JsonView({JView.UserInfo.class, JView.follow.class})
 	@Column(name = "uimgpath")
 	private String uimgpath;
 
@@ -77,11 +77,11 @@ public class Users {
 //
 
 
-	@JsonView(JView.UserDetail.class)
+	@JsonView(JView.follow.class)
 	@Transient
 	private List<Users> followlist;
 
-	@JsonView(JView.UserDetail.class)
+	@JsonView(JView.follower.class)
 	@Transient
 	private List<Users> followerlist;
 

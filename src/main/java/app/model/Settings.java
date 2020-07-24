@@ -41,6 +41,10 @@ public class Settings {
 	private Boolean uservisibled;
 
 	@JsonView(JView.Account.class)
+	@Column(name = "umail")
+	private String umail;
+
+	@JsonView(JView.Account.class)
 	@Column(name = "accountsetting1")
 	@NotBlank(groups = JView.Account.class)
 	private String accountsetting1;
@@ -59,6 +63,10 @@ public class Settings {
 	@Column(name = "customizesetting1")
 	@NotBlank(groups = JView.Customize.class)
 	private String customizesetting1;
+
+	@JsonIgnore
+	@Column(name = "sdisabled")
+	private Boolean sdisabled;
 
 	@JsonIgnore
 	@OneToOne(cascade=CascadeType.DETACH)

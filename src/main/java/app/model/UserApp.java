@@ -1,5 +1,7 @@
 package app.model;
 
+import app.config.JView;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +39,10 @@ public class UserApp {
     @MapsId("aid")
     private Apps apps;
 
+    @JsonView(JView.UserDetail.class)
     public Integer getUid(){ return userAppKey.getUid(); }
+
+    @JsonView(JView.UserDetail.class)
     public Integer getAid(){ return userAppKey.getAid(); }
     public void setUid(Integer uid){ userAppKey.setUid(uid); }
     public void setAid(Integer aid){ userAppKey.setAid(aid); }
