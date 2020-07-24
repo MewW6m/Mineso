@@ -12,7 +12,7 @@ info:
     | /api/auth/{socialType}           | POST     | ソーシャルログイン                               |
     | /api/user/@{userid}               | GET      | 指定したユーザー情報を返す                       |
     | /api/user/@{userid}               | POST     | 指定したユーザー情報を更新する                   |
-    | /api/user/@{userid}               | DELETE     | 指定したユーザー情報を削除する                |
+    | /api/user/@{userid}               | DELETE   | 指定したユーザー情報を削除する                |
     | /api/user/follow/@{userid}        | GET      | 指定したユーザーのフォローユーザーリストを返す   |
     | /api/user/follow/{followuid} | POST     | 指定したユーザーをフォローする                   |
     | /api/user/follow/{followuid} | DELETE | 指定したユーザーをフォロー解除する               |
@@ -138,19 +138,10 @@ paths:
           $ref: '#/components/responses/commonResponse'
       operationId: get-@-userid-follow
       description: そのユーザーのフォロー一覧を取得する
-    parameters:
-      - $ref: '#/components/parameters/puserid'
-  '/api/user/follow/{followuid}':
-    parameters:
-      - schema:
-          type: string
-        name: followuid
-        in: path
-        required: true
     post:
       summary: フォロー
       tags:
-        - '/api/user/follow/{followuid}'
+        - '/api/user/follow/@{userid}'
       operationId: post-api-user-follow-add-followuid
       responses:
         '200':
@@ -165,7 +156,7 @@ paths:
     delete:
       summary: フォロー解除
       tags:
-        - '/api/user/follow/{followuid}'
+        - '/api/user/follow/@{userid}'
       operationId: delete-api-user-follow-followuid
       responses:
         '200':
@@ -177,6 +168,8 @@ paths:
         default:
           $ref: '#/components/responses/commonResponse'
       description: 指定したユーザーをフォロー解除する
+    parameters:
+      - $ref: '#/components/parameters/puserid'
   '/api/user/follower/@{userid}':
     get:
       summary: フォロワー一覧取得
@@ -198,11 +191,11 @@ paths:
       description: そのユーザーのフォロワーの一覧を取得する
     parameters:
       - $ref: '#/components/parameters/puserid'
-  '/api/setting/profile/{uid}':
+  /api/setting/profile:
     get:
       summary: プロフィール設定取得
       tags:
-        - '/api/setting/profile/{uid}'
+        - '/api/setting/profile'
       responses:
         '200':
           description: OK
@@ -224,7 +217,7 @@ paths:
     post:
       summary: プロフィール設定更新
       tags:
-        - '/api/setting/profile/{uid}'
+        - '/api/setting/profile'
       operationId: post-api-setting-profile
       responses:
         '200':
@@ -246,13 +239,11 @@ paths:
                 sid:
                   type: integer
                   description: 設定ID
-    parameters:
-      - $ref: '#/components/parameters/puid'
-  '/api/setting/account/{uid}':
+  /api/setting/account:
     get:
       summary: アカウント設定取得
       tags:
-        - '/api/setting/account/{uid}'
+        - '/api/setting/account'
       responses:
         '200':
           description: OK
@@ -276,7 +267,7 @@ paths:
     post:
       summary: アカウント設定更新
       tags:
-        - '/api/setting/account/{uid}'
+        - '/api/setting/account'
       operationId: post-api-setting-account
       responses:
         '200':
@@ -300,13 +291,11 @@ paths:
                   description: 設定ID
                 umail:
                   $ref: '#/components/schemas/umail'
-    parameters:
-      - $ref: '#/components/parameters/puid'
-  '/api/setting/nortification/{uid}':
+  /api/setting/nortification:
     get:
       summary: 通知設定取得
       tags:
-        - '/api/setting/nortification/{uid}'
+        - '/api/setting/nortification'
       responses:
         '200':
           description: OK
@@ -328,7 +317,7 @@ paths:
     post:
       summary: 通知設定更新
       tags:
-        - '/api/setting/nortification/{uid}'
+        - '/api/setting/nortification'
       operationId: post-api-setting-nortification
       responses:
         '200':
@@ -350,13 +339,11 @@ paths:
                 sid:
                   type: integer
                   description: 設定ID
-    parameters:
-      - $ref: '#/components/parameters/puid'
-  '/api/setting/customize/{uid}':
+  /api/setting/customize:
     get:
       summary: 表示設定取得
       tags:
-        - '/api/setting/customize/{uid}'
+        - '/api/setting/customize'
       responses:
         '200':
           description: OK
@@ -378,7 +365,7 @@ paths:
     post:
       summary: 表示設定更新
       tags:
-        - '/api/setting/customize/{uid}'
+        - '/api/setting/customize'
       operationId: post-api-setting-customize
       responses:
         '200':
@@ -400,13 +387,11 @@ paths:
                 sid:
                   type: integer
                   description: 設定ID
-    parameters:
-      - $ref: '#/components/parameters/puid'
-  '/api/nortification/{uid}':
+  /api/nortification:
     get:
       summary: 通知取得
       tags:
-        - '/api/nortification/{uid}'
+        - '/api/nortification'
       responses:
         '200':
           description: OK
@@ -448,7 +433,7 @@ paths:
     post:
       summary: 通知フラグ更新
       tags:
-        - '/api/nortification/{uid}'
+        - '/api/nortification'
       operationId: post-api-nortification
       responses:
         '200':
@@ -470,8 +455,6 @@ paths:
                 type: string
                 description: 通知ID
         description: ''
-    parameters:
-      - $ref: '#/components/parameters/puid'
   /api/tag:
     get:
       summary: タグ一覧取得
@@ -481,11 +464,13 @@ paths:
       description: タグリストを取得する
       responses:
         '200':
-          description: 共通レスポンス
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InfoResponse'
+                type: array
+                items:
+                  $ref: '#/components/schemas/InfoTagRequired'
         default:
           $ref: '#/components/responses/commonResponse'
     parameters: []
@@ -504,11 +489,7 @@ paths:
       description: 指定したタグのタグ付けユーザーリストを返す
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/userList'
         default:
           $ref: '#/components/responses/commonResponse'
     post:
@@ -542,22 +523,6 @@ paths:
           $ref: '#/components/responses/commonResponse'
       description: ユーザータグを削除する
   /api/app:
-    post:
-      summary: アプリ登録/更新
-      tags:
-        - /api/app
-      operationId: post-api-app-add
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: アプリを登録する
-    parameters: []
     get:
       summary: アプリ一覧取得
       tags:
@@ -575,6 +540,22 @@ paths:
         default:
           $ref: '#/components/responses/commonResponse'
       description: アプリリストを取得する
+    post:
+      summary: アプリ登録/更新
+      tags:
+        - /api/app
+      operationId: post-api-app-add
+      responses:
+        '200':
+          description: 共通レスポンス
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      description: アプリを登録する
+    parameters: []
   '/api/app/@{aname}':
     parameters:
       - schema:
@@ -594,17 +575,10 @@ paths:
           $ref: '#/components/responses/commonResponse'
       operationId: get-api-app-aname
       description: アプリを登録しているユーザーの一覧を取得する
-  '/api/app/{aid}':
-    parameters:
-      - schema:
-          type: string
-        name: aid
-        in: path
-        required: true
     post:
       summary: アプリにユーザー紐づけ
       tags:
-        - '/api/app/{aid}'
+        - '/api/app/@{aname}'
       operationId: post-api-app-add-aid
       responses:
         '200':
@@ -619,7 +593,7 @@ paths:
     delete:
       summary: アプリにユーザー紐づけ解除
       tags:
-        - '/api/app/{aid}'
+        - '/api/app/@{aname}'
       operationId: delete-api-app-aid
       responses:
         '200':
@@ -635,27 +609,18 @@ tags:
   - name: '/api/auth/{socialType}'
   - name: '/api/user/@{userid}'
   - name: '/api/user/follow/@{userid}'
-  - name: '/api/user/follow/{followuid}'
   - name: '/api/user/follower/@{userid}'
-  - name: '/api/setting/profile/{uid}'
-  - name: '/api/setting/account/{uid}'
-  - name: '/api/setting/nortification/{uid}'
-  - name: '/api/setting/customize/{uid}'
-  - name: '/api/nortification/{uid}'
-  - name: /api/tag
+  - name: '/api/setting/profile'
+  - name: '/api/setting/account'
+  - name: '/api/setting/nortification'
+  - name: '/api/setting/customize'
+  - name: '/api/nortification'
+  - name: '/api/tag'
   - name: '/api/tag/@{tname}'
-  - name: /api/app
+  - name: '/api/app'
   - name: '/api/app/@{aname}'
-  - name: '/api/app/{aid}'
 components:
   parameters:
-    puid:
-      schema:
-        $ref: '#/components/schemas/uid'
-      name: uid
-      in: path
-      required: true
-      description: ログイン中のユーザーの固有ID
     puserid:
       schema:
         $ref: '#/components/schemas/userid'
@@ -789,15 +754,7 @@ components:
       type: array
       description: ユーザー一覧
       items:
-        $ref: '#/components/schemas/userDetail'
-    InfoTagRequired:
-      type: object
-      description: タグ
-      properties:
-        tid:
-          $ref: '#/components/schemas/tid'
-        tname:
-          $ref: '#/components/schemas/tname'
+        $ref: '#/components/schemas/InfoUserRequired'
     InfoAppRequired:
       type: object
       description: アプリ
@@ -815,6 +772,17 @@ components:
         - aname
         - aimgpath
         - aurl
+    InfoTagRequired:
+      type: object
+      description: タグ
+      properties:
+        tid:
+          $ref: '#/components/schemas/tid'
+        tname:
+          $ref: '#/components/schemas/tname'
+      required:
+        - tid
+        - tname
     InfoResponse:
       type: object
       description: レスポンス内容
