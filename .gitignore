@@ -160,3 +160,30 @@ logo*.png
 logo.pptx
 src/main/resources/application-dev.*
 node_modules/
+reacts/node_modules/
+
+# ------------------------React--------------------------------------------
+# dependencies
+src/main/resources/src/node_modules
+src/main/resources/src/.pnp
+src/main/resources/src/.pnp.js
+src/main/resources/src/.next/
+
+# testing
+src/main/resources/src/coverage
+
+# production
+src/main/resources/src/build
+src/main/resources/src/dist
+
+# misc
+src/main/resources/src/.DS_Store
+src/main/resources/src/.env.local
+src/main/resources/src/.env.development.local
+src/main/resources/src/.env.test.local
+src/main/resources/src/.env.production.local
+
+src/main/resources/src/yarn.lock
+src/main/resources/src/npm-debug.log*
+src/main/resources/src/yarn-debug.log*
+src/main/resources/src/yarn-error.log*

@@ -21,7 +21,7 @@ public class MainController {
 	 */
 	@GetMapping("/top")
     public String getTopPage() {
-        return "Top";
+        return "top";
     }
 
 //

@@ -63,6 +63,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 
 
 /**
@@ -75,6 +76,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig  extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().disable().authorizeRequests().antMatchers("/").permitAll();
+        http.csrf().disable().cors().and().authorizeRequests().antMatchers("/").permitAll();
+//        .and().headers(headers -> {
+//            headers.addHeaderWriter(new StaticHeadersWriter("Set-Cookie", "SameSite=None; Secure"));
+//            headers.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "http://fontawesome.com/"));
+//            headers.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "http://fontawesome.com/"));
+//            headers.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "http://fontawesome.com/"));
+//            headers.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "http://fontawesome.com/"));
+//            headers.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"));
+//        });
     }
 }

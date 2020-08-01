@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"app.main"},{"l":"app.main.appconfig"},{"l":"app.main.controller"},{"l":"app.main.domain"},{"l":"app.main.helper"},{"l":"app.main.repository"},{"l":"app.main.service"},{"l":"すべてのパッケージ","url":"allpackages-index.html"}]
+packageSearchIndex = [{"l":"app"},{"l":"app.config"},{"l":"app.controller"},{"l":"app.model"},{"l":"app.repository"},{"l":"app.service"},{"l":"すべてのパッケージ","url":"allpackages-index.html"}]

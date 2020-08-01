@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = {"/top":["static\u002Fchunks\u002F1bfc9850.c9b73208892a438a790b.js","static\u002Fchunks\u002Fa987ea44.035dd2190efca6b7e9ba.js"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

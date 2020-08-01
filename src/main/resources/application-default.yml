@@ -1,4 +1,8 @@
 spring:
+  resources:
+    static-locations: classpath:/dist/
+  thymeleaf:
+    prefix: classpath:/dist/
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -7,7 +11,9 @@ spring:
     sql-script-encoding: UTF-8
 #    initialization-mode: ALWAYS
 #    data: classpath:TestData.sql
-
+  session:
+    cookie:
+      samesite: LAX
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -22,7 +28,13 @@ spring:
     level:
       org:
         hibernate: debug
-#  security:
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true
+      samesite:
+        security: LAX
 #    oauth2:
 #      client:
 #        registration:
