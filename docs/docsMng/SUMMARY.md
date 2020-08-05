@@ -26,8 +26,9 @@
   + [機能設計書](2_bd/2.2.3.FunctionDesign.md)
   + [非機能設計書](2_bd/2.3.UnFunctionDesign.md)
   + [メッセージ一覧](2_bd/2.4.MessageList.md)
-  + [運用設計書](2_bd/2.5.OperationDesign.md)
-
+  + [セキュリティ設計書](2_bd/2.5.SecurityDesign.md)
+  + [運用設計書](2_bd/2.6.OperationDesign.md)
+  
 + 詳細設計書 
   + [データベース設計書](3_dd/3.1.1.DatabaseDesign.md)
   + [テーブル一覧](3_dd/3.1.2.TableList.md)
