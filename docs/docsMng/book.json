@@ -12,8 +12,7 @@
 				"uml",
 				"back-to-top-button",
 				"fontsettings",
-				"page-footer",
-				"include-html"
+				"page-footer"
 				],
 				"dependencies": {
 						"plantuml-encoder": "1.2.3"
