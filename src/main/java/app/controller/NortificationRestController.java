@@ -23,7 +23,8 @@ public class NortificationRestController {
      * getNortificationList<br>
      * 通知情報リストを返す
      *  @param uid ユーザーID
-     * @return List<Nortification> 通知リスト
+     * @return 通知リスト
+     * @throws Exception 例外
      */
     @GetMapping("/api/nortification/{uid}")
     public String getNortificationList(@PathVariable("uid") int uid) throws Exception {
@@ -37,7 +38,8 @@ public class NortificationRestController {
      * 通知を更新する
      *  @param uid ユーザーID
      *  @param nIdList 通知IDリスト
-     * @return Response レスポンス情報
+     * @return レスポンス情報
+     * @throws Exception 例外
      */
     @PostMapping("/api/nortification/{uid}")
     public String postNortification(@PathVariable("uid") int uid, @RequestBody List<Integer> nIdList) throws Exception {

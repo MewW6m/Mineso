@@ -7,16 +7,15 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * SpringBoot起動時に実行されるクラス
  * @author MewW6m　(https://github.com/MewW6m)
- * @link https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html
  */
 @SpringBootApplication
 public class MinesOApplication {
 
 	/**
-    * mainメソッド
-    * Springアプリケーションを実行し、新しいApplicationContextを作成し ます。
-    *  @param args 
-    */
+	 * main<br>
+	 * Springアプリケーションを実行し、新しいApplicationContextを作成します。
+	 * @param args 不明
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(MinesOApplication.class, args);
 	}

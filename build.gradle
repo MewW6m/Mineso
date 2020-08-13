@@ -10,6 +10,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    umlDoclet
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.3.1.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.3.1.RELEASE'
@@ -20,6 +24,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:2.3.1.RELEASE'
     implementation 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.projectlombok:lombok:1.18.10'
+    implementation 'nl.talsmasoftware:umldoclet:2.0.11'
     implementation 'org.hibernate.validator:hibernate-validator:6.1.3.Final'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.2.4.RELEASE'
     runtimeOnly 'com.h2database:h2:1.4.200'
@@ -28,7 +33,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.4.RELEASE'
     testImplementation 'org.springframework.security:spring-security-test'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
-   }
+    umlDoclet "nl.talsmasoftware:umldoclet:2.0.11"
+}
 
 group = 'app'
 version = '0.0.1'
@@ -37,14 +43,24 @@ sourceCompatibility = '14'
 
 
 bootRun {
-    jvmArgs = ['--illegal-access=deny']
+//    jvmArgs = ['--illegal-access=deny']
 }
 
 test {
     useJUnitPlatform()
-    jvmArgs = ['--illegal-access=deny']
+//    jvmArgs = ['--illegal-access=deny']
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    title = "MinesO"
+    options.docletpath = configurations.umlDoclet.files.asType(List)
+    options.doclet = "nl.talsmasoftware.umldoclet.UMLDoclet"
+    options.encoding = 'utf-8'
+    options.charSet = 'utf-8'
+    destinationDir = new File("C:\\Users\\choke\\repos\\MinesO\\docs\\docsMng\\reference\\3_dd\\javadoc\\")
 }

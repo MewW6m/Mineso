@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="127px" preserveAspectRatio="none" style="width:334px;height:127px;" version="1.1" viewBox="0 0 334 127" width="334px" zoomAndPan="magnify"><defs><filter height="300%" id="fi59ok8evgnlt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[bd5d9269edeead8fef00750eae9eb4e4]
+class app.config.Logging--><a href="Logging.html" target="_top" title="Logging.html" xlink:actuate="onRequest" xlink:href="Logging.html" xlink:show="new" xlink:title="Logging.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#fi59ok8evgnlt)" height="89.6953" id="app.config.Logging" style="stroke: #A80036; stroke-width: 1.5;" width="308" x="7" y="7"/><ellipse cx="131.25" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M134.9375,28.2969 Q134.6875,31.7813 133.5469,32.9375 Q132.5156,33.9531 131.1094,33.9531 Q129.7031,33.9531 128.6719,32.9375 Q126.9219,31.1719 126.9219,27.5 Q126.9219,23.25 128.7969,21.3438 Q129.8438,20.3281 131.1719,20.3281 Q132.5781,20.3281 133.4219,21.1406 Q134.9063,22.6563 134.8281,25.5313 L132.7031,25.5313 Q132.625,23.2031 131.9844,22.5625 Q131.7031,22.2656 131.1719,22.2656 Q130.7188,22.2656 130.3594,22.6406 Q129.125,23.8594 129.125,27.375 Q129.125,30.4219 130.1719,31.4375 Q130.5938,31.875 131.1094,31.875 Q131.5625,31.875 132,31.4375 Q132.5625,30.8906 132.6406,28.2969 L134.9375,28.2969 Z "/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="151.75" y="26.5332">Logging</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="51" x="151.75" y="39.9902">app.config</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="314" y1="47.1875" y2="47.1875"/><ellipse cx="18" cy="58.1875" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="27" y="62.6064">invokeApiControllerBefore(JoinPoint): void</text><ellipse cx="18" cy="72.0234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="215" x="27" y="76.4424">invokeControllerAfter(JoinPoint, Object): void</text><ellipse cx="18" cy="85.8594" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="282" x="27" y="90.2783">invokeControllerAfterThrowing(JoinPoint, Throwable): void</text></a><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="190" x="66" y="114.0762">UMLDoclet 2.0.11, PlantUML 1.2020.15</text><!--MD5=[787f9bbb77b2f0a901b9a6903ae68df6]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>Logging\n<size:10>app.config" as app.config.Logging [[Logging.html]] {
+        +invokeApiControllerBefore(JoinPoint): void
+        +invokeControllerAfter(JoinPoint, Object): void
+        +invokeControllerAfterThrowing(JoinPoint, Throwable): void
+    }
+
+    center footer UMLDoclet 2.0.11, PlantUML 1.2020.15
+@enduml
+
+PlantUML version 1.2020.15(Sun Jun 28 20:39:45 JST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

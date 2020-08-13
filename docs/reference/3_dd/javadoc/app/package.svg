@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="149px" preserveAspectRatio="none" style="width:206px;height:149px;" version="1.1" viewBox="0 0 206 149" width="206px" zoomAndPan="magnify"><defs><filter height="300%" id="fk48v15xjpeyd" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><polygon fill="#FFFFFF" filter="url(#fk48v15xjpeyd)" points="18,6,50,6,57,29.6094,184,29.6094,184,120,18,120,18,6" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="18" x2="57" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="26" x="22" y="22.5332">app</text><!--MD5=[3e31c966f53f2e5a942d9130f4cf4f37]
+class app.MinesOApplication--><a href="MinesOApplication.html" target="_top" title="MinesOApplication.html" xlink:actuate="onRequest" xlink:href="MinesOApplication.html" xlink:show="new" xlink:title="MinesOApplication.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#fk48v15xjpeyd)" height="61.8359" id="app.MinesOApplication" style="stroke: #A80036; stroke-width: 1.5;" width="134" x="34" y="42"/><ellipse cx="49" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M52.6875,59.2031 Q52.4375,62.6875 51.2969,63.8438 Q50.2656,64.8594 48.8594,64.8594 Q47.4531,64.8594 46.4219,63.8438 Q44.6719,62.0781 44.6719,58.4063 Q44.6719,54.1563 46.5469,52.25 Q47.5938,51.2344 48.9219,51.2344 Q50.3281,51.2344 51.1719,52.0469 Q52.6563,53.5625 52.5781,56.4375 L50.4531,56.4375 Q50.375,54.1094 49.7344,53.4688 Q49.4531,53.1719 48.9219,53.1719 Q48.4688,53.1719 48.1094,53.5469 Q46.875,54.7656 46.875,58.2813 Q46.875,61.3281 47.9219,62.3438 Q48.3438,62.7813 48.8594,62.7813 Q49.3125,62.7813 49.75,62.3438 Q50.3125,61.7969 50.3906,59.2031 L52.6875,59.2031 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="102" x="63" y="62.9102">MinesOApplication</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="35" x2="167" y1="74" y2="74"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="35" x2="167" y1="82" y2="82"/><ellipse cx="45" cy="93" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="90" x="54" y="97.4189">main(String[]): void</text></a><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="190" x="0" y="136.3809">UMLDoclet 2.0.11, PlantUML 1.2020.15</text><!--MD5=[60296043e3df48d19cb92749468fd281]
+@startuml
+    namespace app {
+
+        class MinesOApplication [[MinesOApplication.html]] {
+            {static} +main(String[]): void
+        }
+
+    }
+
+    center footer UMLDoclet 2.0.11, PlantUML 1.2020.15
+@enduml
+
+PlantUML version 1.2020.15(Sun Jun 28 20:39:45 JST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

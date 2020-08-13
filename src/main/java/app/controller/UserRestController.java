@@ -29,7 +29,8 @@ public class UserRestController {
 	 * getUserInfo<br>
 	 * 指定したユーザー情報を返す
 	 *  @param userid urlで指定されたユーザーID
-	 * @return User 指定されたユーザー情報
+	 * @return 指定されたユーザー情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.UserDetail.class)
 	@GetMapping("/api/user/@{userid}")
@@ -44,7 +45,8 @@ public class UserRestController {
 	 * 指定したユーザー情報を更新する
 	 *  @param users 更新するユーザー情報の内容
 	 *  @param error 検証結果
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Public.class)
 	@PostMapping("/api/user/@{userid}")
@@ -61,8 +63,8 @@ public class UserRestController {
 	/**
 	 * delUserInfo<br>
 	 * 指定したユーザー情報を削除する
-	 * @return
-	 * @throws Exception
+	 * @return 結果
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Public.class)
 	@DeleteMapping("/api/user/@{userid}")
@@ -79,7 +81,8 @@ public class UserRestController {
 	 * getFollowList<br>
 	 * 指定したユーザーのフォローユーザーリストを返す
 	 *  @param userid urlで指定されたユーザーID
-	 * @return List<User> フォローユーザーリスト
+	 * @return フォローユーザーリスト
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.follow.class)
 	@GetMapping("/api/user/follow/@{userid}")
@@ -93,7 +96,7 @@ public class UserRestController {
 	 * addFollow<br>
 	 * 指定したユーザーをフォローする
 	 *  @param followuid 更新するユーザー固有ID
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
 	 */
 	@JsonView(JView.Public.class)
 	@PostMapping("/api/user/follow/{followuid}")
@@ -110,7 +113,7 @@ public class UserRestController {
 	 * delFollow<br>
 	 * 指定したユーザーをフォロー解除する
 	 *  @param followuid 更新するユーザー固有ID
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
 	 */
 	@JsonView(JView.Public.class)
 	@DeleteMapping("/api/user/follow/{followuid}")
@@ -127,7 +130,8 @@ public class UserRestController {
 	 * getFollowerList<br>
 	 * 指定したユーザーのフォロワーユーザーリストを返す
 	 *  @param userid urlで指定されたユーザーID
-	 * @return List<User> フォロワーユーザーリスト
+	 * @return フォロワーユーザーリスト
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.follower.class)
 	@GetMapping("/api/user/follower/@{userid}")

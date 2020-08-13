@@ -26,7 +26,7 @@ public class AppRestController {
     /**
      * getAppList<br>
      * アプリリストを取得する
-     * @return
+     * @return アプリリスト
      */
     @JsonView(JView.AppInfo.class)
     @GetMapping("/api/app")
@@ -39,8 +39,8 @@ public class AppRestController {
     /**
      * registApp<br>
      * アプリを登録する
-     * @param apps
-     * @return
+     * @param apps アプリ情報
+     * @return 結果
      */
     @JsonView(JView.Public.class)
     @PostMapping("/api/app")
@@ -55,7 +55,7 @@ public class AppRestController {
      * getAppUserList<br>
      * 指定したアプリの登録ユーザーリストを返す
      *  @param aname urlで指定されたアプリ名
-     * @return List<User> アプリを登録しているユーザーリスト
+     * @return アプリを登録しているユーザーリスト
      */
     @JsonView(JView.UserInfo.class)
     @GetMapping("/api/app/@{aname}")
@@ -68,8 +68,8 @@ public class AppRestController {
     /**
      * registUserApp<br>
      * ユーザーアプリ関連情報を登録する
-     * @param aid
-     * @return
+     * @param aid アプリID
+     * @return 結果
      */
     @JsonView(JView.Public.class)
     @PostMapping("/api/app/{aid}")
@@ -84,8 +84,8 @@ public class AppRestController {
     /**
      * removeApp<br>
      * ユーザーアプリ関連情報を削除する
-     * @param aid
-     * @return
+     * @param aid アプリID
+     * @return 結果
      */
     @JsonView(JView.Public.class)
     @DeleteMapping("/api/app/{aid}")

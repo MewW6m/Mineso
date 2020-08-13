@@ -44,6 +44,8 @@ public class UserService  {
      * ユーザー情報(ユーザーと設定)を取得する
      *  @param userid ユーザーID
      *  @param getCntFlg フォロー数取得可否
+     * @return ユーザー情報
+     * @throws Exception 例外
      */
     public Users getUser(String userid, Boolean getCntFlg) throws Exception {
     	Users users = userRepository.findFirstByUserid(userid);
@@ -64,7 +66,8 @@ public class UserService  {
      * postUser<br>
      * ユーザー情報を更新する
      * @param users ユーザー情報
-     * @throws Exception
+     * @param myUid ユーザーID
+     * @throws Exception 例外
      */
     public void postUser(Users users, Integer myUid) throws Exception {
         Users baseUsers = userRepository.findFirstByUid(myUid);
@@ -79,6 +82,7 @@ public class UserService  {
      * フォロー情報を取得する
      *  @param userid ユーザーID
      * @return フォローリスト
+     * @throws Exception 例外
      */
     public List<Users> getFollow(String userid) throws Exception {
         Users users = userRepository.findFirstByUserid(userid);
@@ -118,6 +122,7 @@ public class UserService  {
      * フォローワー情報を取得する
      *  @param userid ユーザーID
      * @return フォロワーリスト
+     * @throws Exception 例外
      */
     public List<Users> getFollower(String userid) throws Exception {
         Users users = userRepository.findFirstByUserid(userid);

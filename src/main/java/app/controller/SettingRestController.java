@@ -22,7 +22,8 @@ public class SettingRestController {
 	/**
 	 * postAuth
 	 * ログインする。SpringSecurityの方で実装予定。(本メソッドは削除予定)
-	 * @return String リダイレクト先
+	 * @param socialType SNS種類
+	 * @return リダイレクト先
 	 */
 	@PostMapping("/api/auth/{socialtype}")
 	public String postAuth(@PathVariable("socialType") String socialType) {
@@ -35,7 +36,7 @@ public class SettingRestController {
 	 * getProfileSetting<br>
 	 * プロフィール設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
-	 * @return Settings プロフィール設定情報
+	 * @return プロフィール設定情報
 	 */
 	@JsonView(JView.Profile.class)
 	@GetMapping("/api/setting/profile/{uid}")
@@ -50,7 +51,8 @@ public class SettingRestController {
 	 * プロフィール設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings プロフィール設定情報
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Profile.class)
 	@PostMapping("/api/setting/profile/{uid}")
@@ -65,7 +67,7 @@ public class SettingRestController {
 	 * getAccountSetting<br>
 	 * アカウント設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
-	 * @return Settings アカウント設定情報
+	 * @return アカウント設定情報
 	 */
 	@JsonView(JView.Account.class)
 	@GetMapping("/api/setting/account/{uid}")
@@ -80,7 +82,8 @@ public class SettingRestController {
 	 * アカウント設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings アカウント設定情報
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Account.class)
 	@PostMapping("/api/setting/account/{uid}")
@@ -95,7 +98,7 @@ public class SettingRestController {
 	 * getNortificationSetting<br>
 	 * 通知設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
-	 * @return Settings 通知設定情報
+	 * @return 通知設定情報
 	 */
 	@JsonView(JView.Nortification.class)
 	@GetMapping("/api/setting/nortification/{uid}")
@@ -110,7 +113,8 @@ public class SettingRestController {
 	 * 通知設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings 通知設定情報
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Nortification.class)
 	@PostMapping("/api/setting/nortification/{uid}")
@@ -125,7 +129,7 @@ public class SettingRestController {
 	 * getCustomizeSetting<br>
 	 * 表示設定情報を返す
 	 *  @param uid ログイン中のユーザー固有ID
-	 * @return Settings 表示設定情報
+	 * @return 表示設定情報
 	 */
 	@JsonView(JView.Customize.class)
 	@GetMapping("/api/setting/customize/{uid}")
@@ -140,7 +144,8 @@ public class SettingRestController {
 	 * 表示設定情報を更新する
 	 *  @param uid ログイン中のユーザー固有ID
 	 *  @param settings 表示設定情報
-	 * @return Response レスポンス情報
+	 * @return レスポンス情報
+	 * @throws Exception 例外
 	 */
 	@JsonView(JView.Customize.class)
 	@PostMapping("/api/setting/customize/{uid}")

@@ -40,6 +40,7 @@ public class SettingsService {
      * 設定情報を設定する
      *  @param uid ユーザー情報ID
      *  @param settings 設定情報
+     * @throws Exception 例外
      */
     @Transactional(readOnly = false)
     public void postSettings(int uid, Settings settings) throws Exception {

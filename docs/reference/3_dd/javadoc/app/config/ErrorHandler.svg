@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="219px" preserveAspectRatio="none" style="width:574px;height:219px;" version="1.1" viewBox="0 0 574 219" width="574px" zoomAndPan="magnify"><defs><filter height="300%" id="f1x55vfmyt5fpa" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[1db6214c8c9b0d9caa797226ed584567]
+class app.config.ErrorHandler--><a href="ErrorHandler.html" target="_top" title="ErrorHandler.html" xlink:actuate="onRequest" xlink:href="ErrorHandler.html" xlink:show="new" xlink:title="ErrorHandler.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#f1x55vfmyt5fpa)" height="75.8594" id="app.config.ErrorHandler" style="stroke: #A80036; stroke-width: 1.5;" width="546" x="9" y="107"/><ellipse cx="237.25" cy="127.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M240.9375,128.2969 Q240.6875,131.7813 239.5469,132.9375 Q238.5156,133.9531 237.1094,133.9531 Q235.7031,133.9531 234.6719,132.9375 Q232.9219,131.1719 232.9219,127.5 Q232.9219,123.25 234.7969,121.3438 Q235.8438,120.3281 237.1719,120.3281 Q238.5781,120.3281 239.4219,121.1406 Q240.9063,122.6563 240.8281,125.5313 L238.7031,125.5313 Q238.625,123.2031 237.9844,122.5625 Q237.7031,122.2656 237.1719,122.2656 Q236.7188,122.2656 236.3594,122.6406 Q235.125,123.8594 235.125,127.375 Q235.125,130.4219 236.1719,131.4375 Q236.5938,131.875 237.1094,131.875 Q237.5625,131.875 238,131.4375 Q238.5625,130.8906 238.6406,128.2969 L240.9375,128.2969 Z "/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="81" x="257.75" y="126.5332">ErrorHandler</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="51" x="272.75" y="139.9902">app.config</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="10" x2="554" y1="147.1875" y2="147.1875"/><polygon fill="#FFFF44" points="20,153.1875,24,157.1875,20,161.1875,16,157.1875" style="stroke: #B38D22; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="520" x="29" y="162.6064">handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatus, WebRequest): ResponseEntity&lt;Object&gt;</text><ellipse cx="20" cy="172.0234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="338" x="29" y="176.4424">handleAllException(Exception, WebRequest): ResponseEntity&lt;Object&gt;</text></a><!--MD5=[05ef0055b84a2735be5a14825009785b]
+class org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler--><rect fill="#FEFECE" filter="url(#f1x55vfmyt5fpa)" height="40.1875" id="org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler" style="stroke: #A80036; stroke-width: 1.5;" width="294" x="135" y="7"/><ellipse cx="150" cy="27.0938" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M147.9688,33.4531 L145.6719,33.4531 L149.1719,19.8281 L151.0313,19.8281 L154.5156,33.4531 L152.2188,33.4531 L151.2969,29.6719 L148.9063,29.6719 L147.9688,33.4531 Z M150.0313,23.8438 L150.1563,23.8438 L149.4063,27.7188 L150.7813,27.7188 L150.0313,23.8438 Z "/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="210" x="190" y="26.5332">ResponseEntityExceptionHandler</text><text fill="#000000" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="262" x="164" y="39.9902">org.springframework.web.servlet.mvc.method.annotation</text><!--MD5=[4bc4f7969b35860299c761db16b46b95]
+reverse link org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler to app.config.ErrorHandler--><path d="M282,67.491 C282,80.272 282,94.3932 282,106.9879 " fill="none" id="org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler&lt;-app.config.ErrorHandler" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="275,67.155,282,47.155,289,67.155,275,67.155" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="190" x="183" y="206.2402">UMLDoclet 2.0.11, PlantUML 1.2020.15</text><!--MD5=[b641db9352bd343a513ed48c338fb65f]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>ErrorHandler\n<size:10>app.config" as app.config.ErrorHandler [[ErrorHandler.html]] {
+        #handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatus, WebRequest): ResponseEntity<Object>
+        +handleAllException(Exception, WebRequest): ResponseEntity<Object>
+    }
+
+    abstract class "<size:14>ResponseEntityExceptionHandler\n<size:10>org.springframework.web.servlet.mvc.method.annotation" as org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
+
+    org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler <|- - app.config.ErrorHandler
+
+    center footer UMLDoclet 2.0.11, PlantUML 1.2020.15
+@enduml
+
+PlantUML version 1.2020.15(Sun Jun 28 20:39:45 JST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

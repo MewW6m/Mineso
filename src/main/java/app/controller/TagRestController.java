@@ -26,7 +26,7 @@ public class TagRestController {
     /**
      * getTagList<br>
      * タグリストを取得する
-     * @return
+     * @return タグリスト
      */
     @JsonView(JView.TagInfo.class)
     @GetMapping("/api/tag")
@@ -40,7 +40,7 @@ public class TagRestController {
      * getTagUserList<br>
      * 指定したタグのタグ付けユーザーリストを返す
      *  @param tname タグ名
-     * @return List<User> タグ付けユーザーリスト
+     * @return タグ付けユーザーリスト
      */
     @JsonView(JView.UserInfo.class)
     @GetMapping("/api/tag/@{tname}")
@@ -54,7 +54,7 @@ public class TagRestController {
      * registUserTag<br>
      * ユーザータグを登録する
      * @param tname タグ名
-     * @return
+     * @return 結果
      */
     @JsonView(JView.Public.class)
     @PostMapping("/api/tag/@{tname}")
@@ -69,8 +69,8 @@ public class TagRestController {
     /**
      * deleteUserTag<br>
      * ユーザータグを削除する
-     * @param tname
-     * @return
+     * @param tname タグ名
+     * @return 結果
      */
     @JsonView(JView.Public.class)
     @DeleteMapping("/api/tag/@{tname}")
