@@ -85,3 +85,14 @@ div[id^="tag/"]{
 .sc-kpOJdX.icucAR {
     background: inherit !important;
 }*/
+.lb-nav a.lb-next, .lb-nav a.lb-prev {
+	opacity: 1 !important;
+}
+
+#images {
+    display: block;
+}
+
+#images > *:nth-child(n + 2) {
+	display: none !important;
+}
