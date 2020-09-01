@@ -34,10 +34,10 @@ public class UserRestController {
 	 */
 	@JsonView(JView.UserDetail.class)
 	@GetMapping("/api/user/@{userid}")
-    public String getUserInfo(@PathVariable("userid") String userid) throws Exception {
-//  public String getUserInfo(@PathVariable("userid") String userid) throws Exception {
-//      return userservice.getUser(userid, true);
-        return "{\"userid\": \"string\",\"uname\": \"string\",\"udesc\": \"string\",\"uimgpath\": \"string\",\"followcount\": 0,\"followercount\": 0,\"taglist\": [{\"tid\": 0,\"tname\": \"string\"}],\"applist\": [{\"aid\": 0,\"aname\": \"string\",\"aimgpath\": \"string\",\"aurl\": \"string\"}]}";
+//    public String getUserInfo(@PathVariable("userid") String userid) throws Exception {
+  	public Users getUserInfo(@PathVariable("userid") String userid) throws Exception {
+		return userservice.getUser(userid, true);
+//        return "{\"userid\": \"string\",\"uname\": \"string\",\"udesc\": \"string\",\"uimgpath\": \"string\",\"followcount\": 0,\"followercount\": 0,\"taglist\": [{\"tid\": 0,\"tname\": \"string\"}],\"applist\": [{\"aid\": 0,\"aname\": \"string\",\"aimgpath\": \"string\",\"aurl\": \"string\"}]}";
 	}
 
 	/**

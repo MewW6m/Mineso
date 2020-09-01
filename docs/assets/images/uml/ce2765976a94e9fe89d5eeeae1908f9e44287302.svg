@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="382px" preserveAspectRatio="none" style="width:720px;height:382px;" version="1.1" viewBox="0 0 720 382" width="720px" zoomAndPan="magnify"><defs><filter height="300%" id="finy5ettxvwe6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="25" x="683" y="10.3809">-- scd</text><!--cluster common--><polygon fill="#FFFFFF" filter="url(#finy5ettxvwe6)" points="22,36.5781,56,36.5781,63,60.1875,571,60.1875,571,332.5781,22,332.5781,22,36.5781" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="63" y1="60.1875" y2="60.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="28" x="26" y="53.1113">共通</text><!--entity header--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="38" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="48" y="97.1113">ヘッダー</text><!--entity footer--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="149" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="159" y="97.1113">フッター</text><!--entity sca--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="184" x="260" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="164" x="270" y="97.1113">ユーザー詳細(マイページ)</text><!--entity scb--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="479" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="489" y="97.1113">通知詳細</text><!--entity scc--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="45" y="180.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="55" y="205.1113">設定一覧</text><!--entity scd--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="156.5" y="180.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="166.5" y="205.1113">About</text><!--entity sce--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="62" x="249" y="180.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="259" y="205.1113">ヘルプ</text><!--entity scf--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="346" y="180.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="356" y="205.1113">利用規約</text><!--entity scg--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="38" y="278.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="48" y="303.1113">プライバシー</text><!--entity sch--><rect fill="#FEFECE" filter="url(#finy5ettxvwe6)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="177" y="278.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="187" y="303.1113">意見ページ</text><!--entity content--><polygon fill="#FFFFFF" filter="url(#finy5ettxvwe6)" points="590,62.5781,643,62.5781,650,86.1875,690,86.1875,690,120.7969,590,120.7969,590,62.5781" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="590" x2="650" y1="86.1875" y2="86.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="594" y="80.1113">content</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="600" y="107.7207">コンテンツ</text><!--link header to footer--><!--link footer to sca--><!--link sca to scb--><!--link header to scc--><!--link scc to scd--><!--link scd to sce--><!--link sce to scf--><!--link scc to scg--><!--link scg to sch--><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="25" x="341.5" y="368.959">-- sch</text><!--
+@startuml
+	package "共通" as common {
+		agent "ヘッダー" as header
+		agent "フッター" as footer
+		agent "ユーザー詳細(マイページ)" as sca
+		agent "通知詳細" as scb
+		agent "設定一覧" as scc
+		agent "About" as scd
+		agent "ヘルプ" as sce
+		agent "利用規約" as scf
+		agent "プライバシー" as scg
+		agent "意見ページ" as sch
+		
+		header - - sca
+		header - - scb
+		header - - scc
+		header - - sce
+		header - - scd
+		footer - - sce
+		footer - - scf
+		footer - - scg
+		footer - - sch
+	}
+	package "コンテンツ" as content {
+	
+	}
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 14.0.2+12-46
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
