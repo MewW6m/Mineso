@@ -10,6 +10,7 @@
   + [2.1.1. 画面一覧](2_bd/2.1.1.ScreenList.md)
   + [2.1.2. 画面遷移図](2_bd/2.1.2.ScreenFlowDiagram.md)
   + 2.1.3. 画面設計書
+      + [2.1.3.0. 画面設計書(画面共通)](2_bd/2.1.3.ScreenDesign/common.md)
       + [2.1.3.1. 画面設計書(TOP画面)](2_bd/2.1.3.ScreenDesign/sc1.md)
       + [2.1.3.2. 画面設計書(ユーザー詳細画面)](2_bd/2.1.3.ScreenDesign/sc2.md)
       + [2.1.3.3. 画面設計書(フォロー一覧画面)](2_bd/2.1.3.ScreenDesign/sc3.md)
