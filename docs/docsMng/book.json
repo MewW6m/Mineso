@@ -1,19 +1,20 @@
 {
 	"language": "ja",
 	"plugins": [
-	"hide-published-with",
-	"custom-favicon",
-	"-sharing",
-	"collapsible-chapters",
-	"expand-active-chapter",
-	"livereload",
-	"lunr",
-	"search",
-	"uml",
-	"back-to-top-button",
-	"fontsettings",
-	"page-footer",
-	"lightbox"
+		"hide-published-with",
+		"custom-favicon",
+		"-sharing",
+		"collapsible-chapters",
+		"expand-active-chapter",
+		"livereload",
+		"lunr",
+		"search",
+		"uml",
+		"back-to-top-button",
+		"fontsettings",
+		"page-footer",
+		"lightbox",
+		"include-html"
 	],
 	"dependencies": {
 		"plantuml-encoder": "1.2.3"

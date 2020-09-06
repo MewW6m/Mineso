@@ -1133,7 +1133,292 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x5B9A;&#x7FA9;&#x66F8;">&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x5B9A;&#x7FA9;&#x66F8;</h1>
-<p>!INCLUDE &quot;../../reference/3_dd/DDL/tables/replace_dbname.users.html&quot;</p>
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x5B9A;&#x7FA9;&#x66F8; MinesO</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<table border="1">
+		<caption>&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x60C5;&#x5831;</caption>
+			<colgroup>
+				<col width="115">
+				<col width="180">
+				<col width="115">
+				<col width="180">
+			</colgroup>
+			<th>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x540D;</th>
+			<td>MinesO&#xA0;</td>
+			<th>&#x4F5C;&#x6210;&#x8005;</th>
+			<td>MewW6m&#xA0;</td>
+		
+		<tr>
+			<th>&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x540D;</th>
+			<td>&#xA0;</td>
+			<th>&#x4F5C;&#x6210;&#x65E5;</th>
+			<td>2020/07/07&#xA0;</td>
+		</tr>
+		<tr>
+			<th>&#x30B9;&#x30AD;&#x30FC;&#x30DE;&#x540D;</th>
+			<td>replace_dbname&#xA0;</td>
+			<th>&#x66F4;&#x65B0;&#x65E5;</th>
+			<td>&#xA0;</td>
+		</tr>
+		<tr>
+			<th>&#x8AD6;&#x7406;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x540D;</th>
+			<td>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#xA0;</td>
+			<th>RDBMS&#xA0;</th>
+			<td> 8.0.20&#xA0;</td>
+		</tr>
+		<tr>
+			<th>&#x7269;&#x7406;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x540D;</th>
+			<td>users&#xA0;</td>
+			<th>&#xA0;</th>
+			<td>&#xA0;</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>&#x5099;&#x8003;</b><br></td>
+		</tr>
+	</table>
+
+<br>
+<br>
+	<table border="1">
+		<caption>&#x30AB;&#x30E9;&#x30E0;&#x60C5;&#x5831;</caption>
+			<colgroup>
+				<col width="30">
+				<col width="120">
+				<col width="120">
+				<col width="100">
+				<col width="60">
+				<col width="60">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>&#x8AD6;&#x7406;&#x540D;</th>
+			<th>&#x7269;&#x7406;&#x540D;</th>
+			<th>&#x30C7;&#x30FC;&#x30BF;&#x578B;</th>
+			<th>Not Null</th>
+			<th>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;</th>
+			<th>&#x5099;&#x8003;</th>
+		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x56FA;&#x6709;ID</td>
+			<td>uid</td>
+			<td>int auto_increment</td>
+			<td>Yes (PK)</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td>&#x8AAC;&#x660E;</td>
+			<td>udesc</td>
+			<td>varchar(255)</td>
+			<td>&#xA0;</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">3</td>
+			<td>&#x4F7F;&#x7528;&#x53EF;&#x5426;</td>
+			<td>udisabled</td>
+			<td>bit(1)</td>
+			<td>&#xA0;</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">4</td>
+			<td>&#x753B;&#x50CF;&#x30D1;&#x30B9;</td>
+			<td>uimgpath</td>
+			<td>varchar(255)</td>
+			<td>&#xA0;</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">5</td>
+			<td>&#x30E1;&#x30FC;&#x30EB;&#x30A2;&#x30C9;&#x30EC;&#x30B9;</td>
+			<td>umail</td>
+			<td>varchar(255)</td>
+			<td>&#xA0;</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">6</td>
+			<td>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;</td>
+			<td>uname</td>
+			<td>varchar(255)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">7</td>
+			<td>&#x30E6;&#x30FC;&#x30B6;&#x30FC;ID</td>
+			<td>userid</td>
+			<td>varchar(255)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+<br>
+	<table border="1">
+		<caption>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x60C5;&#x5831;</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="230">
+				<col width="60">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x540D;</th>
+			<th>&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
+			<th>&#x30E6;&#x30CB;&#x30FC;&#x30AF;</th>
+			<th>&#x5099;&#x8003;</th>
+		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>PRIMARY</td>
+			<td>uid</td>
+			<td>Yes</td>
+			<td>&#xA0;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td>UK_jyjiwnaabof8kpd0gclhcj2lh</td>
+			<td>userid</td>
+			<td>&#x5236;&#x7D04;</td>
+			<td>&#xA0;</td>
+		</tr>
+	</table>
+
+<br>
+<br>
+	<table border="1">
+		<caption>&#x5236;&#x7D04;&#x60C5;&#x5831;</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="90">
+				<col width="300">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>&#x5236;&#x7D04;&#x540D;</th>
+			<th>&#x7A2E;&#x985E;</th>
+			<th>&#x5236;&#x7D04;&#x5B9A;&#x7FA9;</th>
+		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>PRIMARY</td>
+			<td>PRIMARY KEY</td>
+			<td>uid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td>UK_jyjiwnaabof8kpd0gclhcj2lh</td>
+			<td>UNIQUE</td>
+			<td>userid</td>
+		</tr>
+	</table>
+
+<br>
+<br>
+	<table border="1">
+		<caption>&#x5916;&#x90E8;&#x30AD;&#x30FC;&#x60C5;&#x5831;</caption>
+			<colgroup>
+				<col width="30">
+				<col width="120">
+				<col width="160">
+				<col width="120">
+				<col width="160">
+			</colgroup>
+			<th>No.</th>
+			<th>&#x5916;&#x90E8;&#x30AD;&#x30FC;&#x540D;</th>
+			<th>&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
+			<th>&#x53C2;&#x7167;&#x5148;</th>
+			<th>&#x53C2;&#x7167;&#x5148;&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
+		
+	</table>
+
+<br>
+<br>
+	<table border="1">
+		<caption>&#x5916;&#x90E8;&#x30AD;&#x30FC;&#x60C5;&#x5831;(PK&#x5074;)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="120">
+				<col width="160">
+				<col width="120">
+				<col width="160">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>&#x5916;&#x90E8;&#x30AD;&#x30FC;&#x540D;</th>
+			<th>&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
+			<th>&#x53C2;&#x7167;&#x5143;</th>
+			<th>&#x53C2;&#x7167;&#x5143;&#x30AB;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;</th>
+		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td>replace_dbname.`follow_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.follow</td>
+			<td>followerid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td>replace_dbname.`follow_FK2`</td>
+			<td>uid</td>
+			<td>replace_dbname.follow</td>
+			<td>followid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">3</td>
+			<td>replace_dbname.`nortifications_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.nortifications</td>
+			<td>uid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">4</td>
+			<td>replace_dbname.`settings_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.settings</td>
+			<td>uid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">5</td>
+			<td>replace_dbname.`userapp_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.userapp</td>
+			<td>uid</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">6</td>
+			<td>replace_dbname.`usertag_FK1`</td>
+			<td>uid</td>
+			<td>replace_dbname.usertag</td>
+			<td>uid</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>
 <script>document.body.getElementsByClassName("markdown-section")[0].innerHTML = document.body.getElementsByClassName("markdown-section")[0].innerHTML.replace(/replace_dbname/g, "").replace(/8.0.20/g, "MYSQL 8.0.20");</script> 
 
 <div class="footer"><div class="footer__container--normal" alt=""><div class="footer__description--normal"><p class="paragraph footer__author--normal">Aleen<sup class="super">&#xAE;</sup></p><p class="paragraph footer__quote--normal">More than a coder, more than a designer</p><div class="footer__main--normal"><p class="paragraph footer__main__paragraph--normal copyright" style="color: #666 !important;">Copyright &#xA9; MewW6m all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></p><p class="paragraph footer__main__paragraph--normal footer__modifyTime--normal" style="color: #666 !important;"><span style="color: #666 !important;">updated on</span>
@@ -1181,7 +1466,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1.3.7.ユーザー情報テーブル","level":"1.4.3.7","depth":3,"next":{"title":"3.1.3.8.ユーザータグ中間ターブル","level":"1.4.3.8","depth":3,"path":"3_dd/Tables/replace_dbname.usertag.md","ref":"3_dd/Tables/replace_dbname.usertag.md","articles":[]},"previous":{"title":"3.1.3.6.ユーザーアプリ中間テーブル","level":"1.4.3.6","depth":3,"path":"3_dd/Tables/replace_dbname.userapp.md","ref":"3_dd/Tables/replace_dbname.userapp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","custom-favicon","-sharing","collapsible-chapters","expand-active-chapter","livereload","lunr","search","uml","back-to-top-button","fontsettings","page-footer","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"collapsible-chapters":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"hide-published-with":{},"fontsettings":{"family":"sans","size":2,"theme":"night"},"highlight":{},"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"favicon":"./reference/other/image/favicon.png","lightbox":{"jquery":true,"includeJQuery":true,"sameUuid":true,"options":{"alwaysShowNavOnTouchDevices":true,"wrapAround":true}},"back-to-top-button":{},"custom-favicon":{},"expand-active-chapter":{},"page-footer":{"isShowIssues":false,"wisdom":"More than a coder, more than a designer","copyright":"Copyright &#169; MewW6m","styles (normal, symmetrical)":"normal","issueNum":"8","repo":"aleen42/PersonalWiki","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"yyyy-MM-dd","signature":"Aleen","token":"","baseUri":"https://aleen42.gitbooks.io/personalwiki/content/","copyrightColor":"#666","description":"updated on"},"sharing":{"facebook":true,"twitter":true,"google":true,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","twitter","google","weibo","instapaper","vk"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"dependencies":{"plantuml-encoder":"1.2.3"},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ja","gitbook":"*"},"file":{"path":"3_dd/Tables/replace_dbname.users.md","mtime":"2020-08-09T01:04:19.611Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-01T22:09:32.266Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1.3.7.ユーザー情報テーブル","level":"1.4.3.7","depth":3,"next":{"title":"3.1.3.8.ユーザータグ中間ターブル","level":"1.4.3.8","depth":3,"path":"3_dd/Tables/replace_dbname.usertag.md","ref":"3_dd/Tables/replace_dbname.usertag.md","articles":[]},"previous":{"title":"3.1.3.6.ユーザーアプリ中間テーブル","level":"1.4.3.6","depth":3,"path":"3_dd/Tables/replace_dbname.userapp.md","ref":"3_dd/Tables/replace_dbname.userapp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","custom-favicon","-sharing","collapsible-chapters","expand-active-chapter","livereload","lunr","search","uml","back-to-top-button","fontsettings","page-footer","lightbox","include-html"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"collapsible-chapters":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"hide-published-with":{},"include-html":{},"fontsettings":{"family":"sans","size":2,"theme":"night"},"highlight":{},"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"favicon":"./reference/other/image/favicon.png","lightbox":{"jquery":true,"includeJQuery":true,"sameUuid":true,"options":{"alwaysShowNavOnTouchDevices":true,"wrapAround":true}},"back-to-top-button":{},"custom-favicon":{},"expand-active-chapter":{},"page-footer":{"isShowIssues":false,"wisdom":"More than a coder, more than a designer","copyright":"Copyright &#169; MewW6m","styles (normal, symmetrical)":"normal","issueNum":"8","repo":"aleen42/PersonalWiki","isShowQRCode":false,"timeColor":"#666","utcOffset":"8","format":"yyyy-MM-dd","signature":"Aleen","token":"","baseUri":"https://aleen42.gitbooks.io/personalwiki/content/","copyrightColor":"#666","description":"updated on"},"sharing":{"facebook":true,"twitter":true,"google":true,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","twitter","google","weibo","instapaper","vk"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"dependencies":{"plantuml-encoder":"1.2.3"},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ja","gitbook":"*"},"file":{"path":"3_dd/Tables/replace_dbname.users.md","mtime":"2020-08-09T01:04:19.611Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-06T11:52:49.345Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
