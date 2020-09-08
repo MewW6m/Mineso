@@ -12,7 +12,7 @@
   + 2.1.3. 画面設計書
       + [2.1.3.0. 画面設計書(画面共通)](2_bd/2.1.3.ScreenDesign/common.md)
       + [2.1.3.1. 画面設計書(TOP画面)](2_bd/2.1.3.ScreenDesign/sc1.md)
-      + [2.1.3.2. 画面設計書(ユーザー詳細画面)](2_bd/2.1.3.ScreenDesign/sc2.md)
+      + [2.1.3.2. 画面設計書(ユーザー詳細)](2_bd/2.1.3.ScreenDesign/sc2.1.md)
       + [2.1.3.3. 画面設計書(フォロー一覧画面)](2_bd/2.1.3.ScreenDesign/sc3.md)
       + [2.1.3.4. 画面設計書(フォロワー一覧画面)](2_bd/2.1.3.ScreenDesign/sc4.md)
       + [2.1.3.5. 画面設計書(タグ一覧画面)](2_bd/2.1.3.ScreenDesign/sc5.md)
