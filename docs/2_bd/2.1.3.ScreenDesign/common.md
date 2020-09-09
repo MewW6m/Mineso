@@ -5,7 +5,7 @@
 ### 画面レイアウト
 
 <span  id="images">
-![TOP画面レイアウト画像](../../reference/2_bd/img/2.1.3/common/1.png "ヘッダー")
+![ヘッダー](../../reference/2_bd/img/2.1.3/common/1.png "ヘッダー")
 </span>
 
 
@@ -40,7 +40,7 @@
 ### 画面レイアウト
 
 <span  id="images">
-![TOP画面レイアウト画像](../../reference/2_bd/img/2.1.3/common/2.png "フッダー")
+![フッダー](../../reference/2_bd/img/2.1.3/common/2.png "フッダー")
 </span>
 
 
