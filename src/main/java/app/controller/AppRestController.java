@@ -71,6 +71,7 @@ public class AppRestController {
      * @param aid アプリID
      * @return 結果
      */
+    
     @JsonView(JView.Public.class)
     @PostMapping("/api/app/{aid}")
     public String registUserApp(@PathVariable Integer aid){
