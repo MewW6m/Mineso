@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React from "react";
-import CommonHead from "../components/common_head";
-import CommonHeader from "../components/common_header";
-import CommonNav from "../components/common_nav";
-import CommonFooter from "../components/common_footer";
+import CommonHead from "./commons/head";
+import CommonHeader from "./commons/header";
+import CommonNav from "./commons/nav";
+import CommonFooter from "./commons/footer";
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import { IconContext } from "react-icons";

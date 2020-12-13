@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 public class AppRestController {
 
-
     @Autowired
     private AppService appService;
 

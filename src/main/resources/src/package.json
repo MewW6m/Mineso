@@ -4,10 +4,10 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next build && next start",
-    "export": "next build && next export -o ../dist",
+    "dev": "set NODE_ENV=production && next",
+    "build": "set NODE_ENV=production && next build",
+    "start": "set NODE_ENV=production && next build && next start",
+    "export": "set NODE_ENV=production && next build && next export -o ../dist",
     "lint": "eslint src"
   },
   "eslintConfig": {
@@ -31,6 +31,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-router-dom": "^5.2.0",
     "uikit": "^3.5.5"
   },
   "devDependencies": {
