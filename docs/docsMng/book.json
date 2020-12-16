@@ -9,15 +9,15 @@
 		"livereload",
 		"lunr",
 		"search",
-		"uml",
 		"back-to-top-button",
 		"fontsettings",
 		"page-footer",
 		"lightbox",
-		"include-html"
+		"include-html",
+		"uml@1.0.3"
 	],
 	"dependencies": {
-		"plantuml-encoder": "1.2.3"
+		 "plantuml-encoder": "1.2.3"
 	},
 	"pluginsConfig": {
 		"favicon": "./reference/other/image/favicon.png",
