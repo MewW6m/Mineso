@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="57px" preserveAspectRatio="none" style="width:598px;height:57px;" version="1.1" viewBox="0 0 598 57" width="598px" zoomAndPan="magnify"><defs><filter height="300%" id="fgsizhiodzxde" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity TOP_SCREEN--><rect fill="#FEFECE" filter="url(#fgsizhiodzxde)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="113" x="6" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="16" y="32.5332">TOP_SCREEN</text><!--entity LOGIN_SCREEN--><rect fill="#FEFECE" filter="url(#fgsizhiodzxde)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="126" x="154.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="106" x="164.5" y="32.5332">LOGIN_SCREEN</text><!--entity USER_SCREEN--><rect fill="#FEFECE" filter="url(#fgsizhiodzxde)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="121" x="316" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="326" y="32.5332">USER_SCREEN</text><!--entity EDIT_SCREEN--><rect fill="#FEFECE" filter="url(#fgsizhiodzxde)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="472" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="482" y="32.5332">EDIT_SCREEN</text><!--link TOP_SCREEN to LOGIN_SCREEN--><path d="M119.111,27 C129.148,27 139.185,27 149.221,27 " fill="none" id="TOP_SCREEN-LOGIN_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="154.47,27,145.47,23,149.47,27,145.47,31,154.47,27" style="stroke: #A80036; stroke-width: 1.0;"/><!--link LOGIN_SCREEN to USER_SCREEN--><path d="M280.541,27 C290.543,27 300.544,27 310.546,27 " fill="none" id="LOGIN_SCREEN-USER_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="315.776,27,306.776,23,310.776,27,306.776,31,315.776,27" style="stroke: #A80036; stroke-width: 1.0;"/><!--link USER_SCREEN to EDIT_SCREEN--><path d="M437.162,40.6392 C446.991,41.3973 456.82,41.4497 466.649,40.7964 " fill="none" id="USER_SCREEN-EDIT_SCREEN" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="471.789,40.3904,462.5025,37.1099,466.8045,40.7833,463.1311,45.0852,471.789,40.3904" style="stroke: #A80036; stroke-width: 1.0;"/><!--link USER_SCREEN to EDIT_SCREEN--><path d="M442.302,13.0287 C452.131,12.5166 461.96,12.7102 471.789,13.6096 " fill="none" id="USER_SCREEN-EDIT_SCREEN-1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="437.162,13.3608,446.4015,16.7713,442.1516,13.038,445.8849,8.788,437.162,13.3608" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent TOP_SCREEN
+	agent LOGIN_SCREEN
+	agent USER_SCREEN
+	agent EDIT_SCREEN
+	TOP_SCREEN-right->LOGIN_SCREEN
+	LOGIN_SCREEN-right->USER_SCREEN 
+	USER_SCREEN-right->EDIT_SCREEN
+	EDIT_SCREEN-left->USER_SCREEN
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

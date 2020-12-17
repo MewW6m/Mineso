@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="133px" preserveAspectRatio="none" style="width:270px;height:133px;background:#000000;" version="1.1" viewBox="0 0 270 133" width="270px" zoomAndPan="magnify"><defs/><g><rect fill="#33FF02" height="22.6094" style="stroke: #33FF02; stroke-width: 1.0;" width="263" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="147" x="6" y="20">[From string (line 6) ]</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="41.6094"/><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="5" y="59.2188">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="231" x="37" y="76.8281">participant "ヘッダー" as header1</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="224" x="37" y="94.4375">participant "フッター" as footer1</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="141" x="37" y="112.0469">participant "" as sc1</text><text fill="#FF0000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="95" x="9" y="129.6563">Syntax Error?</text><!--
+@startuml
+	participant "ヘッダー" as header1
+	participant "フッター" as footer1
+	participant "" as sc1
+	participant "" as "sc2.1"
+	participant "" as sc7
+	participant "" as sc8
+	participant "" as sc9
+	participant "" as sc10
+	participant "" as sc11
+	participant "" as sc12
+
+	header1 - -> sc1
+	header1 - -> "sc2.1"
+	header1 - -> sc7
+	header1 - -> sc8
+	header1 - -> sc9
+
+	footer1 - -> sc9
+	footer1 - -> sc12
+	footer1 - -> sc10
+	footer1 - -> sc11
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 14.0.2+12-46
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

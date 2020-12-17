@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="372px" preserveAspectRatio="none" style="width:801px;height:372px;" version="1.1" viewBox="0 0 801 372" width="801px" zoomAndPan="magnify"><defs><filter height="300%" id="fzn3d58hp51p8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="31" x="758" y="10.3809">--&gt; sc9</text><!--cluster common--><polygon fill="#FFFFFF" filter="url(#fzn3d58hp51p8)" points="22,36.5781,72,36.5781,79,60.1875,755,60.1875,755,322.5781,22,322.5781,22,36.5781" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="79" y1="60.1875" y2="60.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="44" x="26" y="53.1113">~共~通</text><!--entity header--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="38" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="48" y="97.1113">~ヘ~ッ~ダ~ー</text><!--entity footer--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="181" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="191" y="97.1113">~フ~ッ~タ~ー</text><!--entity sc21--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="272" x="324" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="252" x="334" y="97.1113">~ユ~ー~ザー詳~細~(~マ~イ~ペ~ー~ジ~)</text><!--entity sc7--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="631" y="72.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="641" y="97.1113">~通~知~詳~細</text><!--entity sc8--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="49" y="170.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="59" y="195.1113">~設~定~一~覧</text><!--entity sc1--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="97" x="192.5" y="170.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="77" x="202.5" y="195.1113">~A~b~o~u~t</text><!--entity sc9--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="86" x="325" y="170.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="335" y="195.1113">~ヘ~ル~プ</text><!--entity sc10--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="446" y="170.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="456" y="195.1113">~利~用~規~約</text><!--entity sc11--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="38" y="268.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="132" x="48" y="293.1113">~プ~ラ~イ~バ~シ~ー</text><!--entity sc12--><rect fill="#FEFECE" filter="url(#fzn3d58hp51p8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="122" x="225" y="268.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="235" y="293.1113">~意~見~ペ~ージ</text><!--link header to footer--><!--link footer to sc21--><!--link sc21 to sc7--><!--link header to sc8--><!--link sc8 to sc1--><!--link sc1 to sc9--><!--link sc9 to sc10--><!--link sc8 to sc11--><!--link sc11 to sc12--><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="37" x="376" y="358.959">--&gt; sc11</text><!--
+@startuml
+	package "~共~通" as common {
+		agent "~ヘ~ッ~ダ~ー" as header
+		agent "~フ~ッ~タ~ー" as footer
+		agent "~ユ~ー~ザー詳~細~(~マ~イ~ペ~ー~ジ~)" as sc21
+		agent "~通~知~詳~細" as sc7
+		agent "~設~定~一~覧" as sc8
+		agent "~A~b~o~u~t" as sc1
+		agent "~ヘ~ル~プ" as sc9
+		agent "~利~用~規~約" as sc10
+		agent "~プ~ラ~イ~バ~シ~ー" as sc11
+		agent "~意~見~ペ~ージ" as sc12
+		
+		header - -> sc1
+		header - -> sc21
+		header - -> sc7
+		header - -> sc8
+		header - -> sc9
+		footer - -> sc9
+		footer - -> sc12
+		footer - -> sc10
+		footer - -> sc11
+	}
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 14.0.2+12-46
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="286px" preserveAspectRatio="none" style="width:500px;height:286px;" version="1.1" viewBox="0 0 500 286" width="500px" zoomAndPan="magnify"><defs><filter height="300%" id="f13fgpfg9iopw8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster userDetail--><polygon fill="#FFFFFF" filter="url(#f13fgpfg9iopw8)" points="54.5,70,120.5,70,127.5,93.6094,478.5,93.6094,478.5,274,54.5,274,54.5,70" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="54.5" x2="127.5" y1="93.6094" y2="93.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="58.5" y="86.5332">ユーザー</text><!--entity user--><rect fill="#FEFECE" filter="url(#f13fgpfg9iopw8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="232.5" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="242.5" y="138.5332">ユーザー詳細</text><!--entity follow--><rect fill="#FEFECE" filter="url(#f13fgpfg9iopw8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="86.5" y="212"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="96.5" y="236.5332">フォロー一覧</text><!--entity follower--><rect fill="#FEFECE" filter="url(#f13fgpfg9iopw8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="225.5" y="212"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="235.5" y="236.5332">フォロワー一覧</text><!--entity tag--><rect fill="#FEFECE" filter="url(#f13fgpfg9iopw8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="378.5" y="212"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="388.5" y="236.5332">タグ一覧</text><!--entity TOP_SCREEN--><rect fill="#FEFECE" filter="url(#f13fgpfg9iopw8)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="113" x="6" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="16" y="32.5332">TOP_SCREEN</text><!--link TOP_SCREEN to userDetail--><!--link user to follow--><path d="M257.039,152.057 C231.101,169.112 192.394,194.563 166.335,211.6977 " fill="none" id="user-follow" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to follower--><path d="M284.5,152.057 C284.5,169.112 284.5,194.563 284.5,211.6977 " fill="none" id="user-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to tag--><path d="M309.328,152.057 C332.778,169.112 367.774,194.563 391.334,211.6977 " fill="none" id="user-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follow to follower--><path d="M190.684,231 C202.288,231 213.893,231 225.498,231 " fill="none" id="follow-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent TOP_SCREEN
+	TOP_SCREEN -[hidden]-> userDetail
+	package "ユーザー" as userDetail {
+		agent "ユーザー詳細" as user
+		agent "フォロー一覧" as follow
+		agent "フォロワー一覧" as follower
+		agent "タグ一覧" as tag
+		user - - follow
+		user - - follower
+		user - - tag
+		follow -right- follower
+	}
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

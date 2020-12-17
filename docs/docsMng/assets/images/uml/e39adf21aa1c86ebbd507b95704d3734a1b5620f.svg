@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="258px" preserveAspectRatio="none" style="width:1034px;height:258px;" version="1.1" viewBox="0 0 1034 258" width="1034px" zoomAndPan="magnify"><defs><filter height="300%" id="f1ii1yqz7xczqm" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster userDetail--><polygon fill="#FFFFFF" filter="url(#f1ii1yqz7xczqm)" points="30,32,96,32,103,55.6094,454,55.6094,454,246,30,246,30,32" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="30" x2="103" y1="55.6094" y2="55.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="34" y="48.5332">ユーザー</text><!--entity user--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="200" y="76"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="210" y="100.5332">ユーザー詳細</text><!--entity follow--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="54" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="64" y="208.5332">フォロー一覧</text><!--entity follower--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="193" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="203" y="208.5332">フォロワー一覧</text><!--entity tag--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="346" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="356" y="208.5332">タグ一覧</text><!--entity nav--><polygon fill="#FFFFFF" filter="url(#f1ii1yqz7xczqm)" points="478,174,507,174,514,197.6094,606,197.6094,606,232.2188,478,232.2188,478,174" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="478" x2="514" y1="197.6094" y2="197.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="23" x="482" y="191.5332">nav</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="488" y="219.1426">ナビゲーション</text><!--entity norti--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="48" x="655" y="76"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="665" y="100.5332">通知</text><!--entity profile--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="738" y="76"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="748" y="100.5332">プロフィール設定</text><!--entity account--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="905" y="76"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="915" y="100.5332">アカウント設定</text><!--entity display--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="641" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="651" y="208.5332">表示設定</text><!--entity nortiset--><rect fill="#FEFECE" filter="url(#f1ii1yqz7xczqm)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="752" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="762" y="208.5332">通知設定</text><!--link user to follow--><path d="M226.902,114.222 C200.16,133.637 158.063,164.201 131.259,183.661 " fill="none" id="user-follow" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to follower--><path d="M252,114.464 C252,133.919 252,164.372 252,183.7478 " fill="none" id="user-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to tag--><path d="M274.692,114.222 C298.869,133.637 336.93,164.201 361.163,183.661 " fill="none" id="user-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link follow to follower--><path d="M158.184,203 C169.788,203 181.393,203 192.998,203 " fill="none" id="follow-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link userDetail to nav--><path d="M454.1816,105.0337 C454.253,105.1125 454.3248,105.1918 454.3969,105.2715 C454.5413,105.4309 454.6872,105.592 454.8347,105.7548 C455.1296,106.0804 455.4306,106.4128 455.7375,106.7517 C456.3514,107.4295 456.9889,108.1335 457.6486,108.8618 C458.9679,110.3186 460.3757,111.873 461.8592,113.511 C464.8262,116.7871 468.0964,120.3979 471.5686,124.2318 C485.4575,139.5674 502.579,158.4724 516.463,173.8027 " fill="none" id="userDetail-nav" style="stroke: #A80036; stroke-width: 1.0;"/><!--link norti to profile--><!--link profile to account--><!--link norti to display--><!--link display to nortiset--><!--
+@startuml
+	agent "通知" as norti
+	agent "プロフィール設定" as profile
+	agent "アカウント設定" as account
+	agent "表示設定" as display
+	agent "通知設定" as nortiset
+	
+	package "ユーザー" as userDetail{
+		agent "ユーザー詳細" as user
+		agent "フォロー一覧" as follow
+		agent "フォロワー一覧" as follower
+		agent "タグ一覧" as tag
+		user - - follow
+		user - - follower
+		user - - tag
+		follow -right- follower
+	}
+	package "ナビゲーション" as nav{
+		userDetail - - nav
+	}
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

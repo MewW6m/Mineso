@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="154px" preserveAspectRatio="none" style="width:1107px;height:154px;" version="1.1" viewBox="0 0 1107 154" width="1107px" zoomAndPan="magnify"><defs><filter height="300%" id="f1uet7n4qqctid" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity user--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="506" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="516" y="32.5332">ユーザー詳細</text><!--entity follow--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="6" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="16" y="130.5332">フォロー一覧</text><!--entity follower--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="145" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="155" y="130.5332">フォロワー一覧</text><!--entity tag--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="298" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="308" y="130.5332">タグ一覧</text><!--entity nort--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="48" x="409" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="419" y="130.5332">通知</text><!--entity profile--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="492" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="502" y="130.5332">プロフィール設定</text><!--entity account--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="659" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="669" y="130.5332">アカウント設定</text><!--entity nortset--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="812" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="822" y="130.5332">通知設定</text><!--entity display--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="923" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="933" y="130.5332">表示設定</text><!--entity help--><rect fill="#FEFECE" filter="url(#f1uet7n4qqctid)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="62" x="1034" y="106"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="1044" y="130.5332">ヘルプ</text><!--link user to follow--><path d="M505.998,36.098 C424.741,49.0465 262.89,76.0246 127,106 C121.56,107.2 115.9,108.5344 110.266,109.9187 " fill="none" id="user-follow" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to follower--><path d="M505.766,42.165 C441.048,59.7157 331.052,89.5452 263.249,107.9326 " fill="none" id="user-follower" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to tag--><path d="M516.243,46.0569 C475.423,63.709 413.8,90.3566 374.232,107.4671 " fill="none" id="user-tag" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to nort--><path d="M534.488,46.0569 C512.282,63.1115 479.142,88.5631 456.831,105.6977 " fill="none" id="user-nort" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to profile--><path d="M558,46.0569 C558,63.1115 558,88.5631 558,105.6977 " fill="none" id="user-profile" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to account--><path d="M588.095,46.0569 C616.61,63.1658 659.209,88.7253 687.769,105.8612 " fill="none" id="user-account" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to nortset--><path d="M610.204,45.1629 C668.111,64.2007 760.155,94.4621 811.739,111.4212 " fill="none" id="user-nortset" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to display--><path d="M610.268,38.088 C678.687,51.6642 802.124,77.4314 906,106 C911.522,107.5186 917.311,109.2533 922.976,111.0327 " fill="none" id="user-display" style="stroke: #A80036; stroke-width: 1.0;"/><!--link user to help--><path d="M610.322,33.601 C696.266,43.532 872.238,66.9395 1017,106 C1022.5,107.4839 1028.25,109.3508 1033.78,111.3165 " fill="none" id="user-help" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+	agent "ユーザー詳細" as user
+	agent "フォロー一覧" as follow
+	agent "フォロワー一覧" as follower
+	agent "タグ一覧" as tag
+	agent "通知" as nort
+	agent "プロフィール設定" as profile
+	agent "アカウント設定" as account
+	agent "通知設定" as nortset
+	agent "表示設定" as display
+	agent "ヘルプ" as help
+	user - - follow
+	user - - follower
+	user - - tag
+	user - - nort
+	user - - profile
+	user - - account
+	user - - nortset
+	user - - display
+	user - -help
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_231-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
