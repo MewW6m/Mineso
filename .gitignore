@@ -152,8 +152,8 @@ build/
 
 # -------------------------MyProject---------------------------------------
 
-docs/docsMng/_book
-docs/docsMng/node_modules
+docsMng/_book
+docsMng/node_modules
 logo*.png
 logo.pptx
 src/main/resources/application-dev.*
