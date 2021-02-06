@@ -49,6 +49,7 @@
   + [3.3.1. プログラム設計書](3_dd/3.3.1.ProgramDesign.md)
   + [3.3.2. API設計書](3_dd/3.3.2.APIDesign.md)
   + [3.3.3. IF設計書](3_dd/3.3.3.IFDesign.md)
+  + [3.3.4. デザイン設計書](3_dd/3.3.4.StyleDesign.md)
   + [3.4.1. シーケンス図](3_dd/3.4.1.SequenceDiagram.md)
   + [3.4.2. DFD図](3_dd/3.4.2.DataFlowDiagram.md)
   + [3.5. コード設計書](3_dd/3.5.CodeDiagram.md)
