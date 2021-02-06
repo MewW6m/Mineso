@@ -1,0 +1,31 @@
+.tm-navbar-container:not(.uk-navbar-transparent) {
+	background: linear-gradient(to left, #a6d900 0%, #ff4454 100%);
+	opacity:0.7;
+	animation: huerotator 3s infinite normal;
+	animation-delay: 0s;
+}
+.tm-navbar-container:not(.uk-navbar-transparent) {
+    color:  rgba(255,255,255,0.8);
+}
+.tm-navbar-container:not(.uk-navbar-transparent) *{
+	color: white !important;
+}
+
+@keyframes huerotator {
+	0% {
+		-webkit-filter: hue-rotate(0deg);
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		-webkit-filter: hue-rotate(360deg);
+		filter: hue-rotate(360deg);
+  	}
+}
+
+.poiretone{
+    font-family: 'Poiret One', cursive;
+}
+
+.uk-slideshow-items, .uk-slideshow-items * {
+	overflow-y: auto !important;
+}
