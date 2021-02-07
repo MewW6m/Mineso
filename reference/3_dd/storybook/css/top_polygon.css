@@ -7521,7 +7521,7 @@
 	100% {				
 		transform: rotateZ(-39deg) rotateY(105deg) translateX(300px) rotateZ(39deg);			
 	}				
-}					
+}
 
 #polygonsection{
 	height: calc(100vh - 80px);
