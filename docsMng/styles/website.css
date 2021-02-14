@@ -97,12 +97,14 @@ div[id^="tag/"]{
 	display: none !important;
 }
 
-td[colspan], td[rowspan] {
+/*td[colspan], td[rowspan] {*/
+td[colspan] {
 	position:relative;
 	font-weight:bold;
 }
 
-td[colspan]::after, td[rowspan]::after {
+/*td[colspan]::after, td[rowspan]::after {*/
+td[colspan]::after {
 	  content: '';
       background-color: rgba(0,0,20,.3);
 	  position: absolute;
