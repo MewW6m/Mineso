@@ -10,17 +10,18 @@
   + [2.1.1. 画面一覧](2_bd/2.1.1.ScreenList.md)
   + [2.1.2. 画面遷移図](2_bd/2.1.2.ScreenFlowDiagram.md)
   + 2.1.3. 画面設計書
-      + [2.1.3.0. 画面設計書(画面共通)](2_bd/2.1.3.ScreenDesign/common.md)
-      + [2.1.3.1. 画面設計書(TOP画面)](2_bd/2.1.3.ScreenDesign/sc1.md)
-      + [2.1.3.2.1. 画面設計書(ユーザー詳細)](2_bd/2.1.3.ScreenDesign/sc2.1.md)
-      + [2.1.3.2.2. 画面設計書(ユーザー編集)](2_bd/2.1.3.ScreenDesign/sc2.2.md)
-      + [2.1.3.2.3. 画面設計書(ユーザーアプリ編集)](2_bd/2.1.3.ScreenDesign/sc2.3.md)
-      + [2.1.3.3. 画面設計書(フォロー一覧画面)](2_bd/2.1.3.ScreenDesign/sc3.md)
-      + [2.1.3.4. 画面設計書(フォロワー一覧画面)](2_bd/2.1.3.ScreenDesign/sc4.md)
-      + [2.1.3.6.1 画面設計書(アプリ詳細)](2_bd/2.1.3.ScreenDesign/sc6.1.md)
-      + [2.1.3.6.2 画面設計書(アプリ編集)](2_bd/2.1.3.ScreenDesign/sc6.2.md)
-      + [2.1.3.7. 画面設計書(通知詳細)](2_bd/2.1.3.ScreenDesign/sc7.md)
-      + [2.1.3.8. 画面設計書(各設定画面)](2_bd/2.1.3.ScreenDesign/sc8.md)
+      + [SC000. 画面共通](2_bd/2.1.3.ScreenDesign/common.md)
+      + [SC010. 概要](2_bd/2.1.3.ScreenDesign/sc010.md)
+      + [SC020. ユーザー詳細](2_bd/2.1.3.ScreenDesign/sc020.md)
+      + [SC021. ユーザーアプリ](2_bd/2.1.3.ScreenDesign/sc021.md)
+      + [SC022. ユーザーフォロー](2_bd/2.1.3.ScreenDesign/sc022.md)
+      + [SC023. ユーザーフォロワー](2_bd/2.1.3.ScreenDesign/sc023.md)
+      + [SC030.アプリ詳細](2_bd/2.1.3.ScreenDesign/sc030.md)
+      + [SC031.アプリフォロワー](2_bd/2.1.3.ScreenDesign/sc032.md)
+      + [SC040. 通知一覧](2_bd/2.1.3.ScreenDesign/sc040.md)
+      + [SC041. 通知詳細](2_bd/2.1.3.ScreenDesign/sc041.md)
+      + [SC050. 設定一覧](2_bd/2.1.3.ScreenDesign/sc050.md)
+      + [SC051～SC054. 各設定画面](2_bd/2.1.3.ScreenDesign/sc051_054.md)
   + [2.2.1. 機能一覧](2_bd/2.2.1.FunctionList.md)
   + [2.2.2. 機能関連図](2_bd/2.2.2.FunctionRelatedDiagram.md)
   + [2.2.3. 機能設計書](2_bd/2.2.3.FunctionDesign.md)
@@ -70,12 +71,10 @@
   + [6.3. STテストパターン](6_st/6.3.STTestPattern.md)
 
 * 資料
-<!--    * 要件定義書-->
+  <!--    * 要件定義書-->
     * 基本設計書
         * 画面設計書画像
     * 詳細設計書
-        * [クラス図(日本語版)](reference/3_dd/ClassDrawingJa.md)
-		* [javadoc](https://meww6m.github.io/MinesO/reference/3_dd/javadoc/)
-<!--    * 単体テスト仕様書-->
-<!--    * 結合テスト仕様書-->
-<!--    * システムテスト仕様書-->
+        <!--    * 単体テスト仕様書-->
+        <!--    * 結合テスト仕様書-->
+        <!--    * システムテスト仕様書-->

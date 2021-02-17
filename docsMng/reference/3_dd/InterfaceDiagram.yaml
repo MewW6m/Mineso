@@ -3,37 +3,7 @@ info:
   title: ''
   version: ''
   contact: {}
-  description: |-
-    <details><summary style="font-size:1.75em;">API一覧</summary><div>
-
-
-    | URL                              | メソッド | API名| 説明                                            |
-    | :------------------------------- | :------- | :------- | :----------------------------------------------- |
-    | /api/auth/{socialType}           | POST    | 認証  | ソーシャルログイン                               |
-    | /api/user/@{userid}               | GET    | ユーザー情報取得   | 指定したユーザー情報を返す                       |
-    | /api/user/@{userid}               | PATCH    | ユーザー情報更新  | 指定したユーザー情報を更新する                   |
-    | /api/user/@{userid}               | DELETE  | ユーザー情報削除  | 指定したユーザー情報を削除する                |
-    | /api/user/follow/@{userid}        | GET    | フォロー情報リスト取得 | 指定したユーザーのフォローリストを返す   |
-    | /api/user/follow/@{userid} | POST   | フォロー情報追加  | 指定したユーザーをフォローする                   |
-    | /api/user/follow/@{userid} | DELETE | フォロー情報削除 | 指定したユーザーをフォロー解除する               |
-    | /api/user/follower/@{userid}      | GET    | フォロワー情報リスト取得 | 指定したユーザーのフォロワーリストを返す|
-    | /api/setting/profile       | GET    | プロフィール設定情報取得 | プロフィール設定情報を返す                       |
-    | /api/setting/profile       | PATCH  | プロフィール設定情報更新 | プロフィール設定情報を更新する                   |
-    | /api/setting/account       | GET    | アカウント設定情報取得 | アカウント設定情報を返す                         |
-    | /api/setting/account       | PATCH  | アカウント設定情報更新 | アカウント設定情報を更新する                     |
-    | /api/setting/nortification | GET     | 通知設定情報取得 | 通知設定情報を返す                               |
-    | /api/setting/nortification | PATCH   | 通知設定情報更新 | 通知設定情報を更新する                           |
-    | /api/setting/customize     | GET     | 表示設定情報取得 | 表示設定情報を返す                               |
-    | /api/setting/customize     | PATCH  | 表示設定情報更新 | 表示設定情報を更新する                           |
-    | /api/nortification         | GET    | 通知情報リスト取得 | 通知情報リストを返す                             |
-    | /api/nortification         | PATCH    | 通知情報更新 | 通知を更新する                                   |
-    | /api/app                 | GET    | アプリ情報リスト取得   | アプリリストを取得する                           |
-    | /api/app | PUT   | アプリ情報更新   | アプリを登録する                                 |
-    | /api/app/@{aname}             | GET    | アプリユーザー情報リスト取得 | 指定したアプリの登録ユーザーリストを返す         |
-    | /api/app/@{aname}            | POST   | アプリユーザー情報登録 | ユーザーアプリ関連情報を登録する                 |
-    | /api/app/@{aname}            | DELETE | アプリユーザー情報削除 | ユーザーアプリ関連情報を削除する                 |
-
-    </div></details>
+  description: 
 servers:
   - url: 'http://localhost:8080'
     description: 開発環境
