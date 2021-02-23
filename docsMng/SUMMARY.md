@@ -17,7 +17,7 @@
       + [SC022. ユーザーフォロー](2_bd/2.1.3.ScreenDesign/sc022.md)
       + [SC023. ユーザーフォロワー](2_bd/2.1.3.ScreenDesign/sc023.md)
       + [SC030.アプリ詳細](2_bd/2.1.3.ScreenDesign/sc030.md)
-      + [SC031.アプリフォロワー](2_bd/2.1.3.ScreenDesign/sc032.md)
+      + [SC031.アプリフォロワー](2_bd/2.1.3.ScreenDesign/sc031.md)
       + [SC040. 通知一覧](2_bd/2.1.3.ScreenDesign/sc040.md)
       + [SC041. 通知詳細](2_bd/2.1.3.ScreenDesign/sc041.md)
       + [SC050. 設定一覧](2_bd/2.1.3.ScreenDesign/sc050.md)
