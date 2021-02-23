@@ -1,10 +1,15 @@
-.markdown-section{
-	overflow-x:scroll !important;
+.table-area {
+  overflow-x: auto;
 }
-
-.markdown-section table{
+.table-area table {
+  width: 100% !important; 
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap !important;
+  empty-cells: show;
+}
+/*.markdown-section table{
 	width:max-content; !important;
-}
+}*/
 
 .page-inner {
     max-width: 100vw !important;

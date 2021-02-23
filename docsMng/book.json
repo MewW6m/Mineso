@@ -14,7 +14,8 @@
 		"page-footer",
 		"lightbox",
 		"include-html",
-		"uml@1.0.3"
+		"uml@1.0.3",
+		"custom-js-css"
 	],
 	"dependencies": {
 		 "plantuml-encoder": "1.2.3"
@@ -62,6 +63,14 @@
 				"alwaysShowNavOnTouchDevices" : true,
 				"wrapAround": true
 			}
-		}
+		},
+		"custom-js-css": {
+     	    "js": [
+	          "./assets/main.js"
+	         ],
+	        "css": [
+	          "./styles/website.css"
+	        ]
+		  }
 	}
 }
