@@ -3,27 +3,23 @@ info:
   title: ''
   version: ''
   contact: {}
-  description: 
+  description: _
 servers:
   - url: 'http://localhost:8080'
     description: 開発環境
 paths:
   '/api/auth/{socialtype}':
     post:
-      summary: ソーシャルログイン
+      summary: '認証[未]'
+      description: ソーシャルログイン
       operationId: post-login
+      tags:
+        - 共通
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
-      description: ログインを行う
-      tags:
-        - '/api/auth/{socialType}'
     parameters:
       - schema:
           type: string
@@ -31,514 +27,497 @@ paths:
         in: path
         required: true
         description: SNS種類
-  '/api/user/@{userid} ':
+  /api/user:
     get:
-      summary: ユーザー情報取得
+      summary: ユーザー情報取得機能
+      description: 指定したユーザー情報を返す
+      operationId: get-user
       tags:
-        - '/api/user/@{userid}'
+        - ユーザー情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userInfo'
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/userDetail'
         default:
           $ref: '#/components/responses/commonResponse'
-      operationId: get-login
-      description: ユーザーの詳細の取得
-      parameters: []
-    parameters:
-      - $ref: '#/components/parameters/puserid'
-    patch:
-      summary: ユーザー情報更新
+    post:
+      summary: ユーザー情報更新機能
+      description: 指定したユーザー情報を更新する
+      operationId: post-user
       tags:
-        - '/api/user/@{userid}'
-      operationId: post-api-user-userid
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: ユーザーの更新
+        - ユーザー情報
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InfoUserRequired'
-    delete:
-      summary: ユーザー情報削除
-      tags:
-        - '/api/user/@{userid}'
-      operationId: delete-api-user-@-userid
+              $ref: '#/components/schemas/userInfo'
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
-      description: ユーザー情報を削除する
-  '/api/user/follow/@{userid}':
+      security:
+        - key:
+          - '認証要'
+  /api/user/app:
     get:
-      summary: フォロー一覧取得
+      summary: ユーザーアプリ一覧取得機能
+      description: 指定したユーザーのアプリ情報一覧を取得する
+      operationId: get-user-app
       tags:
-        - '/api/user/follow/@{userid}'
+        - ユーザーのアプリ関連情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
       responses:
         '200':
-          description: OK
           content:
             application/json:
               schema:
                 type: array
-                description: フォローリスト
+                description: アプリ情報リスト
                 items:
-                  $ref: '#/components/schemas/InfoUserRequired'
+                  $ref: '#/components/schemas/appInfo'
+          description: OK
         default:
           $ref: '#/components/responses/commonResponse'
-      operationId: get-@-userid-follow
-      description: そのユーザーのフォロー一覧を取得する
     post:
-      summary: フォロー
+      summary: 'ユーザーアプリ追加機能[未]'
+      description: 指定したユーザーのアプリ情報を追加する
+      operationId: post-user-app
       tags:
-        - '/api/user/follow/@{userid}'
-      operationId: post-api-user-follow-add-followuid
+        - ユーザーのアプリ関連情報
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/appInfo'
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
-      description: 指定したユーザーをフォローする
+      security:
+        - key:
+          - '認証要'
+    patch:
+      summary: 'ユーザーアプリ一覧更新機能[未]'
+      description: 指定したユーザーのアプリ情報一覧を更新する
+      operationId: patch-user-app
+      tags:
+        - ユーザーのアプリ関連情報
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
     delete:
-      summary: フォロー解除
+      summary: 'ユーザーアプリ一覧削除[未]'
+      description: 指定したユーザーのアプリ情報一覧を削除する
+      operationId: delete-user-app
       tags:
-        - '/api/user/follow/@{userid}'
-      operationId: delete-api-user-follow-followuid
+        - ユーザーのアプリ関連情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
-      description: 指定したユーザーをフォロー解除する
-    parameters:
-      - $ref: '#/components/parameters/puserid'
-  '/api/user/follower/@{userid}':
+      security:
+        - key:
+          - '認証要'
+  /api/user/follow:
     get:
-      summary: フォロワー一覧取得
+      summary: フォロー情報一覧取得機能
+      description: 指定したユーザーのフォロー一覧を返す
+      operationId: get-user-follow
       tags:
-        - '/api/user/follower/@{userid}'
+        - ユーザーのユーザー関連情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
       responses:
         '200':
-          description: OK
           content:
             application/json:
               schema:
                 type: array
-                description: フォロワーリスト
                 items:
-                  $ref: '#/components/schemas/InfoUserRequired'
+                  $ref: '#/components/schemas/userInfo'
+          description: OK
         default:
           $ref: '#/components/responses/commonResponse'
-      operationId: get-@-userid-follower
-      description: そのユーザーのフォロワーの一覧を取得する
-    parameters:
-      - $ref: '#/components/parameters/puserid'
+    post:
+      summary: フォロー情報追加機能
+      description: 指定したユーザーをフォローする
+      operationId: post-user-follow
+      tags:
+        - ユーザーのユーザー関連情報
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userId'
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
+    delete:
+      summary: フォロー情報削除機能
+      description: 指定したユーザーをフォロー解除する
+      operationId: delete-user-follow
+      tags:
+        - ユーザーのユーザー関連情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
+  /api/user/follower:
+    get:
+      summary: フォロワー情報一覧取得機能
+      description: 指定したユーザーのフォロワー一覧を返す
+      operationId: get-user-follower
+      tags:
+        - ユーザーのユーザー関連情報
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/userInfo'
+          description: OK
+        default:
+          $ref: '#/components/responses/commonResponse'
+  /api/appList:
+    get:
+      summary: アプリ情報一覧取得機能
+      description: アプリ情報一覧を返す
+      operationId: get-applist
+      tags:
+        - アプリ情報
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                description: アプリ情報リスト
+                items:
+                  $ref: '#/components/schemas/appInfo'
+          description: OK
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
+  /api/app:
+    get:
+      summary: アプリ情報取得機能
+      description: 指定したアプリ情報を返す
+      operationId: get-app
+      tags:
+        - アプリ情報
+      parameters:
+        - $ref: '#/components/parameters/appId'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                description: アプリ情報リスト
+                items:
+                  $ref: '#/components/schemas/appInfo'
+          description: OK
+        default:
+          $ref: '#/components/responses/commonResponse'
+    post:
+      summary: アプリ情報追加機能
+      description: 指定したアプリ情報を追加する
+      operationId: post-app
+      tags:
+        - アプリ情報
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/appInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
+    patch:
+      summary: アプリ情報更新機能
+      description: 指定したアプリ情報を更新する
+      operationId: patch-app
+      tags:
+        - アプリ情報
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/appInfo'
+      security:
+        - key:
+          - '認証要'
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+  /api/app/user:
+    get:
+      summary: アプリユーザー情報一覧取得機能
+      description: 指定したアプリの登録ユーザー一覧を返す
+      operationId: get-app-user
+      tags:
+        - アプリのユーザー関連情報
+      parameters:
+        - $ref: '#/components/parameters/appId'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/userInfo'
+          description: OK
+        default:
+          $ref: '#/components/responses/commonResponse'
+  /api/nortification:
+    get:
+      summary: 通知情報一覧取得機能
+      description: 通知設定情報を返す
+      operationId: get-nortification
+      tags:
+        - 通知情報
+      parameters:
+        - $ref: '#/components/parameters/nortificationId'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/nortificationInfo'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
+    patch:
+      summary: 通知情報更新機能
+      description: 通知設定情報を更新する
+      operationId: patch-nortification
+      tags:
+        - 通知情報
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/nortificationInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/commonResponse'
+        default:
+          $ref: '#/components/responses/commonResponse'
+      security:
+        - key:
+          - '認証要'
   /api/setting/profile:
     get:
       summary: プロフィール設定取得
       tags:
-        - /api/setting/profile
+        - 設定情報
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                description: プロフィール設定
-                properties:
-                  sid:
-                    type: integer
-                    description: 設定ID
+          $ref: '#/components/responses/getSettings'
         default:
           $ref: '#/components/responses/commonResponse'
       operationId: get-setting-profile
       description: プロフィール設定情報を返す
       security:
-        - key: []
+        - key:
+          - '認証要'
     patch:
       summary: プロフィール設定更新
       tags:
-        - /api/setting/profile
+        - 設定情報
       operationId: post-api-setting-profile
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
       description: プロフィール設定を更新する
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              description: プロフィール設定
-              properties:
-                sid:
-                  type: integer
-                  description: 設定ID
+        $ref: '#/components/requestBodies/settings'
+      security:
+        - key:
+          - '認証要'
   /api/setting/account:
     get:
       summary: アカウント設定取得
       tags:
-        - /api/setting/account
+        - 設定情報
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                description: アカウント設定
-                properties:
-                  sid:
-                    type: integer
-                    description: 設定ID
-                  umail:
-                    $ref: '#/components/schemas/umail'
+          $ref: '#/components/responses/getSettings'
         default:
           $ref: '#/components/responses/commonResponse'
       operationId: get-setting-account
       description: アカウント設定情報を返す
       security:
-        - key: []
+        - key:
+          - '認証要'
     patch:
       summary: アカウント設定更新
       tags:
-        - /api/setting/account
+        - 設定情報
       operationId: post-api-setting-account
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
       description: アカウント設定を更新する
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              description: アカウント設定
-              properties:
-                sid:
-                  type: integer
-                  description: 設定ID
-                umail:
-                  $ref: '#/components/schemas/umail'
+        $ref: '#/components/requestBodies/settings'
+      security:
+        - key:
+          - '認証要'
   /api/setting/nortification:
     get:
       summary: 通知設定取得
       tags:
-        - /api/setting/nortification
+        - 設定情報
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                description: 通知設定
-                properties:
-                  sid:
-                    type: integer
-                    description: 設定ID
+          $ref: '#/components/responses/getSettings'
         default:
           $ref: '#/components/responses/commonResponse'
       operationId: get-setting-nortification
       description: 通知設定情報を返す
       security:
-        - key: []
+        - key:
+          - '認証要'
     patch:
       summary: 通知設定更新
       tags:
-        - /api/setting/nortification
+        - 設定情報
       operationId: post-api-setting-nortification
+      requestBody:
+        $ref: '#/components/requestBodies/settings'
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
       description: 通知設定情報を更新する
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              description: 通知設定
-              properties:
-                sid:
-                  type: integer
-                  description: 設定ID
+      security:
+        - key:
+          - '認証要'
   /api/setting/customize:
     get:
       summary: 表示設定取得
       tags:
-        - /api/setting/customize
+        - 設定情報
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                description: 表示設定
-                properties:
-                  sid:
-                    type: integer
-                    description: 設定ID
+          $ref: '#/components/responses/getSettings'
         default:
           $ref: '#/components/responses/commonResponse'
       operationId: get-setting-customize
       description: 表示(デザイン)設定を返す
       security:
-        - key: []
+        - key:
+          - '認証要'
     patch:
       summary: 表示設定更新
       tags:
-        - /api/setting/customize
+        - 設定情報
       operationId: post-api-setting-customize
       responses:
         '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
+          $ref: '#/components/responses/commonResponse'
         default:
           $ref: '#/components/responses/commonResponse'
       description: 表示(デザイン)設定を更新する
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              description: 表示設定
-              properties:
-                sid:
-                  type: integer
-                  description: 設定ID
-  /api/nortification:
-    get:
-      summary: 通知取得
-      tags:
-        - /api/nortification
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                description: 通知リスト
-                items:
-                  type: object
-                  description: 通知
-                  properties:
-                    nid:
-                      type: string
-                      description: 通知ID
-                    ntitle:
-                      type: string
-                      description: タイトル
-                    ndetail:
-                      type: string
-                      description: 詳細
-                    ntype:
-                      type: string
-                      description: カテゴリ
-                    ndate:
-                      type: string
-                      description: 通知日時
-                      format: date-time
-                  required:
-                    - nid
-                    - ntitle
-                    - ndetail
-                    - ntype
-                    - ndate
-        default:
-          $ref: '#/components/responses/commonResponse'
-      operationId: get-nortification
-      description: 通知情報リストを返す
-    patch:
-      summary: 通知フラグ更新
-      tags:
-        - /api/nortification
-      operationId: post-api-nortification
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: 通知を更新する
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              description: 通知IDリスト
-              items:
-                type: integer
-                description: 通知ID
-        description: ''
-  /api/app:
-    get:
-      summary: アプリ一覧取得
-      tags:
-        - /api/app
-      operationId: get-api-app
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InfoAppRequired'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: アプリリストを取得する
-    put:
-      summary: アプリ登録/更新
-      tags:
-        - /api/app
-      operationId: post-api-app-add
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: アプリを登録する
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InfoAppRequired'
-    parameters: []
-  '/api/app/@{aname}':
-    parameters:
-      - schema:
-          type: string
-        name: aname
-        in: path
-        required: true
-        description: アプリ名
-    get:
-      summary: アプリに紐づいたユーザー一覧取得
-      tags:
-        - '/api/app/@{aname}'
-      responses:
-        '200':
-          $ref: '#/components/responses/userList'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      operationId: get-api-app-aname
-      description: アプリを登録しているユーザーの一覧を取得する
-    post:
-      summary: アプリにユーザー紐づけ
-      tags:
-        - '/api/app/@{aname}'
-      operationId: post-api-app-add-aid
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: ユーザーアプリ関連情報を登録する
-    delete:
-      summary: アプリにユーザー紐づけ解除
-      tags:
-        - '/api/app/@{aname}'
-      operationId: delete-api-app-aid
-      responses:
-        '200':
-          description: 共通レスポンス
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfoResponse'
-        default:
-          $ref: '#/components/responses/commonResponse'
-      description: ユーザーアプリ関連情報を削除する
+        $ref: '#/components/requestBodies/settings'
+      security:
+        - key:
+          - '認証要'
 tags:
-  - name: '/api/auth/{socialType}'
-  - name: '/api/user/@{userid}'
-  - name: '/api/user/follow/@{userid}'
-  - name: '/api/user/follower/@{userid}'
-  - name: /api/setting/profile
-  - name: /api/setting/account
-  - name: /api/setting/nortification
-  - name: /api/setting/customize
-  - name: /api/nortification
-  - name: /api/tag
-  - name: '/api/tag/@{tname}'
-  - name: /api/app
-  - name: '/api/app/@{aname}'
+  - name: 共通
+  - name: ユーザー情報
+  - name: ユーザーのアプリ関連情報
+  - name: ユーザーのユーザー関連情報
+  - name: アプリ情報
+  - name: アプリのユーザー関連情報
+  - name: 通知情報
+  - name: 設定情報
 components:
-  parameters:
-    puserid:
-      schema:
-        $ref: '#/components/schemas/userid'
-      name: userid
-      in: path
+  requestBodies:
+    settings:
       required: true
-      description: 取得するユーザーID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/settings'
+  parameters:
+    userId:
+      schema:
+        type: string
+      in: query
+      name: userId
+      description: ユーザーID
+      required: true
+    appId:
+      schema:
+        type: string
+      in: query
+      name: appId
+      description: アプリID
+      required: true
+    nortificationId:
+      schema:
+        type: string
+      in: query
+      name: nortificationId
+      description: 通知ID
+      required: true
   responses:
-    userList:
+    getSettings:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/InfoUserList'
+            $ref: '#/components/schemas/settings'
     commonResponse:
       description: 共通レスポンス
       content:
@@ -560,143 +539,114 @@ components:
           scopes:
             scope_1: description
   schemas:
-    uid:
-      type: integer
-      description: ユーザー固有ID
-    userid:
+    userId:
       type: string
+      maxLength: 20
       description: ユーザーID
-    uname:
+    userName:
       type: string
+      maxLength: 20
       description: ユーザー名
-    umail:
+    userDescription:
       type: string
-      description: メールアドレス
-    udesc:
-      type: string
+      maxLength: 200
       description: ユーザー説明
-    uimgpath:
+    userImg:
       type: string
       description: ユーザー画像パス
-    followcount:
-      type: integer
-      description: フォロー数
-    followercount:
-      type: integer
-      description: フォロワー数
-    tid:
-      type: integer
-      description: タグID
-    tname:
+    appId:
       type: string
-      description: タグ名
-    aid:
-      type: integer
       description: アプリID
-    aname:
+    appName:
       type: string
       description: アプリ名
-    aimgpath:
+    appImg:
       type: string
       description: アプリ画像URL
-    aurl:
+    appUrl:
       type: string
       description: アプリURL
-    userDetail:
+    settings:
       type: object
-      description: ユーザー情報
+      description: 設定情報
       properties:
-        userid:
-          $ref: '#/components/schemas/userid'
-        uname:
-          $ref: '#/components/schemas/uname'
-        udesc:
-          $ref: '#/components/schemas/udesc'
-        uimgpath:
-          $ref: '#/components/schemas/uimgpath'
-        followcount:
-          $ref: '#/components/schemas/followcount'
-        followercount:
-          $ref: '#/components/schemas/followercount'
-        taglist:
-          type: array
-          description: タグリスト
-          items:
-            $ref: '#/components/schemas/InfoTagRequired'
-        applist:
-          type: array
-          description: アプリリスト
-          items:
-            $ref: '#/components/schemas/InfoAppRequired'
-      required:
-        - userid
-        - uname
-        - udesc
-        - uimgpath
-        - followcount
-        - followercount
-        - taglist
-        - applist
-    InfoUserRequired:
-      type: object
-      description: ユーザー情報
-      properties:
-        userid:
-          $ref: '#/components/schemas/userid'
-        uname:
-          $ref: '#/components/schemas/uname'
-        udesc:
-          $ref: '#/components/schemas/udesc'
-        uimgpath:
-          $ref: '#/components/schemas/uimgpath'
-      required:
-        - userid
-        - uname
-        - udesc
-        - uimgpath
-    InfoUserList:
+        setting1:
+          type: string
+          description: 設定値1
+        setting2:
+          type: integer
+          description: 設定値2
+    nortificationId:
+      type: string
+      description: 通知ID
+    nortificationTitle:
+      type: string
+      description: 通知タイトル
+    nortificationDate:
+      type: string
+      description: 通知日時
+    nortificationTag:
       type: array
-      description: ユーザー一覧
+      description: 通知タグ
       items:
-        $ref: '#/components/schemas/InfoUserRequired'
-    InfoAppRequired:
+        type: string
+    nortificationContent:
+      type: string
+      description: 通知内容
+    nortificationFlag:
+      type: boolean
+      description: 通知フラグ
+    appList:
+      description: ユーザー関連アプリ情報1(優先表示)
+      type: array
+      items:
+        type: object
+        properties:
+          appUrl:
+            $ref: '#/components/schemas/appUrl'
+          appImg:
+            $ref: '#/components/schemas/appImg'
+    userInfo:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/userId'
+        userName:
+          $ref: '#/components/schemas/userName'
+        userDescription:
+          $ref: '#/components/schemas/userDescription'
+        userImg:
+          $ref: '#/components/schemas/userImg'
+        appList:
+          $ref: '#/components/schemas/appList'
+    appInfo:
       type: object
       description: アプリ
       properties:
-        aid:
-          $ref: '#/components/schemas/aid'
-        aname:
-          $ref: '#/components/schemas/aname'
-        aimgpath:
-          $ref: '#/components/schemas/aimgpath'
-        aurl:
-          $ref: '#/components/schemas/aurl'
-      required:
-        - aid
-        - aname
-        - aimgpath
-        - aurl
-    InfoTagRequired:
+        appId:
+          $ref: '#/components/schemas/appId'
+        appName:
+          $ref: '#/components/schemas/appName'
+        appImg:
+          $ref: '#/components/schemas/appImg'
+        appUrl:
+          $ref: '#/components/schemas/appUrl'
+    nortificationInfo:
       type: object
-      description: タグ
+      description: 通知
       properties:
-        tid:
-          $ref: '#/components/schemas/tid'
-        tname:
-          $ref: '#/components/schemas/tname'
-      required:
-        - tid
-        - tname
+        nortificationId:
+          $ref: '#/components/schemas/nortificationId'
+        nortificationTitle:
+          $ref: '#/components/schemas/nortificationTitle'
+        nortificationDate:
+          $ref: '#/components/schemas/nortificationDate'
+        nortificationTag:
+          $ref: '#/components/schemas/nortificationTag'
+        nortificationContent:
+          $ref: '#/components/schemas/nortificationContent'
+        nortificationFlag:
+          $ref: '#/components/schemas/nortificationFlag'
     InfoResponse:
-      type: object
-      description: レスポンス内容
-      properties:
-        code:
-          type: integer
-          description: レスポンスコード
-        message:
-          type: string
-          description: レスポンスメッセージ
-      required:
-        - code
-        - message
+      type: string
+      description: レスポンスメッセージ
